@@ -1,0 +1,13 @@
+.thumbnail i {
+    display: block;
+    font-size: 72px;
+    margin-top: 20px;
+    text-align: center;
+}
+.thumbnail .caption {
+    display: block;
+    text-align: center;
+}
+.thumbnail {
+    text-decoration: none !important;
+}
