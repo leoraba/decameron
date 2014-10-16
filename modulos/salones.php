@@ -128,6 +128,7 @@ if(isset($_POST['btnGuardar'])){
                 echo "</td>";
                 echo "</tr>";
             }
+			echo 'hola mundo';
             ?>
         </tbody>
     </table>
@@ -138,4 +139,7 @@ if(isset($_POST['btnGuardar'])){
 $(document).ready(function() {
     $('#table1').dataTable();
 } );
+
+
 </script>
+
