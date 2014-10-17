@@ -21,7 +21,7 @@
 		<a href="?m=salon" class="thumbnail">
 			<i class="fa fa-bank"></i>
 			<div class="caption">
-				<h4>Salones</h4>
+				<h5>Salones</h5>
 			</div>
 		</a>
 	</div>
@@ -29,7 +29,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-taxi"></i>
 			<div class="caption">
-				<h4>Servicios</h4>
+				<h5>Servicios</h5>
 			</div>
 		</a>
 	</div>
@@ -37,7 +37,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-cubes"></i>
 			<div class="caption">
-				<h4>Marcas</h4>
+				<h5>Marcas</h5>
 			</div>
 		</a>
 	</div>
@@ -45,7 +45,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-th-list"></i>
 			<div class="caption">
-				<h4>Tipo producto</h4>
+				<h5>Tipo producto</h5>
 			</div>
 		</a>
 	</div>
@@ -53,7 +53,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-barcode"></i>
 			<div class="caption">
-				<h4>Producto</h4>
+				<h5>Producto</h5>
 			</div>
 		</a>
 	</div>
@@ -61,7 +61,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-flag"></i>
 			<div class="caption">
-				<h4>Pa&iacute;s</h4>
+				<h5>Pa&iacute;s</h5>
 			</div>
 		</a>
 	</div>
@@ -69,7 +69,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-ticket"></i>
 			<div class="caption">
-				<h4>Tipo Cliente</h4>
+				<h5>Tipo Cliente</h5>
 			</div>
 		</a>
 	</div>
@@ -77,7 +77,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-credit-card"></i>
 			<div class="caption">
-				<h4>Documentos</h4>
+				<h5>Documentos</h5>
 			</div>
 		</a>
 	</div>
@@ -85,7 +85,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-money"></i>
 			<div class="caption">
-				<h4>Tarifas</h4>
+				<h5>Tarifas</h5>
 			</div>
 		</a>
 	</div>
@@ -93,7 +93,7 @@
 		<a href="#" class="thumbnail">
 			<i class="fa fa-thumb-tack"></i>
 			<div class="caption">
-				<h4>Subscripcion</h4>
+				<h5>Subscripcion</h5>
 			</div>
 		</a>
 	</div>

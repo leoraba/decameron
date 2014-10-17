@@ -8,12 +8,12 @@
 
 body {
     margin-top: 100px;
-    background-color: #444;
+    background-color: #eee;
 }
 
 @media(min-width:768px) {
     body {
-        margin-top: 50px;
+        margin-top: 91px;
     }
 }
 
@@ -56,7 +56,7 @@ body {
 .top-nav>li>a {
     padding-top: 15px;
     padding-bottom: 15px;
-    line-height: 20px;
+    line-height: 60px;
     color: #999;
 }
 
@@ -115,14 +115,14 @@ ul.alert-dropdown {
 @media(min-width:768px) {
     .side-nav {
         position: fixed;
-        top: 51px;
+        top: 92px;
         left: 225px;
         width: 225px;
         margin-left: -225px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #444;
+        background-color: #eee;
     }
 
     .side-nav>li>a {

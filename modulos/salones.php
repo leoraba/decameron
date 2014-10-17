@@ -33,8 +33,8 @@ if(isset($_POST['btnGuardar'])){
 <!-- contenido -->
 
 <div class="row">
-    <div class="col-lg-4"></div>
-    <div class="col-lg-4">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
             <div class="panel panel-default">
                 <!-- titulo del form -->
@@ -94,8 +94,25 @@ if(isset($_POST['btnGuardar'])){
             </div>
         </form>
     </div>
-    <div class="col-lg-4"></div>
+    <div class="col-lg-3"></div>
 </div>
+
+<!-- Formulario editar -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- dialog body -->
+            <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            Hello world!
+            </div>
+            <!-- dialog buttons -->
+            <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="row">
     <div class="col-lg-2"></div>
@@ -121,14 +138,18 @@ if(isset($_POST['btnGuardar'])){
                 echo "<td>".$row['capacidad']." personas</td>";
                 echo "<td> $".$row['precio_hora_regular']."</td>";
                 echo "<td>";
-                echo "<div class='btn-group'>";
-                echo "<button title='Editar' class='btn btn-default btn-xs' onClick=\"window.location='?m=salon&mod=1&id=".$row['id_salon']."'\"><i class='fa fa-edit'></i></button>";
-                echo "<button title='Borrar' class='btn btn-danger btn-xs' onClick=\"window.location='?m=salon&elim=1&id=".$row['id_salon']."'\"><i class='fa fa-times'></i></button>";
+                echo "<div class='input-group-btn'>";
+                echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
+                echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
+                echo "</button>";
+                echo "<ul class='dropdown-menu pull-right' role='menu'>";
+                echo "<li><a href='#'>Modificar</a></li>";
+                echo "<li><a href='?m=salon&elim=1&id=".$row['id_salon']."'>Eliminar</a></li>";
+                echo "</ul>";
                 echo "</div>";
                 echo "</td>";
                 echo "</tr>";
             }
-			echo 'hola mundo';
             ?>
         </tbody>
     </table>
@@ -140,6 +161,4 @@ $(document).ready(function() {
     $('#table1').dataTable();
 } );
 
-
 </script>
-
