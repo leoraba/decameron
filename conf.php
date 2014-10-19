@@ -20,5 +20,6 @@ $conf['cli'] = array('archivo' => 'clientes.php');
 $conf['login'] = array('archivo' => 'login.php', 'layout' => 'layout_login.php');
 //catalogos
 $conf['salon'] = array('archivo' => 'salones.php');
+$conf['tclient'] = array('archivo' => 'catalogo_tclient.php');
 
 ?>
