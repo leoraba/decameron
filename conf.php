@@ -24,7 +24,9 @@ $conf['salon'] = array('archivo' => 'salones.php');
 $conf['serv'] = array('archivo' => 'catalogo_servicio.php');
 $conf['marca'] = array('archivo' => 'catalogo_marca.php');
 $conf['tproduct'] = array('archivo' => 'catalogo_tproducto.php');
-$conf['cat_prod'] = array('archivo' => 'catalogo_producto.php');
+$conf['cat_prod'] = array('archivo' => 'catalogo_catproducto.php');
+$conf['prod'] = array('archivo' => 'catalogo_producto.php');
+>>>>>>> Se le agrego signo de dolar
 $conf['pais'] = array('archivo' => 'catalogo_pais.php');
 $conf['tclient'] = array('archivo' => 'catalogo_tclient.php');
 $conf['doc'] = array('archivo' => 'catalogo_documento.php');

@@ -55,6 +55,7 @@
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <label class="control-label" >Cuota *</label><br/>
+                            <label class="control-label" >Cuota Mensual *</label><br/>
                             <input class="form-control" placeholder="$" name="txtCuota" id="txtCuota" >
                         </div>
                     </div>
