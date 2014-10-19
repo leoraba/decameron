@@ -22,4 +22,5 @@ $conf['login'] = array('archivo' => 'login.php', 'layout' => 'layout_login.php')
 $conf['salon'] = array('archivo' => 'salones.php');
 $conf['tclient'] = array('archivo' => 'catalogo_tclient.php');
 $conf['pais'] = array('archivo' => 'catalogo_pais.php');
+$conf['subcripcion'] = array('archivo' => 'catalogo_subcripcion.php');
 ?>
