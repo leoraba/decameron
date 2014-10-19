@@ -90,10 +90,10 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=subcripcion" class="thumbnail">
 			<i class="fa fa-thumb-tack"></i>
 			<div class="caption">
-				<h5>Subscripcion</h5>
+				<h5>Subscripci&oacute;n</h5>
 			</div>
 		</a>
 	</div>
