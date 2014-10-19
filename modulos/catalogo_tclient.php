@@ -85,11 +85,8 @@
     <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
-                <th>Nombre salon</th>
-                <th>Estado</th>
-                <th>Capacidad</th>
-                <th>Precio regular</th>
-                <th>&nbsp;</th>
+                <th>Nombre de Tipo Cliente</th>
+               <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
