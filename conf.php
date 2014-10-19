@@ -20,7 +20,13 @@ $conf['cli'] = array('archivo' => 'clientes.php');
 $conf['login'] = array('archivo' => 'login.php', 'layout' => 'layout_login.php');
 //catalogos
 $conf['salon'] = array('archivo' => 'salones.php');
-$conf['tclient'] = array('archivo' => 'catalogo_tclient.php');
+$conf['serv'] = array('archivo' => 'catalogo_servicio.php');
+$conf['marca'] = array('archivo' => 'catalogo_marca.php');
+$conf['tproduct'] = array('archivo' => 'catalogo_tproducto.php');
+$conf['prod'] = array('archivo' => 'catalogo_producto.php');
 $conf['pais'] = array('archivo' => 'catalogo_pais.php');
+$conf['tclient'] = array('archivo' => 'catalogo_tclient.php');
+$conf['doc'] = array('archivo' => 'catalogo_documento.php');
+$conf['tar'] = array('archivo' => 'catalogo_tarifa.php');
 $conf['subcripcion'] = array('archivo' => 'catalogo_subcripcion.php');
 ?>
