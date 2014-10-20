@@ -36,6 +36,7 @@
     <![endif]-->
     <!-- jQuery Version 1.11.0 -->
     <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/jquery-ui.js"></script>
 
     <!-- dataTables -->
     <script src="js/jquery.dataTables.js"></script>
