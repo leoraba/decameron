@@ -1,3 +1,15 @@
+<?php
+    if(isset($_POST['btnGuardar'])){
+        $nombre = $_POST['txtNombre'];
+        $cuota = $_POST['txtCuota'];
+        $descripcion = $_POST['txtDescripcion'];
+        mysql_query("INSERT INTO CUOTA_SUBSCRIPCION(nombre_cuota, valor_cuota, descripcion_cuota) VALUES('$nombre','$cuota','$descripcion')",$ln);
+    }else if(isset($_GET['elim'])){
+        $id = $_GET['id'];
+        mysql_query("DELETE FROM CUOTA_SUBSCRIPCION WHERE id_cuota_subscripcion = '$id'",$ln);
+    }
+?>
+
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -24,7 +36,7 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
                     <i class="fa fa-plus"></i>
@@ -42,16 +54,15 @@
 
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <label class="control-label" >Cuota Mensual *</label><br/>
-                            <input class="form-control" placeholder="" name="txtCuota" id="txtCuota" >
+                            <label class="control-label" >Cuota *</label><br/>
+                            <input class="form-control" placeholder="$" name="txtCuota" id="txtCuota" >
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <label class="control-label" >Descripci&oacute;n</label><br/>
-                            <textarea class="form-control" placeholder="" name="txtDescripcion" id="txtDescripcion" >
-                            </textarea>
+                            <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" rows="3" ></textarea>
                         </div>
                     </div>
                 </div>
@@ -108,15 +119,13 @@
         </thead>
         <tbody>
             <?php
-            /*
-            $qr = mysql_query("SELECT id_salon, nombre_salon, estado, capacidad, precio_hora_regular FROM SALON ORDER BY nombre_salon ASC", $ln);
+            $qr = mysql_query("SELECT id_cuota_subscripcion, nombre_cuota, valor_cuota, descripcion_cuota FROM CUOTA_SUBSCRIPCION ORDER BY nombre_cuota ASC", $ln);
             while($row=mysql_fetch_array($qr)){
                 $estado=($row['estado']=="A")?"Activo":"Desactivado";
                 echo "<tr>";
-                echo "<td>".$row['nombre_salon']."</td>";
-                echo "<td>".$estado."</td>";
-                echo "<td>".$row['capacidad']." personas</td>";
-                echo "<td> $".$row['precio_hora_regular']."</td>";
+                echo "<td>".$row['nombre_cuota']."</td>";
+                echo "<td> $".$row['valor_cuota']."</td>";
+                echo "<td>".$row['descripcion_cuota']."</td>";
                 echo "<td>";
                 echo "<div class='input-group-btn'>";
                 echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
@@ -124,16 +133,19 @@
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
                 echo "<li><a href='#'>Modificar</a></li>";
-                echo "<li><a href='?m=salon&elim=1&id=".$row['id_salon']."'>Eliminar</a></li>";
+                echo "<li><a href='?m=subcripcion&elim=1&id=".$row['id_cuota_subscripcion']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
                 echo "</td>";
                 echo "</tr>";
             }
-            */
             ?>
         </tbody>
     </table>
     <div class="col-lg-2"></div>
 </div>
-
+<script language="JavaScript" type="text/javascript">
+$(document).ready(function() {
+    $('#table1').dataTable();
+} );
+</script>
