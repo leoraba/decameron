@@ -1,3 +1,13 @@
+<?php
+    if(isset($_POST['btnGuardar'])){
+        $nombre = $_POST['txtNombre'];
+        mysql_query("INSERT INTO TIPO_CLIENTE(nombre_tipo_cliente) VALUES('$nombre')",$ln);
+    }else if(isset($_GET['elim'])){
+        $id = $_GET['id'];
+        mysql_query("DELETE FROM TIPO_CLIENTE WHERE id_tipo_cliente = '$id'",$ln);
+    }
+?>
+
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -24,7 +34,7 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
                     <i class="fa fa-plus"></i>
@@ -80,8 +90,8 @@
 
 
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
     <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
@@ -91,15 +101,10 @@
         </thead>
         <tbody>
             <?php
-            /* 
-            $qr = mysql_query("SELECT id_salon, nombre_salon, estado, capacidad, precio_hora_regular FROM SALON ORDER BY nombre_salon ASC", $ln);
+            $qr = mysql_query("SELECT id_tipo_cliente, nombre_tipo_cliente FROM TIPO_CLIENTE ORDER BY nombre_tipo_cliente ASC", $ln);
             while($row=mysql_fetch_array($qr)){
-                $estado=($row['estado']=="A")?"Activo":"Desactivado";
                 echo "<tr>";
-                echo "<td>".$row['nombre_salon']."</td>";
-                echo "<td>".$estado."</td>";
-                echo "<td>".$row['capacidad']." personas</td>";
-                echo "<td> $".$row['precio_hora_regular']."</td>";
+                echo "<td>".$row['nombre_tipo_cliente']."</td>";
                 echo "<td>";
                 echo "<div class='input-group-btn'>";
                 echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
@@ -107,15 +112,19 @@
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
                 echo "<li><a href='#'>Modificar</a></li>";
-                echo "<li><a href='?m=salon&elim=1&id=".$row['id_salon']."'>Eliminar</a></li>";
+                echo "<li><a href='?m=tclient&elim=1&id=".$row['id_tipo_cliente']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
                 echo "</td>";
                 echo "</tr>";
             }
-            */
             ?>
         </tbody>
     </table>
-    <div class="col-lg-2"></div>
+    <div class="col-lg-3"></div>
 </div>
+<script language="JavaScript" type="text/javascript">
+$(document).ready(function() {
+    $('#table1').dataTable();
+} );
+</script>
