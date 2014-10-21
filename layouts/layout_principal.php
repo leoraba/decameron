@@ -187,6 +187,9 @@
                             </li>
                         </ul>
                     </li>
+                    <li <?=($modulo=="esthab")?"class='active'":""?>>
+                        <a href="?m=esthab"><i class="fa fa-fw fa-building-o"></i> Estado Habitaci&oacute;n</a>
+                    </li>
                     <li <?=($modulo=="emp" || $modulo=="cli")?"class='active'":""?>>
                         <a href="javascript:;" data-toggle="collapse" data-target="#usuarios"><i class="fa fa-fw fa-user"></i> Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="usuarios" class="collapse">

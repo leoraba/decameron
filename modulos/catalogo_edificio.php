@@ -1,8 +1,18 @@
+<?php
+    if(isset($_POST['btnGuardar'])){
+        $nombreEdificio = $_POST['txtNombreEdificio'];
+        mysql_query("INSERT INTO EDIFICIO(nombre_edificio) VALUES('$nombreEdificio')",$ln);
+    }else if(isset($_GET['elim'])){
+        $id=$_GET['id'];
+        mysql_query("DELETE FROM EDIFICIO WHERE id_edificio='$id'",$ln);
+    }
+?>
+
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
         <h1>
-            Tipo de Subcripci&oacute;n
+            Edificio
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -11,47 +21,30 @@
             <li>
                 <i class="fa fa-wrench"></i> <a href='?m=cat'> Catalogos</a>
             </li>
-            <li class="active"> 
-                <i class="fa fa-building"></i> Tipo de Subcripci&oacute;n
+            <li class="active">
+                <i class="fa fa-building"></i> Edificio
             </li>
         </ol>
     </div>
 </div>
 
 <!-- contenido -->
-
 <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <div class="col-lg-9">
         <form role="form" id="manto_form" action="" method="POST">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
                     <i class="fa fa-plus"></i>
-                    Nuevo
+                    Nuevo Edificio
                 </div>
                 
                 <!-- Body del form -->
                 <div class="panel-body">
                     <div class="row">
-                        <div class="form-group col-lg-12">
-                            <label class="control-label" >Nombre *</label><br/>
-                            <input class="form-control" placeholder="" name="txtNombre" id="txtNombre" >
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-lg-12">
-                            <label class="control-label" >Cuota Mensual *</label><br/>
-                            <input class="form-control" placeholder="" name="txtCuota" id="txtCuota" >
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-lg-12">
-                            <label class="control-label" >Descripci&oacute;n</label><br/>
-                            <textarea class="form-control" placeholder="" name="txtDescripcion" id="txtDescripcion" >
-                            </textarea>
+                        <div class="form-group col-lg-8">
+                            <label class="control-label" > Nombre Edificio *</label><br/>
+                            <input class="form-control" placeholder="" name="txtNombreEdificio" id="txtNombreEdificio" >
                         </div>
                     </div>
                 </div>
@@ -74,66 +67,53 @@
             </div>
         </form>
     </div>
-    <div class="col-lg-3"></div>
-</div>
-
-<!-- Formulario editar -->
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- dialog body -->
-            <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            Hello world!
-            </div>
-            <!-- dialog buttons -->
-            <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
-        </div>
+    <div class="col-lg-3">
+        <ul class="list-group">
+            <li class="list-group-item"><b>Opciones</b></li>
+            <li class="list-group-item"><a href="?m=cathab"><i class="fa fa-hospital-o"></i> Habitaciones</a></li>
+            <li class="list-group-item"><a href="?m=thab"><i class="fa fa-hospital-o"></i> Tipo de habitaci&oacute;n</a></li>
+            <li class="list-group-item"><a href="?m=edi"><i class="fa fa-hospital-o"></i> Edificio</a></li>
+        </ul>
     </div>
 </div>
-
-
-
 <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
     <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
-                <th>Nombre Subcripci&oacute;n</th>
-                <th>Cuota Mensual</th>
-                <th>Descripci&oacute;n</th>
+                <th>Nombre Edificio</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            /*
-            $qr = mysql_query("SELECT id_salon, nombre_salon, estado, capacidad, precio_hora_regular FROM SALON ORDER BY nombre_salon ASC", $ln);
+            $qr = mysql_query("SELECT id_edificio, nombre_edificio FROM EDIFICIO ORDER BY nombre_edificio ASC", $ln);
             while($row=mysql_fetch_array($qr)){
-                $estado=($row['estado']=="A")?"Activo":"Desactivado";
                 echo "<tr>";
-                echo "<td>".$row['nombre_salon']."</td>";
-                echo "<td>".$estado."</td>";
-                echo "<td>".$row['capacidad']." personas</td>";
-                echo "<td> $".$row['precio_hora_regular']."</td>";
-                echo "<td>";
+                echo "<td>".$row['nombre_edificio']."</td>";
+                echo "<td style='width:50px'>";
                 echo "<div class='input-group-btn'>";
                 echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
                 echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
                 echo "<li><a href='#'>Modificar</a></li>";
-                echo "<li><a href='?m=salon&elim=1&id=".$row['id_salon']."'>Eliminar</a></li>";
+                echo "<li><a href='?m=edi&elim=1&id=".$row['id_edificio']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
                 echo "</td>";
                 echo "</tr>";
             }
-            */
             ?>
         </tbody>
     </table>
     <div class="col-lg-2"></div>
 </div>
 
+<script language="JavaScript" type="text/javascript">
+$(document).ready(function() {
+    $('#table1').dataTable();
+} );
+
+</script>

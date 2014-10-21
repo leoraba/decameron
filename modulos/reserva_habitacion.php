@@ -67,6 +67,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Adulto</label><br/>
                                 <select class="form-control" name="cmbHabitacion1Adulto" id="cmbHabitacion1Adulto">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -76,6 +77,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Niño</label><br/>
                                 <select class="form-control" name="cmbHabitacion1Nino" name="cmbHabitacion1Nino">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -90,6 +92,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Adulto</label><br/>
                                 <select class="form-control" name="cmbHabitacion2Adulto" id="cmbHabitacion2Adulto">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -99,6 +102,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Niño</label><br/>
                                 <select class="form-control" name="cmbHabitacion2Nino" id="cmbHabitacion2Nino">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -113,6 +117,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Adulto</label><br/>
                                 <select class="form-control" name="cmbHabitacion3Adulto" id="cmbHabitacion3Adulto">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -122,6 +127,7 @@
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Niño</label><br/>
                                 <select class="form-control" name="cmbHabitacion3Nino" id="cmbHabitacion3Nino">
+                                    <option> - </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -136,7 +142,7 @@
                         <i class="fa fa-save"></i>
                         Guardar
                     </button>
-                    <a class="btn btn-default" href="?m=cat">
+                    <a class="btn btn-default" href="?m=home">
                         <i class="fa fa-reply"></i>
                         Cancelar
                     </a>
