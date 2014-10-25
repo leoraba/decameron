@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['btnGuardar'])){
+
+    }
+?>
+
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -20,11 +26,11 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
-            <div class="panel panel-primary">
+            <div class="panel panel-primary" id="divDate">
                 <!-- titulo del form -->
                 <div class="panel-heading">
-                    <i class="fa fa-plus"></i>
-                    Nueva reserva
+                    <strong> 1. </strong>
+                    Seleccione una fecha
                 </div>
 
 
@@ -63,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <label class="control-label" >Habitacion 1</label><br/>
+                            <label class="control-label" >Habitacion 1 *</label><br/>
                             <div class="form-group col-lg-6">
                                 <label class="control-label" >Adulto</label><br/>
                                 <select class="form-control" name="cmbHabitacion1Adulto" id="cmbHabitacion1Adulto">
@@ -138,7 +144,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" type="submit" id="btnGuardar" name="btnGuardar">
+                    <button class="btn btn-primary" type="button" id="btnGuardarDate" name="btnGuardarDate">
                         <i class="fa fa-save"></i>
                         Guardar
                     </button>
@@ -149,6 +155,33 @@
                     <button name="btnLimpiar" class="btn btn-default" type="reset">
                         <i class="fa fa-eraser"></i>
                         Limpiar
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" id="divGuest" style="display: none">
+                <!-- titulo del form -->
+                <div class="panel-heading">
+                    <strong> 2. </strong> Datos del huesped
+                </div>
+
+
+                
+                <!-- Body del form -->
+                <div class="panel-body">
+                    <div class="form-group col-lg-8">
+                        <label class="control-label" > Huesped Titular*</label><br/>
+                        <input type='text' class="form-control" name="txtHuesped" />
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" type="button" id="btnGuardarHuesped" name="btnGuardarHuesped">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                    <button class="btn btn-default" type="button" id="btnRegresarDate" name="btnRegresarDate">
+                        <i class="fa fa-reply"></i>
+                        Regresar
                     </button>
                 </div>
             </div>
@@ -180,15 +213,24 @@
         $( "#cmbHabitacion" ).change(function() {
             var option = $(this).find('option:selected').val();
             if(option == "1"){
-                $( "#divHabitacion2" ).hide("scale", 500);
-                $( "#divHabitacion3" ).hide("scale", 500);
+                $( "#divHabitacion2" ).hide("blind", 500);
+                $( "#divHabitacion3" ).hide("blind", 500);
             }else if(option == "2"){
-                $( "#divHabitacion2" ).show("scale", 500);
-                $( "#divHabitacion3" ).hide("scale", 500);
+                $( "#divHabitacion2" ).show("blind", 500);
+                $( "#divHabitacion3" ).hide("blind", 500);
             }else if(option == "3"){
-                $( "#divHabitacion2" ).show("scale", 500);
-                $( "#divHabitacion3" ).show("scale", 500);
+                $( "#divHabitacion2" ).show("blind", 500);
+                $( "#divHabitacion3" ).show("blind", 500);
             }
+        });
+        
+        $("#btnGuardarDate").click(function(){
+            $( "#divDate" ).hide();
+            $( "#divGuest" ).show("slide", { direction: "right"}, 1000);
+        });
+        $("#btnRegresarDate").click(function(){
+            $( "#divGuest" ).hide();
+            $( "#divDate" ).show("slide", { direction: "left"}, 1500);
         });
     });
 </script>
