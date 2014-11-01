@@ -87,7 +87,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
    <!---- Logo decameron---->
 <div class="row">
    <div class="col-lg-6">
-    <img src="img/logo.png" width="250" height="100"/>
+    <img src="img/logo.png" width="200" height="50"/>
 </div>
 <!---- Fin Logo Decameron---->
 
@@ -96,10 +96,10 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <div class="col-lg-6">
   <div class="text-right">
     <div class="btn-group btn-group-lg">
-     <button type="button" class="btn btn-primary"><a href="login.html" style="color: #FFF">Inicia sesion</a></button>
+     <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>
       </div>
        <div class="btn-group btn-group-lg">
-   <button type="button" class="btn btn-default"><a href="registro.html" style="color: #000000">Registrate</a></button>
+   <button type="button" class="btn btn-default"><a href="registro.php" style="color: #000000">Registrate</a></button>
        </div>
      </div>
 </div>    
@@ -111,11 +111,11 @@ $("#from").datepicker("option", "maxDate", selectedDate);
     <div class="text-center">
       <div class="btn-group" style="margin: 9px 0;">
       <button type="button" class="btn btn-default"><a href="#">INICIO</a> </button>
-      <button type="button" class="btn btn-default"><a href="#">CONVENCIONES</a> </button>
-      <button type="button" class="btn btn-default"><a href="#">VACACIONES TODO INCLUIDO</a></button> 
-      <button type="button" class="btn btn-default"><a href="#">EXPLORER</a></button> 
-      <button type="button" class="btn btn-default"><a href="#">INFORMACION</a></button> 
-      <button type="button" class="btn btn-default"><a href="#">COMO LLEGAR</a></button>           
+      <button type="button" class="btn btn-default"><a href="convenciones.php">CONVENCIONES</a> </button>
+      <button type="button" class="btn btn-default"><a href="todoincluido.php">VACACIONES TODO INCLUIDO</a></button> 
+      <button type="button" class="btn btn-default"><a href="condiciones.php">CONDICIONES</a></button> 
+      <button type="button" class="btn btn-default"><a href="preguntasfrecuentes.php">PREGUNTAS FRECUENTES</a></button> 
+      <button type="button" class="btn btn-default"><a href="servicios.php">SERVICIOS</a></button>           
       <button type="button" class="btn btn-default"><a href="#">CONTACTENOS</a></button>
     </div>
     </div>
@@ -210,8 +210,17 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 </div>
  
     <!---- Informacion ---->
-   <div class="col-lg-10">
+   <div class="span12">
     <h3>Informacion del hotel</h3>
+    <p>
+      El Royal Decameron Salinitas es un establecimiento de temática maya situado en Los Cobanos, entre espectaculares jardines tropicales. El hotel ofrece acceso directo a la playa y alberga 5 piscinas, entre las que destaca una piscina de agua marina.
+
+Todas las habitaciones presentan una decoración elegante e incluyen aire acondicionado, TV de pantalla plana vía satélite, teléfono, cafetera y caja fuerte. También disponen de un balcón con vistas a los jardines o a la piscina.
+
+El hotel ofrece una amplia variedad de actividades, como salidas en kayak y botes de remo, además de clases de introducción al buceo. También alberga 2 pistas de tenis, una pista de voleibol y una discoteca. Por la noche, se organizan espectáculos de animación para niños y adultos.
+
+El complejo cuenta con diversos restaurantes que ofrecen servicios de desayuno, almuerzo y cena. También hay 4 bares, donde podrá disfrutar de bebidas internacionales con y sin alcohol de forma ilimitada.
+    </p>
    </div>
      <!---- Informacion ---->
 

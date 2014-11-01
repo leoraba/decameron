@@ -54,7 +54,7 @@
  <div class="container">
  	 <div class="row">
             <div class="col-lg-12">
-<a title="Inicio" href="index.html"><img src="img/logo.png" width="200" height="100" href:"index.html"/></a>
+<a title="Inicio" href="index.php"><img src="img/logo.png" width="200" height="100" href:"index.php"/></a>
         </div>
         </div>
   <div class="col-md-12">
@@ -79,7 +79,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <a href="javascript:;" class="btn btn-sm btn-success">Login</a><br /><br />
-                                <a href="registro.html">No tienes una cuenta? Registrate</a>
+                                <a href="registro.php">No tienes una cuenta? Registrate</a>
                             </fieldset>
                         </form>
                     </div>

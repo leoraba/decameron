@@ -82,7 +82,7 @@
       
 
         <div class="container">  
-<a title="Inicio" href="index.html"><img src="img/logo.png" width="200" height="100" href:"index.html"/></a><br/>            
+<a title="Inicio" href="index.php"><img src="img/logo.png" width="200" height="100" href:"index.php"/></a><br/>            
   <h4>Crear tu cuenta</h4>
                 
 <form action="insert_registro.php" method="post">
@@ -113,7 +113,7 @@
 
   <!---- Email---->
 <h6>Fecha de nacimiento</h6>
-<input type="date" name="fec_nacimiento"><br/>
+<input type="date" name="fecha_nacimiento"><br/>
   <!---- genero---->
 
   <h6>Usuario</h6>
