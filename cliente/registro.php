@@ -82,48 +82,48 @@
       
 
         <div class="container">  
-<a title="Inicio" href="index.php"><img src="img/logo.png" width="200" height="100" href:"index.php"/></a><br/>            
-  <h4>Crear tu cuenta</h4>
+<a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
+  <h3>Crear tu cuenta</h3>
                 
 <form action="insert_registro.php" method="post">
-  <h6>Nombres</h6>
+  <header>Nombres:</header>
   <input type="text" name="nombres" maxlength="30" placeholder="Tus nombres">
    <!---- Nombre---->
 
    <!---- Apellido---->
-<h6>Apellido</h6>
+<header>Apellidos:</header>
     <input type="text" name="apellidos" maxlength="30" placeholder="Tus apellidos">
    <!---- Apellido---->
 
 
    <!---- Email---->
-<h6>Email</h6>
+<header>Email:</header>
     <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico">
   <!---- genero---->
 
-<h6>Genero</h6>
+<header>Genero:</header>
 <input type="radio" name="genero" value="Hombre">Hombre<br>
-<input type="radio" name="genero" value="Mujer">Mujer<br>
+<input type="radio" name="genero" value="Mujer">Mujer<br><br/>
   <!---- genero---->
 
 <!---- Email---->
-<h6># de documento</h6>
+<header># de documento:</header>
     <input type="text" name="num_documento" maxlength="30" placeholder="# de documento">
   <!---- genero---->
 
   <!---- Email---->
-<h6>Fecha de nacimiento</h6>
+<header>Fecha de nacimiento:</header>
 <input type="date" name="fecha_nacimiento"><br/>
   <!---- genero---->
 
-  <h6>Usuario</h6>
+  <header>Usuario:</header>
     <input type="text" name="usuario" maxlength="30" placeholder="Usuario">
    <!---- Apellido---->
 
-<h6>Contrasena</h6>
+<header>Contrasena:</header>
   <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
             
-<h6>Repetir contrasena</h6>
+<header>Repetir contrasena:</header>
 <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
  
  <script>

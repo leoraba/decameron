@@ -86,14 +86,14 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 
    <!---- Logo decameron---->
 <div class="row">
-   <div class="col-lg-6">
-    <img src="img/logo.png" width="200" height="50"/>
+   <div class="span6">
+    <img src="img/logo.png" width="150" height="50"/>
 </div>
 <!---- Fin Logo Decameron---->
 
 
 <!---- Login ---->
-<div class="col-lg-6">
+<div class="span6">
   <div class="text-right">
     <div class="btn-group btn-group-lg">
      <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>
@@ -107,7 +107,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 
    <!---- Menu principal ---->
 <div class="row">
-  <div class="col-lg-12">
+  <div class="span12">
     <div class="text-center">
       <div class="btn-group" style="margin: 9px 0;">
       <button type="button" class="btn btn-default"><a href="#">INICIO</a> </button>
@@ -116,7 +116,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
       <button type="button" class="btn btn-default"><a href="condiciones.php">CONDICIONES</a></button> 
       <button type="button" class="btn btn-default"><a href="preguntasfrecuentes.php">PREGUNTAS FRECUENTES</a></button> 
       <button type="button" class="btn btn-default"><a href="servicios.php">SERVICIOS</a></button>           
-      <button type="button" class="btn btn-default"><a href="#">CONTACTENOS</a></button>
+      <button type="button" class="btn btn-default"><a href="#">CONTACTO</a></button>
     </div>
     </div>
   </div>
@@ -124,7 +124,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 
   <!---- Slide de fotografias ---->
   <div class="row">
-       <div class="col-lg-10">
+       <div class="span12">
 
      <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
 	<div id="wowslider-container1">
@@ -159,25 +159,27 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <br/>
 
       <!---- Modulo de reserva ---->
-<div class="row">
-   <div class="col-lg-2">
+    <div class="container">
+    <div class="row">
+   <div class="span4">
    <form class="form-horizontal">
 
 <fieldset>
 
 <!-- Form Name -->
 <div class="container">
-<h4>CONSULTAR</h4>
+<form action="reserva_habitacion.php" method="post">
+<h5>CONSULTAR</h5>
 <!-- Prepended checkbox -->
-<h6>Fecha de entrada&nbsp;</h6>
+<header>Fecha de entrada&nbsp;</header>
 <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required="" /></br>
    
 <!-- Prepended checkbox -->
-<h6>Fecha de salida&nbsp;</h6>
+<header>Fecha de salida&nbsp;</header>
 <input id="to" name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
     
 <!-- Select Basic -->
-<h6># de habitaciones&nbsp;</h6>
+<header># de habitaciones&nbsp;</header>
     <select id="n_habitaciones" name="n_habitaciones" class="form-control">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -185,9 +187,8 @@ $("#from").datepicker("option", "maxDate", selectedDate);
       <option value="4">4</option>
     </select><br/>
  
-
 <!-- Select Basic -->
-<h6># de Adultos&nbsp;</h6>
+<header># de Adultos&nbsp;</header>
     <select id="n_adultos" name="n_adultos" class="form-control">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -196,7 +197,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
     </select></br>
 
 <!-- Select Basic -->
-<h6># de Ninos&nbsp;</h6>
+<header># de Ninos&nbsp;</header>
     <select id="n_ninos" name="n_ninos" class="form-control">
       <option value="1">0</option>
       <option value="1">1</option>
@@ -207,18 +208,24 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <!-- Button -->
 <input type="submit" value="consultar">
 </form>
+</div></div>
+<div class="span8">
+  <img src="img/logo.png" width="150" height="50"/>
+<p>
+ Somos una cadena hotelera con presencia internacional que se ha dedicado a divertir, entretener, desestresar y alegrar la vida de cada persona que se acerca a tomar nuestros servicios.
+<br/>Nos apasiona la calidad, el buen servicio y entendemos la importancia de prestar atención a cada detalle, por eso dedicamos todo nuestro esfuerzo para ofrecerte la mejor alternativa hotelera y turística del mercado, diseñando la experiencia “Todo Incluido” que te llevará a disfrutar sin preocupaciones y dedicado exclusivamente al descanso, la relajación y el entretenimiento, emocionando tu corazón y dejando en tu mente los mejores recuerdos de tu vida.
+<br/>Hacemos parte del portafolio de Terranum Hotels, unidad de negocio del Grupo Terranum que desarrolla, adquiere y opera hoteles en mercados estratégicos de América Latina. El Grupo Terranum es la primera plataforma integral de inversión, desarrollo y servicios inmobiliarios corporativos e institucionales en Colombia
+</p>
+      </div>
+   </div>
 </div>
- 
     <!---- Informacion ---->
    <div class="span12">
     <h3>Informacion del hotel</h3>
     <p>
       El Royal Decameron Salinitas es un establecimiento de temática maya situado en Los Cobanos, entre espectaculares jardines tropicales. El hotel ofrece acceso directo a la playa y alberga 5 piscinas, entre las que destaca una piscina de agua marina.
-
 Todas las habitaciones presentan una decoración elegante e incluyen aire acondicionado, TV de pantalla plana vía satélite, teléfono, cafetera y caja fuerte. También disponen de un balcón con vistas a los jardines o a la piscina.
-
 El hotel ofrece una amplia variedad de actividades, como salidas en kayak y botes de remo, además de clases de introducción al buceo. También alberga 2 pistas de tenis, una pista de voleibol y una discoteca. Por la noche, se organizan espectáculos de animación para niños y adultos.
-
 El complejo cuenta con diversos restaurantes que ofrecen servicios de desayuno, almuerzo y cena. También hay 4 bares, donde podrá disfrutar de bebidas internacionales con y sin alcohol de forma ilimitada.
     </p>
    </div>

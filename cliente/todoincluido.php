@@ -8,31 +8,59 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 </head>
-<body>
-	<div class="container"> 
-     <div class="span12"> 
-     	<a title="Inicio" href="index.php"><img src="img/logo.png" width="200" height="100" href:"index.php"/></a><br/><br/>
+<body><br/>
+  <div class="container">
+    <div class="row">
+      <div class="span6">
+        <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50"/>
+</div>
+
+<div class="span6">
+  <div class="text-right">
+    <div class="btn-group btn-group-lg">
+     <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>
+      </div>
+       <div class="btn-group btn-group-lg">
+   <button type="button" class="btn btn-default"><a href="registro.php" style="color: #000000">Registrate</a></button>
+       </div>
+     </div>
+</div>    
+
+<div class="row">
+  <div class="span12">
+    <div class="text-center">
+      <div class="btn-group" style="margin: 9px 0;">
+      <button type="button" class="btn btn-default"><a href="index.php">INICIO</a> </button>
+      <button type="button" class="btn btn-default"><a href="convenciones.php">CONVENCIONES</a> </button>
+      <button type="button" class="btn btn-default"><a href="todoincluido.php">VACACIONES TODO INCLUIDO</a></button> 
+      <button type="button" class="btn btn-default"><a href="condiciones.php">CONDICIONES</a></button> 
+      <button type="button" class="btn btn-default"><a href="preguntasfrecuentes.php">PREGUNTAS FRECUENTES</a></button> 
+      <button type="button" class="btn btn-default"><a href="servicios.php">SERVICIOS</a></button>           
+      <button type="button" class="btn btn-default"><a href="#">CONTACTO</a></button>
+    </div>
+    </div>
+  </div>
+</div>
 <p>
 VIVE CON DECAMERON TUS VACACIONES CON PLAN TODO INCLUIDO
 
 Ven y descubre la magia del Todo Incluido Decameron, un concepto para pasar las mejores vacaciones. Disfruta de tu tiempo de descanso en el hotel y el destino que más te guste, nosotros haremos de tu estadia una experiencia memorable brindandote, servicio, entretenimiento y diversión las 24 horas del día.
 
-Nuestros planes todo incluido te ofrecen:
+Nuestros planes todo incluido te ofrecen:<br/><br/>
 
-    Tiquetes Aéreos
-    Traslados
-    Alojamiento
-    Alimentación ilimitada
-    Buffet y snacks
-    Restaurantes especializados
-    Bebidas y licores ilimitados
-    Shows todos los días
-    Las más hermosas playas
-    Bar abierto
-    Recreación
-    Deportes acuáticos no motorizados
+    Tiquetes Aéreos<br/>
+    Traslados<br/>
+    Alojamiento<br/>
+    Alimentación ilimitada<br/>
+    Buffet y snacks<br/>
+    Restaurantes especializados<br/>
+    Bebidas y licores ilimitados<br/>
+    Shows todos los días<br/>
+    Las más hermosas playas<br/>
+    Bar abierto<br/>
+    Recreación<br/>
+    Deportes acuáticos no motorizados<br/>
 </p>
-	</div>
 
 	<div class="span12">
 		<p>
@@ -89,6 +117,6 @@ Cada una de nuestras habitaciones está equipada con todas las comodidades neces
 </div>
 
 
-   </div>
+</div>
 </body>
 </html>
