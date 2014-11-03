@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, ininitial-scale=1.0">
 
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
-  <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-  <script type="text/javascript" src="engine1/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
   <!-- End WOWSlider.com HEAD section -->
 
 <!---- Bootstrap---->
@@ -16,12 +16,10 @@
 <link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/validaciones.js"></script>
-<script src="css/bootstrap.min.js"></script>
 
-<style type="text/css">
-    <script>
+  <script type="text/javascript" language="JavaScript">
     var password1 = document.getElementById('password1');
     var password2 = document.getElementById('password2');
 
@@ -46,6 +44,7 @@
         }
     }, false);
 </script>
+<style>
 #wrapper {
 	width: 980px;
 	text-align: left;
@@ -124,33 +123,7 @@
   <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
             
 <header>Repetir contrasena:</header>
-<input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
- 
- <script>
-    var password1 = document.getElementById('password1');
-    var password2 = document.getElementById('password2');
-
-    var checkPasswordValidity = function() {
-        if (password1.value != password2.value) {
-            password1.setCustomValidity('Las contrasenas no coinciden.');
-        } else {
-            password1.setCustomValidity('');
-        }        
-    };
-
-    password1.addEventListener('change', checkPasswordValidity, false);
-    password2.addEventListener('change', checkPasswordValidity, false);
-
-    var form = document.getElementById('passwordForm');
-    form.addEventListener('submit', function() {
-        checkPasswordValidity();
-        if (!this.checkValidity()) {
-            event.preventDefault();
-            //Implement you own means of displaying error messages to the user here.
-            password1.focus();
-        }
-    }, false);
-</script>   
+<input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/> 
 
   <input type="submit">
 

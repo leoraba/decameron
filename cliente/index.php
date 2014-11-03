@@ -18,15 +18,13 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script src="css/bootstrap.min.js"></script>
 
     
 <!---- Bootstrap---->
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-<script src="jquery.ui.datepicker-es.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/jquery-ui.js"></script>
 
 <script>
 $(function () {
@@ -96,10 +94,10 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <div class="span6">
   <div class="text-right">
     <div class="btn-group btn-group-lg">
-     <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>
+     <a href="login.php" style="color: #FFF"><button type="button" class="btn btn-primary">Inicia sesion</button></a>
       </div>
        <div class="btn-group btn-group-lg">
-   <button type="button" class="btn btn-default"><a href="registro.php" style="color: #000000">Registrate</a></button>
+   <a href="registro.php" style="color: #000000"><button type="button" class="btn btn-default">Registrate</button></a>
        </div>
      </div>
 </div>    
@@ -110,13 +108,13 @@ $("#from").datepicker("option", "maxDate", selectedDate);
   <div class="span12">
     <div class="text-center">
       <div class="btn-group" style="margin: 9px 0;">
-      <button type="button" class="btn btn-default"><a href="#">INICIO</a> </button>
-      <button type="button" class="btn btn-default"><a href="convenciones.php">CONVENCIONES</a> </button>
-      <button type="button" class="btn btn-default"><a href="todoincluido.php">VACACIONES TODO INCLUIDO</a></button> 
-      <button type="button" class="btn btn-default"><a href="condiciones.php">CONDICIONES</a></button> 
-      <button type="button" class="btn btn-default"><a href="preguntasfrecuentes.php">PREGUNTAS FRECUENTES</a></button> 
-      <button type="button" class="btn btn-default"><a href="servicios.php">SERVICIOS</a></button>           
-      <button type="button" class="btn btn-default"><a href="#">CONTACTO</a></button>
+      <a href="#"><button type="button" class="btn btn-default">INICIO</button></a> 
+      <a href="convenciones.php"><button type="button" class="btn btn-default">CONVENCIONES</button></a>
+      <a href="todoincluido.php"><button type="button" class="btn btn-default">VACACIONES TODO INCLUIDO</button></a>
+      <a href="condiciones.php"><button type="button" class="btn btn-default">CONDICIONES</button></a>
+      <a href="preguntasfrecuentes.php"><button type="button" class="btn btn-default">PREGUNTAS FRECUENTES</button></a>
+      <a href="servicios.php"><button type="button" class="btn btn-default">SERVICIOS</button></a>
+      <a href="#"><button type="button" class="btn btn-default">CONTACTO</button></a>
     </div>
     </div>
   </div>
@@ -147,7 +145,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <a href="#" title=""><img src="data1/tooltips/d9.jpg" alt=""/>6</a>
 <a href="#" title=""><img src="data1/tooltips/d14.jpg" alt=""/>7</a>
 <a href="#" title=""><img src="data1/tooltips/d15.jpg" alt=""/>8</a>
-</div></div><span class="wsl"><a href="http://wowslider.com">wowslider.com</a> by WOWSlider.com v6.4</span>
+</div></div>
 	<div class="ws_shadow"></div>
 	</div>	
 	<script type="text/javascript" src="engine1/wowslider.js"></script>
@@ -162,7 +160,6 @@ $("#from").datepicker("option", "maxDate", selectedDate);
     <div class="container">
     <div class="row">
    <div class="span4">
-   <form class="form-horizontal">
 
 <fieldset>
 
