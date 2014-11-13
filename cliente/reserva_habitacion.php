@@ -47,7 +47,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
         <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
 
 <form action="insert_reserva.php" method="post">
-		<h4>Detalle Reservacion</h4><br/>
+		<h4>Detalle Habitacion</h4>
 
 		<header>Fecha de entrada:&nbsp;</header>
         <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required="" />
@@ -57,14 +57,15 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 
 	    <header>Tipo de habitacion:</header>
 		<select id="n_adultos" name="t_hab" class="form-control">
-        <option value="sencilla">Doble Estandar (cama doble)</option>
+        <option value="sencilla">Doble Estandar (1 cama doble)</option>
         <option value="doble">Doble (2 camas dobles) </option>
         </select>
 
 	    <header>Cama extra?</header>
 		<select id="n_cama" name="n_cam" class="form-control">
-		<option value="no">NO</option>
-        <option value="si">SI</option>
+    <option value="">Ninguna...</option>
+		<option value="no">Una cama adicional</option>
+    <option value="si">Una cuna adicional</option>
        </select>
 
        <header>Tipo de balcon:</header>
@@ -73,21 +74,51 @@ $("#from").datepicker("option", "maxDate", selectedDate);
         <option value="no">Vista a la piscina</option>
        </select>
 
+<h4>Detalle acompanantes</h4>
+
 	  <header># Adultos:</header>
-	  <select id="t_balcon" name="t_balcon" class="form-control">
+	  <select id="adultos" name="adultos" class="form-control">
+      <option value="">Ninguno...</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="4">4</option>
-       </select>
+      </select>
 
-       <header># ninos:</header>
-	   <select id="t_balcon" name="t_balcon" class="form-control">
-       <option value="0">0</option>
+<script>
+$(document).ready(function () {
+    toggleFields(); 
+    $("#ninos").change(function () {
+        toggleFields();
+    });
+
+});
+//this toggles the visibility of our parent permission fields depending on the current selected value of the underAge field
+function toggleFields() {
+    if ($("#ninos").val() == 1)
+        $("#regAcomp").show();
+    else
+        $("#regAcomp").hide();
+}
+</script>
+
+      <header># Niños:</header>
+	    <select id="ninos" name="ninos" class="form-control">
+      <option value="">Ninguno...</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       </select><br/>
+      
+      <div id="regAcomp">
+      <header>Nombres:</header>
+      <input type="text" name="nombres" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="nombres" maxlength="30" placeholder="Nombre">
+      <header>Edad:</header>
+      <input type="text" name="nombres" maxlength="30" placeholder="Edad">
+    </div>
+  
+
 <input type="submit" value="Realizar reserva">
 </form>
     </div> 
