@@ -17,6 +17,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
+<!-- CALENDARIO -->
 <script>
 $(function () {
 $("#from").datepicker({
@@ -36,7 +37,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 });
 });
 </script>
-
+<!-- CALENDARIO -->
 
 </head>
 <body><br/>
@@ -47,22 +48,35 @@ $("#from").datepicker("option", "maxDate", selectedDate);
         <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
 
 <form action="insert_reserva.php" method="post">
-		<h4>Detalle Habitacion</h4>
+<h4>Detalle Fechas</h4>
+ <input type="button" id="con1" value="Ver condiciones"/> 
+  <script type="text/javascript">
+   $("#con1").click(function () {
+   alert("La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.");
+   });
+  </script>
 
-		<header>Fecha de entrada:&nbsp;</header>
+		    <header><br/>Fecha de entrada:&nbsp;</header>
         <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required="" />
-
         <header>Fecha de salida:&nbsp;</header>
         <input id="to" name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
 
-	    <header>Tipo de habitacion:</header>
+<h4>Detalle Habitacion</h4>
+  <input type="button" id="con2" value="Ver condiciones"/> 
+   <script type="text/javascript">
+   $("#con2").click(function () {
+   alert("Número máximo de camas supletorias o cunas en la habitación: 1.\n\nLas camas supletorias y/o cunas están disponibles bajo petición y deben ser confirmadas por el alojamiento.\n\nLos suplementos no se calculan automáticamente en el importe total y deben pagarse por separado durante la estancia.");
+   });
+   </script>
+
+	<header><br/>Tipo de habitacion:</header>
 		<select id="n_adultos" name="t_hab" class="form-control">
         <option value="sencilla">Doble Estandar (1 cama doble)</option>
         <option value="doble">Doble (2 camas dobles) </option>
         </select>
 
 	    <header>Cama extra?</header>
-		<select id="n_cama" name="n_cam" class="form-control">
+		<select id="n_cama" name="c_extra" class="form-control">
     <option value="">Ninguna...</option>
 		<option value="no">Una cama adicional</option>
     <option value="si">Una cuna adicional</option>
@@ -70,56 +84,122 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 
        <header>Tipo de balcon:</header>
 		<select id="t_balcon" name="t_balcon" class="form-control">
-        <option value="si">Vista al jardin</option>
-        <option value="no">Vista a la piscina</option>
+        <option value="">Elejir...</option>
+        <option value="1">Vista a la piscina</option>
+        <option value="2">Vista al jardin</option>
        </select>
 
 <h4>Detalle acompanantes</h4>
 
-	  <header># Adultos:</header>
-	  <select id="adultos" name="adultos" class="form-control">
-      <option value="">Ninguno...</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      </select>
-
-<script>
-$(document).ready(function () {
+ <input type="button" id="con3" value="Ver condiciones"/> 
+   <script type="text/javascript">
+   $("#con3").click(function () {
+   alert("¡Gratis! Hasta 2 menores de 3 años se pueden alojar gratis en cunas.\n\nHasta 2 niños de 3 a 11 años se pueden alojar por 60 USD por noche utilizando las camas existentes.\n\nHasta 2 niños mayores de esa edad o adultos se pueden alojar por 158 USD por noche utilizando las camas existentes.");
+   });
+   </script>
+ 
+    <!-- ACOMPANANTES -->
+    <script>
+    $(document).ready(function () {
     toggleFields(); 
-    $("#ninos").change(function () {
+    $("#acomp").change(function () {
         toggleFields();
+     });
     });
+    function toggleFields() {
 
-});
-//this toggles the visibility of our parent permission fields depending on the current selected value of the underAge field
-function toggleFields() {
-    if ($("#ninos").val() == 1)
-        $("#regAcomp").show();
-    else
-        $("#regAcomp").hide();
+    var i = $("#acomp").val();
+
+    switch (i) {
+
+  case "1":
+  $("#reg1Acomp").show();
+  $("#reg2Acomp").hide();
+  $("#reg3Acomp").hide();
+  break;
+
+  case "2":
+  $("#reg2Acomp").show();
+  $("#reg1Acomp").hide();
+  $("#reg3Acomp").hide();
+  break;
+
+  case "3":
+  $("#reg3Acomp").show();
+  $("#reg1Acomp").hide();
+  $("#reg2Acomp").hide();
+  break;
+
+  default:
+  $("#reg1Acomp").hide();
+  $("#reg2Acomp").hide();
+  $("#reg3Acomp").hide();
+
+  }  
 }
 </script>
 
-      <header># Niños:</header>
-	    <select id="ninos" name="ninos" class="form-control">
-      <option value="">Ninguno...</option>
+      <header><br/>Seleccionar numero de acompañantes</header>
+	    <select id="acomp" name="n_acomp" class="form-control">
+      <option value="0">Ninguno...</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       </select><br/>
       
-      <div id="regAcomp">
+      <div id="reg1Acomp">
+      <h5> Datos acompañante:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nombres" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombres">
       <header>Apellidos:</header>
-      <input type="text" name="nombres" maxlength="30" placeholder="Nombre">
-      <header>Edad:</header>
-      <input type="text" name="nombres" maxlength="30" placeholder="Edad">
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
+      </div>
+
+    <div id="reg2Acomp">
+      <h5> Acompañante 1:</h5>
+      <header>Nombres:</header>
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
+      <h5> Acompañante 2:</h5>
+      <header>Nombres:</header>
+      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_2" name="edad_acom_2" class="form-control" type="date" placeholder="Seleccionar" required="" />
+    </div>
+
+      <div id="reg3Acomp">
+      <h5> Acompañante 1:</h5>
+      <header>Nombres:</header>
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
+      <h5> Acompañante 2:</h5>
+      <header>Nombres:</header>
+      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_2" name="edad_acom_2" class="form-control" type="date" placeholder="Seleccionar" required="" />
+      <h5> Acompañante 3:</h5>
+      <header>Nombres:</header>
+      <input type="text" name="nom_acom_3" maxlength="30" placeholder="Nombre">
+      <header>Apellidos:</header>
+      <input type="text" name="ape_acom_3" maxlength="30" placeholder="Nombre">
+      <header>Fecha de nacimiento:</header>
+      <input id="edad_acom_3" name="edad_acom_3" class="form-control" type="date" placeholder="Seleccionar" required="" />
     </div>
   
+<input type="submit" value="Realizar reservacion">
 
-<input type="submit" value="Realizar reserva">
 </form>
     </div> 
 
