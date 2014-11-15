@@ -70,7 +70,8 @@ $("#from").datepicker("option", "maxDate", selectedDate);
    </script>
 
 	<header><br/>Tipo de habitacion:</header>
-		<select id="n_adultos" name="t_hab" class="form-control">
+		<select id="n_adultos" name="t_hab" class="form-control" required=""/>
+      <option value="">Elejir...</option>
         <option value="sencilla">Doble Estandar (1 cama doble)</option>
         <option value="doble">Doble (2 camas dobles) </option>
         </select>
@@ -78,12 +79,12 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 	    <header>Cama extra?</header>
 		<select id="n_cama" name="c_extra" class="form-control">
     <option value="">Ninguna...</option>
-		<option value="no">Una cama adicional</option>
-    <option value="si">Una cuna adicional</option>
+		<option value="Y">Una cama adicional</option>
+    <option value="N">Una cuna adicional</option>
        </select>
 
        <header>Tipo de balcon:</header>
-		<select id="t_balcon" name="t_balcon" class="form-control">
+		<select id="t_balcon" name="t_balcon" class="form-control" required=""/>
         <option value="">Elejir...</option>
         <option value="1">Vista a la piscina</option>
         <option value="2">Vista al jardin</option>
@@ -150,51 +151,69 @@ $("#from").datepicker("option", "maxDate", selectedDate);
       <div id="reg1Acomp">
       <h5> Datos acompañante:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombres">
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombres" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero1" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
       </div>
 
     <div id="reg2Acomp">
       <h5> Acompañante 1:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero1" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
       <h5> Acompañante 2:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero2" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_2" name="edad_acom_2" class="form-control" type="date" placeholder="Seleccionar" required="" />
     </div>
 
       <div id="reg3Acomp">
       <h5> Acompañante 1:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero1" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_1" name="edad_acom_1" class="form-control" type="date" placeholder="Seleccionar" required="" />
       <h5> Acompañante 2:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero2" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_2" name="edad_acom_2" class="form-control" type="date" placeholder="Seleccionar" required="" />
       <h5> Acompañante 3:</h5>
       <header>Nombres:</header>
-      <input type="text" name="nom_acom_3" maxlength="30" placeholder="Nombre">
+      <input type="text" name="nom_acom_3" maxlength="30" placeholder="Nombre" required=""/>
       <header>Apellidos:</header>
-      <input type="text" name="ape_acom_3" maxlength="30" placeholder="Nombre">
-      <header>Fecha de nacimiento:</header>
+      <input type="text" name="ape_acom_3" maxlength="30" placeholder="Nombre" required=""/>
+      <header>Genero:</header>
+      <input type="radio" name="genero3" value="Hombre" checked="checked">Hombre<br>
+      <input type="radio" name="genero3" value="Mujer">Mujer<br/>
+      <header><br/>Fecha de nacimiento:</header>
       <input id="edad_acom_3" name="edad_acom_3" class="form-control" type="date" placeholder="Seleccionar" required="" />
     </div>
   
