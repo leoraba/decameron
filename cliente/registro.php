@@ -25,7 +25,7 @@ include("../includes/conexion.php");
 <!-- Datepicker JavaScript -->
 <script src="../js/bootstrap-datepicker.js"></script>
 
-<!-- Validar que los passwords coinciden -->
+<!--************************* Validar que los passwords coinciden **********************-->
   <script type="text/javascript" language="JavaScript">
     $(document).ready(function(){
       var password1 = document.getElementById('password1');
@@ -61,7 +61,8 @@ include("../includes/conexion.php");
         }        
     };
 </script>
-<!-- Validar nombre y apellido -->
+
+<!--*************************** Validar nombre y apellido *************************-->
 <script type="text/javascript" language="JavaScript">
       function sololetras(e){
         key=e.keyCode || e.witch;
@@ -81,8 +82,31 @@ include("../includes/conexion.php");
         return false;
           }
          }
-      </script>
-<!-- Validar fecha de nacimiento -->
+</script>
+
+<!--************************ Validar nombre de usuario *********************-->
+<script type="text/javascript">
+$(document).ready(function() {    
+    $('#usuario').blur(function(){
+
+        $('#Info').html('<img src="loader.gif" alt="" />').fadeOut(1000);
+
+        var username = $(this).val();        
+        var dataString = 'username='+username;
+
+        $.ajax({
+            type: "POST",
+            url: "check_username_availablity.php",
+            data: dataString,
+            success: function(data) {
+                $('#Info').fadeIn(1000).html(data);
+            }
+        });
+    });              
+});    
+</script>
+
+<!--***************** Validar fecha de nacimiento ******************-->
 <script>
 $(function () {
 $("#fecha_nacimiento").datepicker({

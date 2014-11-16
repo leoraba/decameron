@@ -17,15 +17,12 @@
 <link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-    
-<!---- Bootstrap---->
-
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <script src="js/jquery-1.11.0.js"></script>
 <script src="js/jquery-ui.js"></script>
 
+<!--****************** VALIDACION DE FECHAS ****************** -->
 <script>
 $(function () {
 $("#from").datepicker({
