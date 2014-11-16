@@ -25,6 +25,7 @@ include("../includes/conexion.php");
 <!-- Datepicker JavaScript -->
 <script src="../js/bootstrap-datepicker.js"></script>
 
+<!-- Validar que los passwords coinciden -->
   <script type="text/javascript" language="JavaScript">
     $(document).ready(function(){
       var password1 = document.getElementById('password1');
@@ -60,6 +61,40 @@ include("../includes/conexion.php");
         }        
     };
 </script>
+<!-- Validar nombre y apellido -->
+<script type="text/javascript" language="JavaScript">
+      function sololetras(e){
+        key=e.keyCode || e.witch;
+        teclado=String.fromCharCode(key).toLowerCase();
+        letras=" abcdefghijklmnñopqrstuvwxyz";
+        especiales="8-37-38-46-164";
+        teclado_especial=false;
+
+        for (var i in especiales){
+        if (key==especiales[i]){
+        teclado_especial=true;
+        break;
+         }
+        }
+
+        if (letras.indexOf(teclado)==-1 && !teclado_especial){
+        return false;
+          }
+         }
+      </script>
+<!-- Validar fecha de nacimiento -->
+<script>
+$(function () {
+$("#fecha_nacimiento").datepicker({
+maxDate: 'today',
+onClose: function (selectedDate) {
+$("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
+}
+});
+});
+</script>
+
+
 <style>
 #wrapper {
 	width: 980px;
@@ -92,20 +127,18 @@ include("../includes/conexion.php");
 }
 </style>
 </head>
-
+<!-- ****************************************************************************************** -->
 <body>
-      
-
-  <div class="container">  
-    <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
-    <h3>Crear tu cuenta</h3>
-                
-    <form action="insert_registro.php" method="post" id="passwordForm">
+    <div class="container">  
+      <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
+      <h3>Crear tu cuenta</h3>
+      <!-- **********************************FORMULARIO********************************************* -->          
+      <form action="insert_registro.php" method="post" id="passwordForm">
       <header>Nombres:</header>
-      <input type="text" name="nombres" maxlength="30" placeholder="Tus nombres">
-
+      <input type="text" name="nombres" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres">
+      
       <header>Apellidos:</header>
-      <input type="text" name="apellidos" maxlength="30" placeholder="Tus apellidos">
+      <input type="text" name="apellidos" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos">
 
       <header>Email:</header>
       <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico">
@@ -137,7 +170,7 @@ include("../includes/conexion.php");
       </select>
 
       <header># de documento:</header>
-      <input type="text" name="num_documento" maxlength="30" placeholder="# de documento">
+      <input type="text" name="num_documento" maxlength="20" placeholder="# de documento">
 
       <header>Fecha de nacimiento:</header>
       <div class='input-group date' id="fecha_nacimiento">
@@ -157,6 +190,7 @@ include("../includes/conexion.php");
       <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/> 
 
       <input type="submit">
+      <!-- **********************************FORMULARIO********************************************* -->     
 
       <a href="login.html">Ya tienes una cuenta? Iniciar sesion</a>
     </form>

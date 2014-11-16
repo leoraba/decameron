@@ -64,21 +64,14 @@
                         <h3 class="panel-title">Iniciar sesion</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" requiered>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" requiered>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Recuerdame
-                                    </label>
-                                </div>
+                        <form action="verificar_login.php" method="post" id="passwordForm">
+                          <header>Usuario:</header>
+                         <input type="text" name="user" maxlength="30" placeholder="Usuario">
+                         <header>Contrasena:</header>
+                         <input type="password" name="pass" maxlength="30" placeholder="Contrasena">
+                         <br/>
+                         <input type="submit" value="Iniciar sesion"><br/>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="javascript:;" class="btn btn-sm btn-success">Login</a><br /><br />
                                 <a href="registro.php">No tienes una cuenta? Registrate</a>
                             </fieldset>
                         </form>

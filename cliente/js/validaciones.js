@@ -1,3 +1,13 @@
+//Restricciones sobre fechas
+$(document).ready(function() {
+   $("#con1").click(function () {
+   alert("La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.");
+   });
+ });
+//
+
+
+//comprobar si el valor es un numero entero
 $(document).ready(function() {
     $('#integerForm').bootstrapValidator({
         feedbackIcons: {
@@ -16,6 +26,7 @@ $(document).ready(function() {
         }
     });
 });
+//comprobar longitud del nombre
 $(document).ready(function() {
     $('#profileForm').bootstrapValidator({
         feedbackIcons: {
@@ -43,6 +54,7 @@ $(document).ready(function() {
         }
     });
 });
+//comprobar que los passwords coinciden
 $(document).ready(function() {
     $('#registerForm').bootstrapValidator({
         feedbackIcons: {
