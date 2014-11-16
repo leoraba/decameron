@@ -159,20 +159,20 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
       <!-- **********************************FORMULARIO********************************************* -->          
       <form action="insert_registro.php" method="post" id="passwordForm">
       <header>Nombres:</header>
-      <input type="text" name="nombres" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres">
+      <input type="text" name="nombres" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres" required="" />
       
       <header>Apellidos:</header>
-      <input type="text" name="apellidos" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos">
+      <input type="text" name="apellidos" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
 
       <header>Email:</header>
-      <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico">
+      <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico" required="" />
 
       <header>Genero:</header>
       <input type="radio" name="genero" value="Hombre" checked="checked">Hombre<br>
       <input type="radio" name="genero" value="Mujer">Mujer<br><br/>
 
       <header>Pais:</header>
-      <select name="cmbPais" id="cmbPais">
+      <select name="cmbPais" id="cmbPais" required="" />
           <option value=""> Seleccione una opci&oacute;n</option>
           <?php
               $qr = mysql_query("SELECT id_pais, nombre_pais FROM PAIS ORDER BY nombre_pais ASC",$ln);
@@ -198,14 +198,14 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
 
       <header>Fecha de nacimiento:</header>
       <div class='input-group date' id="fecha_nacimiento">
-          <input type='text' class="form-control" name="fecha_nacimiento" />
+          <input type='text' class="form-control" name="fecha_nacimiento" required="" />
           <span class="input-group-addon">
               <span class="fa fa-calendar"></span>
           </span>
       </div>
 
       <header>Usuario:</header>
-      <input type="text" name="usuario" maxlength="30" placeholder="Usuario">
+      <input type="text" name="usuario" maxlength="30" placeholder="Usuario" required="" />
 
       <header>Contrasena:</header>
       <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
