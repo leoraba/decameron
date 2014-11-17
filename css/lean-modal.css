@@ -1,0 +1,48 @@
+#lean_overlay {
+    position: fixed;
+    z-index:9999;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#divFormUsuario {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    display: none;
+    width: 800px;
+}
+
+#leanModal-header {
+    background: url("../images/hd-bg.png") repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px 18px 14px;
+}
+
+.modal_close {
+    background: url("../images/modal_close.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 14px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 14px;
+    z-index: 2;
+}
+#divFormUsuario .row{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#leanModal-header h2 {
+    color: #444444;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}

@@ -28,6 +28,10 @@
     <!-- datepicker CSS -->
     <link href="css/datepicker.css" rel="stylesheet">
 
+    <!-- select2 CSS -->
+    <link href="css/select2.css" rel="stylesheet">
+    <link href="css/select2-bootstrap.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -47,6 +51,10 @@
 
     <!-- Datepicker JavaScript -->
     <script src="js/bootstrap-datepicker.js"></script>
+
+    <!-- select2 -->
+    <script src="js/select2.min.js"></script>    
+    <script src="js/select2_locale_es.js"></script>    
 
 </head>
 
@@ -176,16 +184,8 @@
                 	<li <?=($modulo=="home")?"class='active'":""?>>
                         <a href="?m=home"><i class="fa fa-fw fa-home"></i> Inicio</a>
                     </li>
-                	<li <?=($modulo=="hab" || $modulo=="sal")?"class='active'":""?>>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#reservar"><i class="fa fa-fw fa-calendar"></i> Reservar <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="reservar" class="collapse">
-                            <li>
-                                <a href="?m=hab">Habitaci&oacute;n</a>
-                            </li>
-                            <li>
-                                <a href="?m=sal">Sal&oacute;n</a>
-                            </li>
-                        </ul>
+                	<li <?=($modulo=="hab")?"class='active'":""?>>
+                        <a href="?m=hab"><i class="fa fa-fw fa-calendar"></i> Reservar habitaci&oacute;n</a>
                     </li>
                     <li <?=($modulo=="esthab")?"class='active'":""?>>
                         <a href="?m=esthab"><i class="fa fa-fw fa-building-o"></i> Estado Habitaci&oacute;n</a>
