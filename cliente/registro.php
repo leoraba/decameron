@@ -196,6 +196,9 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
       <header># de documento:</header>
       <input type="text" name="num_documento" maxlength="20" placeholder="# de documento">
 
+      <header># Telefono:</header>
+      <input type='number' name="num_telefono" maxlength="10" placeholder="# de telefono">
+
       <header>Fecha de nacimiento:</header>
       <div class='input-group date' id="fecha_nacimiento">
           <input type='text' class="form-control" name="fecha_nacimiento" required="" />

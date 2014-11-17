@@ -17,6 +17,10 @@ $nom_acom_3 = $_POST['nom_acom_3'];
 $ape_acom_3 = $_POST['ape_acom_3'];
 $genero_acom_3 = $_POST['genero3'];
 $edad_acom_3 = $_POST['edad_acom_3'];
+$nom_acom_4 = $_POST['nom_acom_4'];
+$ape_acom_4 = $_POST['ape_acom_4'];
+$genero_acom_4 = $_POST['genero4'];
+$edad_acom_4 = $_POST['edad_acom_4'];
 
 $sql = "INSERT INTO  reserva_habitacion VALUES ('".date('Y-m-d H:i:s')."', '$desde', '$hasta','001', '199','3','3')";
 $sq2 = "INSERT INTO  acompanante VALUES ('$nom_acom_1', '$ape_acom_1','$genero_acom_1', '111111','$edad_acom_1','email@email.com')";
