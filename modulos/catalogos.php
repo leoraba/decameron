@@ -18,14 +18,6 @@
 <!-- contenido -->
 <div class="row">
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="?m=salon" class="thumbnail">
-			<i class="fa fa-bank"></i>
-			<div class="caption">
-				<h5>Salones</h5>
-			</div>
-		</a>
-	</div>
-	<div class="col-md-2 col-sm-3 col-xs-6">
 		<a href="#" class="thumbnail">
 			<i class="fa fa-taxi"></i>
 			<div class="caption">
@@ -86,14 +78,6 @@
 			<i class="fa fa-money"></i>
 			<div class="caption">
 				<h5>Tarifas</h5>
-			</div>
-		</a>
-	</div>
-	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="?m=subcripcion" class="thumbnail">
-			<i class="fa fa-thumb-tack"></i>
-			<div class="caption">
-				<h5>Subscripci&oacute;n</h5>
 			</div>
 		</a>
 	</div>
