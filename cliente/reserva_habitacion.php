@@ -41,36 +41,42 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <body><br/>
 <div class="container"><!-- **********************************PREVIEW********************************************* -->  
    <div class="row"> 
-    <div class="span12">
-      <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>
-      <table class="table">
-    <thead>
-        <tr><br/>
-            <th>Detalles de habitacion</th>
-            <th>Numero de personas</th>
-            <th>Promedio/Noche</th>
-            <th>Noches</th>
+      <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/><br/>
+    
+<!-- **********************************FORMULARIO********************************************* -->  
+<form id="reserva" name="reserva" action="insert_reserva.php" method="post">
+
+     <table class="table table-striped table-bordered" cellspacing="1" width="100">
+        <thead>
+            <tr class="info">
+          <th>Entrada</th>
+          <th>Salida</th>
+            <th>Tipo habitacion</th>
+            <th>Cama extra</th>
+            <th>Balcon</th>
+            <th># huespedes</th>
             <th>Precio total</th>
         </tr>
     </thead>
     <tbody>
-        <tr class="info">
-            <td>Habitación estándar - todo incluido</td>
-            <td>2 Adultos</td>
-            <td>US$ 126.63</td>
-            <td>8</td>
-            <td>US$ 1,202.00</td>
+            <td ><input id="entrada" type="text" readonly></td>
+            <td ><input id="salida" type="text" readonly></td>
+            <td ><input id="hab" type="text" readonly></td>
+            <td ><input id="c_extra" type="text" readonly></td>
+            <td ><input id="tbal" type="text" readonly></td>
+            <td ><input id="thues" name="thues" type="text" readonly></td>
+            <td>TOTAL $55555</td>
         </tr>
     </tbody>
 </table>
-</div> 
-</div> 
 </div>
+</div> 
+
 
 <div class="container">
  <div class="row">               
  <!-- **********************************FORMULARIO********************************************* -->  
-<form action="insert_reserva.php" method="post">
+
 
           <h4>1. Fechas de reserva</h4>
            <input type="submit" id="con1" value="Ver condiciones"/> 
@@ -81,7 +87,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
          </script><br/>
 
 		       <span><br/>Entrada:&nbsp;</span>
-            <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required="" />
+            <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required=""/>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;Salida:&nbsp;</span>
             <input id="to" name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
   
@@ -94,7 +100,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
             </script><br/>
            
 	         <span><br/>Tipo:</span>
-		        <select id="n_adultos" name="t_hab" class="form-control" required=""/>
+		        <select id="t_hab" name="t_hab" class="form-control" required=""/>
             <option value="">Elejir...</option>
             <option value="sencilla">Estandar (1 cama king)</option>
             <option value="doble">Doble (2 camas dobles)</option>
@@ -103,8 +109,8 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 	         <span>&nbsp;&nbsp;&nbsp;Cama extra?</span>
 		        <select id="n_cama" name="c_extra" class="form-control">
             <option value="">Ninguna...</option>
-		        <option value="Y">Una cama adicional</option>
-            <option value="N">Una cuna adicional</option>
+		        <option value="si">Una cama adicional</option>
+            <option value="no">Una cuna adicional</option>
             </select>
 
            <span>&nbsp;&nbsp;&nbsp;Tipo de balcon:</span>
@@ -113,7 +119,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
             <option value="1">Vista a la piscina</option>
             <option value="2">Vista al jardin</option>
             </select>
- 
+
           <h4>3. Detalle de Huespedes</h4>
           <input type="button" id="con3" value="Ver condiciones"/> 
           <script type="text/javascript" language="JavaScript">
@@ -122,6 +128,43 @@ $("#from").datepicker("option", "maxDate", selectedDate);
           });
           </script>
  
+    <!--**************************************** CARRITO *********************************************************-->
+   <script type="text/javascript" language="JavaScript">
+  $("#from").on("focusout ", function(){
+     var val = $(this).val();
+     val=$("#entrada").val(val);
+  })
+  </script>
+
+  <script type="text/javascript" language="JavaScript">
+  $("#to").on("focusout ", function(){
+     var val = $(this).val();
+     val=$("#salida").val(val);
+  })
+</script>
+
+<script type="text/javascript" language="JavaScript">
+  $("#t_hab").on("focusout ", function(){
+     var val = $(this).val();
+     val=$("#hab").val(val);
+  })
+   </script>
+
+   <script type="text/javascript" language="JavaScript">
+  $("#n_cama").on("focusout ", function(){
+     var val = $(this).val();
+     val=$("#c_extra").val(val);
+  })
+   </script>
+
+   <script type="text/javascript" language="JavaScript">
+  $("#t_balcon").on("focusout ", function(){
+     var val = $(this).val();
+     val=$("#tbal").val(val);
+  })
+   </script>
+    <!-- ********************************************CARRITO******************************************************* -->
+
     <!-- ACOMPANANTES -->
     <script type="text/javascript" language="JavaScript">
     $(document).ready(function () {
@@ -172,9 +215,9 @@ $("#from").datepicker("option", "maxDate", selectedDate);
   }  
 }
 </script>
-
+<!-- ghfssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
       <header><br/>Huespedes por habitacion</header>
-	    <select id="acomp" name="n_acomp" class="form-control" required=""/>
+	    <select id="acomp" name="n_acomp" class="form-control" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
