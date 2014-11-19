@@ -79,8 +79,6 @@ $("#salida").val(selectedDate);
 <div class="container">
  <div class="row">               
  <!-- **********************************FORMULARIO********************************************* -->  
-
-
           <h4>1. Fechas de reserva</h4>
            <input type="submit" id="con1" value="Ver condiciones"/> 
            <script type="text/javascript" language="JavaScript">
@@ -90,9 +88,9 @@ $("#salida").val(selectedDate);
          </script><br/>
 
 		       <span><br/>Entrada:&nbsp;</span>
-            <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required=""/>
+            <input id="from" name="from" class="form-control" type="text" style="width:80px" placeholder="Seleccionar" required=""/>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;Salida:&nbsp;</span>
-            <input id="to" name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
+            <input id="to" name="to" class="form-control" type="text" style="width:80px" placeholder="Seleccionar" required=""/>
   
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
@@ -112,8 +110,8 @@ $("#salida").val(selectedDate);
 	         <span>&nbsp;&nbsp;&nbsp;Cama extra?</span>
 		        <select id="n_cama" name="c_extra" class="form-control">
             <option value="">Ninguna...</option>
-		        <option value="si">Una cama adicional</option>
-            <option value="no">Una cuna adicional</option>
+		        <option value="cama">Una cama adicional</option>
+            <option value="cuna">Una cuna adicional</option>
             </select>
 
            <span>&nbsp;&nbsp;&nbsp;Tipo de balcon:</span>

@@ -26,5 +26,4 @@ if($resultado_reserva>=$resultado_habitacion){
 } else {
 	echo "si hay disponibles";
 }
-
 ?>

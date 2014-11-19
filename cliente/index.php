@@ -5,7 +5,6 @@
 <title>Royal Decameron</title>
 
 <meta name="viewport" content="width=device-width, ininitial-scale=1.0" />
-
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
   <link rel="stylesheet" type="text/css" href="engine1/style.css" />
   <script type="text/javascript" src="engine1/jquery.js"></script>
@@ -40,6 +39,20 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 }
 });
 });
+//zoom a imagenes
+$(document).ready(function(){
+       $('#mapa').width(200);
+       $('#mapa').mouseover(function()
+       {
+          $(this).css("cursor","pointer");
+          $(this).animate({width: "900px"}, 'slow');
+       });
+    
+    $('#mapa').mouseout(function()
+      {   
+          $(this).animate({width: "200px"}, 'slow');
+       });
+   });
 </script>
 
 <style type="text/css">
@@ -54,7 +67,14 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 	padding-top: 20px;
 	
 }
-
+p  {
+    color:black;
+    font-family:verdana;
+    font-size:80%;
+}
+h4 {
+  color:blue;
+}
 <!---- Bootstrap---->
 /*Escritorio*/
 @media (min-width: 700px) {
@@ -163,7 +183,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <!-- Form Name -->
 <div class="container">
 <form action="disponibilidad.php" method="post">
-<h5>CONSULTAR</h5>
+<h4 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONSULTAR</h4>
 <!-- Prepended checkbox -->
 <header>Fecha de entrada&nbsp;</header>
 <input id="from" name="from" class="form-control" type="text" placeholder="Seleccionar" required="" /></br>
@@ -185,7 +205,7 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 <header>Tipo de habitacion:</header>
     <select id="t_hab" name="t_hab" class="form-control" required=""/>
     <option value="">Ninguna...</option>
-        <option value="1">Doble Estandar (1 cama doble)</option>
+        <option value="1">Estandar (1 cama doble)</option>
         <option value="2">Doble (2 camas dobles) </option>
         </select><br/>
 <!-- Button -->
@@ -193,9 +213,11 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 </form>
 </div></div>
 <div class="span8">
-  <img src="img/logo.png" width="150" height="50"/>
-<p>
-
+  <img src="img/1.jpg" alt="" class="img-rounded">
+  <img src="img/2.jpg" alt="" class="img-rounded">
+  <img src="img/3.jpg" alt="" class="img-rounded">
+<p align="justify">
+<br/>
  Somos una cadena hotelera con presencia internacional que se ha dedicado a divertir, entretener, desestresar y alegrar la vida de cada persona que se acerca a tomar nuestros servicios.
 <br/>Nos apasiona la calidad, el buen servicio y entendemos la importancia de prestar atención a cada detalle, por eso dedicamos todo nuestro esfuerzo para ofrecerte la mejor alternativa hotelera y turística del mercado, diseñando la experiencia “Todo Incluido” que te llevará a disfrutar sin preocupaciones y dedicado exclusivamente al descanso, la relajación y el entretenimiento, emocionando tu corazón y dejando en tu mente los mejores recuerdos de tu vida.
 <br/>Hacemos parte del portafolio de Terranum Hotels, unidad de negocio del Grupo Terranum que desarrolla, adquiere y opera hoteles en mercados estratégicos de América Latina. El Grupo Terranum es la primera plataforma integral de inversión, desarrollo y servicios inmobiliarios corporativos e institucionales en Colombia
@@ -205,8 +227,9 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 </div>
     <!---- Informacion ---->
    <div class="span12">
-    <h3>Informacion del hotel</h3>
-    <p>
+    <h6>Mapa del hotel</h6>
+     <img align="left" src="img/mapadecameron.jpg" alt="" class="img-rounded" id="mapa">
+     <p align="justify">
       El Royal Decameron Salinitas es un establecimiento de temática maya situado en Los Cobanos, entre espectaculares jardines tropicales. El hotel ofrece acceso directo a la playa y alberga 5 piscinas, entre las que destaca una piscina de agua marina.
 Todas las habitaciones presentan una decoración elegante e incluyen aire acondicionado, TV de pantalla plana vía satélite, teléfono, cafetera y caja fuerte. También disponen de un balcón con vistas a los jardines o a la piscina.
 El hotel ofrece una amplia variedad de actividades, como salidas en kayak y botes de remo, además de clases de introducción al buceo. También alberga 2 pistas de tenis, una pista de voleibol y una discoteca. Por la noche, se organizan espectáculos de animación para niños y adultos.
@@ -218,9 +241,10 @@ El complejo cuenta con diversos restaurantes que ofrecen servicios de desayuno, 
 
      <!---- Pie de pagina ---->
      <div class="row">
-      <div class="col-lg-12">
-
-</div>
+     <div class="container">
+<h3>aca va la informacion de contacto sobre redes sociales y demas</h3>
+   </div>
+  </div>
 </div>
 <!---- Pie de pagina ---->
 
