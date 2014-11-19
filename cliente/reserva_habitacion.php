@@ -8,12 +8,12 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css" />
 <script src="js/jquery-1.11.0.js"></script>
 <script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!---- Bootstrap---->
 
 <!-- CALENDARIO -->
@@ -23,6 +23,7 @@ $("#from").datepicker({
 minDate: 'today',
 onClose: function (selectedDate) {
 $("#to").datepicker("option", "minDate", selectedDate);
+$("#entrada").val(selectedDate);
 }
 });
 $("#to").datepicker({
@@ -31,6 +32,7 @@ changeMonth: true,
 changeYear: true,
 onClose: function (selectedDate) {
 $("#from").datepicker("option", "maxDate", selectedDate);
+$("#salida").val(selectedDate);
 }
 });
 });
@@ -40,36 +42,37 @@ $("#from").datepicker("option", "maxDate", selectedDate);
 </head>
 <body><br/>
 <div class="container"><!-- **********************************PREVIEW********************************************* -->  
-   <div class="row"> 
-      <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/><br/>
+  <div class="row"> 
+    <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/><br/>
     
-<!-- **********************************FORMULARIO********************************************* -->  
-<form id="reserva" name="reserva" action="insert_reserva.php" method="post">
+    <!-- **********************************FORMULARIO********************************************* -->  
+    <form id="reserva" name="reserva" action="insert_reserva.php" method="post">
 
-     <table class="table table-striped table-bordered" cellspacing="1" width="100">
+     <table class="table table-striped table-bordered" cellspacing="1" >
         <thead>
-            <tr class="info">
-          <th>Entrada</th>
-          <th>Salida</th>
+          <tr class="info">
+            <th>Entrada</th>
+            <th>Salida</th>
             <th>Tipo habitacion</th>
             <th>Cama extra</th>
             <th>Balcon</th>
             <th># huespedes</th>
             <th>Precio total</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td ><input id="entrada" type="text" readonly style="width:80px"></td>
+          <td ><input id="salida" type="text" readonly style="width:80px"></td>
+          <td ><input id="hab" type="text" readonly style="width:80px"></td>
+          <td ><input id="c_extra" type="text" readonly style="width:80px"></td>
+          <td ><input id="tbal" type="text" readonly style="width:80px"></td>
+          <td ><input id="thues" name="thues" type="text" readonly style="width:80px"></td>
+          <td>TOTAL $55555</td>
         </tr>
-    </thead>
-    <tbody>
-            <td ><input id="entrada" type="text" readonly></td>
-            <td ><input id="salida" type="text" readonly></td>
-            <td ><input id="hab" type="text" readonly></td>
-            <td ><input id="c_extra" type="text" readonly></td>
-            <td ><input id="tbal" type="text" readonly></td>
-            <td ><input id="thues" name="thues" type="text" readonly></td>
-            <td>TOTAL $55555</td>
-        </tr>
-    </tbody>
-</table>
-</div>
+      </tbody>
+    </table>
+  </div>
 </div> 
 
 
@@ -129,38 +132,19 @@ $("#from").datepicker("option", "maxDate", selectedDate);
           </script>
  
     <!--**************************************** CARRITO *********************************************************-->
-   <script type="text/javascript" language="JavaScript">
-  $("#from").on("focusout ", function(){
-     var val = $(this).val();
-     val=$("#entrada").val(val);
-  })
-  </script>
-
-  <script type="text/javascript" language="JavaScript">
-  $("#to").on("focusout ", function(){
-     var val = $(this).val();
-     val=$("#salida").val(val);
-  })
-</script>
 
 <script type="text/javascript" language="JavaScript">
-  $("#t_hab").on("focusout ", function(){
+  $("#t_hab").change(function() {
      var val = $(this).val();
-     val=$("#hab").val(val);
+     $("#hab").val(val);
+  });
+  $("#n_cama").change(function() {
+     var val = $(this).val();
+     $("#c_extra").val(val);
   })
-   </script>
-
-   <script type="text/javascript" language="JavaScript">
-  $("#n_cama").on("focusout ", function(){
+  $("#t_balcon").change(function() {
      var val = $(this).val();
-     val=$("#c_extra").val(val);
-  })
-   </script>
-
-   <script type="text/javascript" language="JavaScript">
-  $("#t_balcon").on("focusout ", function(){
-     var val = $(this).val();
-     val=$("#tbal").val(val);
+     $("#tbal").val(val);
   })
    </script>
     <!-- ********************************************CARRITO******************************************************* -->
