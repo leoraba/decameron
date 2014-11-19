@@ -192,7 +192,7 @@
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function() {
     $('#table1').dataTable();
-    $('#divFechaNacimiento').datepicker({
+    $('#txtFechaNacimiento').datepicker({
         format: "dd/mm/yyyy",
         language: "es",
         todayBtn: true,
