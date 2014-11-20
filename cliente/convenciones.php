@@ -7,17 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <style type="text/css">
-   #wrapper {
-  width: 980px;
-  text-align: left;
-  margin-top: 5px;
-  overflow: hidden;  /* porque no conocemos el alto del contenido */
-  margin: auto;
-  border: 2px solid #FFFFFF;
-  height: auto;
-  padding-top: 20px;
-  
-    }
 p  {
     color:black;
     font-family:verdana;
@@ -26,33 +15,17 @@ p  {
 h4 {
   color:blue;
  }
-<!---- Bootstrap---->
-/*Escritorio*/
-@media (min-width: 700px) {
-  
-}
-/*Tablet*/
-@media (min-width: 768px) and (max-width: 979px){
-  
-}
-/*Smartphone*/
-@media (max-width: 767px) {
-  
-}
-/*Escritorio*/
-@media (min-width: 480px) {
-  
-}
   </style>
 </head>
+
 <body><br/>
   <div class="container">
     <div class="row">
-      <div class="span6">
+      <div class="col-md-6">
         <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50"/>
 </div>
 
-<div class="span6">
+<div class="">
   <div class="text-right">
     <div class="btn-group btn-group-lg">
      <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>

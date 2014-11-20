@@ -1,4 +1,4 @@
-﻿<!doctype html> 
+<!doctype html> 
 <html>
 <head>
 <meta charset="utf-8" />
@@ -57,15 +57,15 @@ $(document).ready(function(){
 
 <style type="text/css">
 #wrapper {
-	width: 980px;
-	text-align: left;
-	margin-top: 5px;
-	overflow: hidden;  /* porque no conocemos el alto del contenido */
-	margin: auto;
-	border: 2px solid #FFFFFF;
-	height: auto;
-	padding-top: 20px;
-	
+  width: 980px;
+  text-align: left;
+  margin-top: 5px;
+  overflow: hidden;  /* porque no conocemos el alto del contenido */
+  margin: auto;
+  border: 2px solid #FFFFFF;
+  height: auto;
+  padding-top: 20px;
+  
 }
 p  {
     color:black;
@@ -78,19 +78,19 @@ h4 {
 <!---- Bootstrap---->
 /*Escritorio*/
 @media (min-width: 700px) {
-	
+  
 }
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 979px){
-	
+  
 }
 /*Smartphone*/
 @media (max-width: 767px) {
-	
+  
 }
 /*Escritorio*/
 @media (min-width: 480px) {
-	
+  
 }
 </style>
 </head>
@@ -142,8 +142,8 @@ h4 {
        <div class="span12">
 
      <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
-	<div id="wowslider-container1">
-	<div class="ws_images"><ul>
+  <div id="wowslider-container1">
+  <div class="ws_images"><ul>
 <li><img src="data1/images/d1.jpg" alt="" title="" id="wows1_0"/>Ven y descubre la magia del Todo Incluido Decameron, un concepto para pasar las mejores vacaciones</li>
 <li><img src="data1/images/d2.jpg" alt="" title="" id="wows1_1"/>En nuestros Hoteles podrs disfrutar exquisitos y variados desayunos y almuerzos al estilo buffet</li>
 <li><img src="data1/images/d3.jpg" alt="" title="" id="wows1_2"/>Acompania tus vacaciones con las bebidas que tu desees, con nosotros puedes disfrutar bares abiertos en playas y piscinas en donde podras encontrar cocteles con y sin alcohol, jugos de frutas, gaseosas y m�s</li>
@@ -163,11 +163,11 @@ h4 {
 <a href="#" title=""><img src="data1/tooltips/d14.jpg" alt=""/>7</a>
 <a href="#" title=""><img src="data1/tooltips/d15.jpg" alt=""/>8</a>
 </div></div>
-	<div class="ws_shadow"></div>
-	</div>	
-	<script type="text/javascript" src="engine1/wowslider.js"></script>
-	<script type="text/javascript" src="engine1/script.js"></script>
-	<!-- End WOWSlider.com BODY section -->
+  <div class="ws_shadow"></div>
+  </div>  
+  <script type="text/javascript" src="engine1/wowslider.js"></script>
+  <script type="text/javascript" src="engine1/script.js"></script>
+  <!-- End WOWSlider.com BODY section -->
 
 </div> 
 </div>
@@ -179,7 +179,6 @@ h4 {
    <div class="span4">
 
 <fieldset>
-
 <!-- Form Name -->
 <div class="container">
 <form action="disponibilidad.php" method="post">

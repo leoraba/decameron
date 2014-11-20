@@ -118,42 +118,11 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
 });
 </script>
 
-
-<style>
-#wrapper {
-	width: 980px;
-	text-align: left;
-	margin-top: 5px;
-	overflow: hidden;  /* porque no conocemos el alto del contenido */
-	margin: auto;
-	border: 2px solid #FFFFFF;
-	height: auto;
-	padding-top: 20px;
-	
-}
-
-<!---- Bootstrap---->
-/*Escritorio*/
-@media (min-width: 700px) {
-	
-}
-/*Tablet*/
-@media (min-width: 768px) and (max-width: 979px){
-	
-}
-/*Smartphone*/
-@media (max-width: 767px) {
-	
-}
-/*Escritorio*/
-@media (min-width: 480px) {
-	
-}
-</style>
 </head>
 <!-- ****************************************************************************************** -->
 <body>
-    <div class="container">  
+    <div class="container">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
       <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
       <h3>Crear tu cuenta</h3>
       <!-- **********************************FORMULARIO********************************************* -->          
@@ -222,5 +191,6 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
       <a href="login.html">Ya tienes una cuenta? Iniciar sesion</a>
     </form>
   </div> 
+</div> 
 </body>
 </html>     	
