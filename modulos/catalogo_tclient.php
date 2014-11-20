@@ -96,7 +96,7 @@
         <thead>
             <tr role="row">
                 <th>Nombre de Tipo Cliente</th>
-               <th>&nbsp;</th>
+               <th width="100px">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
