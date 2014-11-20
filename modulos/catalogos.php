@@ -18,7 +18,7 @@
 <!-- contenido -->
 <div class="row">
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=serv" class="thumbnail">
 			<i class="fa fa-taxi"></i>
 			<div class="caption">
 				<h5>Servicios</h5>
@@ -26,7 +26,7 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=marca" class="thumbnail">
 			<i class="fa fa-cubes"></i>
 			<div class="caption">
 				<h5>Marcas</h5>
@@ -34,7 +34,7 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=tproduct" class="thumbnail">
 			<i class="fa fa-th-list"></i>
 			<div class="caption">
 				<h5>Tipo producto</h5>
@@ -42,7 +42,7 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=prod" class="thumbnail">
 			<i class="fa fa-barcode"></i>
 			<div class="caption">
 				<h5>Producto</h5>
@@ -74,7 +74,7 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="#" class="thumbnail">
+		<a href="?m=tar" class="thumbnail">
 			<i class="fa fa-money"></i>
 			<div class="caption">
 				<h5>Tarifas</h5>
