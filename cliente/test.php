@@ -17,40 +17,39 @@
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
   <link rel="stylesheet" type="text/css" href="engine1/style.css" />
   <script type="text/javascript" src="engine1/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
   <!-- End WOWSlider.com HEAD section -->
+
+  <link href="../css/datepicker.css" rel="stylesheet">
 
 <!--****************** VALIDACION DE FECHAS ****************** -->
 <script type="text/javascript">
-$(function () {
-$("#from").datepicker({
-minDate: 'today',
-onClose: function (selectedDate) {
-$("#to").datepicker("option", "minDate", selectedDate);
-}
-});
-$("#to").datepicker({
-maxDate: "+12M",
-changeMonth: true,
-changeYear: true,
-onClose: function (selectedDate) {
-$("#from").datepicker("option", "maxDate", selectedDate);
-}
-});
-});
-//zoom a imagenes
 $(document).ready(function(){
-       $('#mapa').width(200);
-       $('#mapa').mouseover(function()
-       {
-          $(this).css("cursor","pointer");
-          $(this).animate({width: "900px"}, 'slow');
-       });
-    
-    $('#mapa').mouseout(function()
-      {   
-          $(this).animate({width: "200px"}, 'slow');
-       });
-   });
+  //zoom a imagenes
+  $('#mapa').width(200);
+  $('#mapa').mouseover(function(){
+    $(this).css("cursor","pointer");
+    $(this).animate({width: "900px"}, 'slow');
+  });
+
+  $('#mapa').mouseout(function(){   
+    $(this).animate({width: "200px"}, 'slow');
+  });
+  $("#from").datepicker({
+    minDate: 'today',
+    onClose: function (selectedDate) {
+      $("#to").datepicker("option", "minDate", selectedDate);
+    }
+  });
+  $("#to").datepicker({
+    maxDate: "+12M",
+    changeMonth: true,
+    changeYear: true,
+    onClose: function (selectedDate) {
+      $("#from").datepicker("option", "maxDate", selectedDate);
+    }
+  });
+});
 </script>
 <style type="text/css">
 p  {
@@ -128,7 +127,7 @@ h4 {
             <!-- Prepended checkbox -->
             <label class="control-label">Fecha de entrada</label><br/>
             <div class='input-group date' id='from'>
-            <input id="from" name="from" class='form-control' type="text" placeholder="Seleccionar" required="" />
+            <input name="from" class='form-control' type="text" placeholder="Seleccionar" required="" />
             <span class="input-group-addon">
             <span class="fa fa-calendar"></span>
             </span>
@@ -136,8 +135,8 @@ h4 {
 
             <!-- Prepended checkbox -->
             <label class="control-label">Fecha de salida</label><br/>
-            <div class='input-group date' id='from'>
-            <input id="to" name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
+            <div class='input-group date' id='to'>
+            <input name="to" class="form-control" type="text" placeholder="Seleccionar" required=""/>
             <span class="input-group-addon">
             <span class="fa fa-calendar">
               </span>
