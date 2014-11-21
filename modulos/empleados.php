@@ -30,7 +30,8 @@
             </div>
             <div class="modal-body">
                 <form role="form" id="manto_form" action="" method="POST">
-                    <input type="hidden" name="accion" value="nvo">
+                    <input type="hidden" name="accion" id="accion" value="nvo">
+                    <input type="hidden" name="id" id="id" value="">
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label class="control-label" > Nombre *</label>
@@ -202,10 +203,11 @@ $(document).ready(function() {
     $("#btnNuevo").click(function(){
         $("#txtNombre").val("");
         $("#txtApellido").val("");
+        $("#txtUsuario").prop('disabled', false);
         $("#txtUsuario").val("");
         $("#txtClave").val("");
         $("#inlineRadio1").prop("checked", true);
-        $("#txtFechaNacimiento").val("");
+        $('#txtFechaNacimiento').datepicker('update', "");
         $("#txtTelefono").val("");
         $("#cmbEstadoCivil").val("");
         $("#txtEmail").val("");
@@ -213,6 +215,8 @@ $(document).ready(function() {
         $("#txtDocumento").val("");
         $("#cmbCargo").val("");
         $("#cmbPais").val("");
+        $("#accion").val("nvo");
+        $("#id").val("");
         $("#divFormUsuario").modal('show');
     });
     $("#btnGuardarEmpleado").click(function(){ guardarEmpleado(); });
@@ -255,7 +259,6 @@ function eliminarRegistro(id){
 }
 
 function abrirModificar(id){
-    $("#divFormUsuario").modal('show');
     var url = "api/empleados.php";
     var data = "accion=get&id="+id;
     $.ajax({
@@ -267,11 +270,12 @@ function abrirModificar(id){
             if(obj.success){
                 $("#txtNombre").val(obj.datos[0].nombres);
                 $("#txtApellido").val(obj.datos[0].apellidos);
+                $("#txtUsuario").prop('disabled', true);
                 $("#txtUsuario").val(obj.datos[0].usuario);
                 $("#txtClave").val();
                 if(obj.datos[0].genero=="M") $("#inlineRadio1").prop("checked", true);
-                else $("#inlineRadio2").prop("checked", false);
-                $("#txtFechaNacimiento").val(obj.datos[0].fecha_nacimiento);
+                else $("#inlineRadio2").prop("checked", true);
+                $('#txtFechaNacimiento').datepicker('update', obj.datos[0].fecha_nacimiento);
                 $("#txtTelefono").val(obj.datos[0].telefono);
                 $("#cmbEstadoCivil").val(obj.datos[0].estado_civil);
                 $("#txtEmail").val(obj.datos[0].email);
@@ -279,10 +283,12 @@ function abrirModificar(id){
                 $("#txtDocumento").val(obj.datos[0].numero_documento);
                 $("#cmbCargo").val(obj.datos[0].fk_id_cargo);
                 $("#cmbPais").val(obj.datos[0].fk_id_pais);
+                $("#accion").val("mod");
+                $("#id").val(obj.datos[0].id_empleado);
             }
         }
     });
-
+    $("#divFormUsuario").modal('show');
 }
 
 </script>

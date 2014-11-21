@@ -3,13 +3,14 @@ if(isset($_REQUEST)){
 	include("../includes/conexion.php");
 	$success=false;
 	$accion=$_REQUEST['accion'];
-	if($accion=="nvo"){
+	if($accion=="nvo" || $accion=="mod"){
+		$id=$_POST['id'];
 		$nombre=$_POST['txtNombre'];
 		$apellido=$_POST['txtApellido'];
 		$usuario=$_POST['txtUsuario'];
-		$clave=$_POST['txtClave'];
+		$clave=trim($_POST['txtClave']);
 		$genero=$_POST['radGenero'];
-		$fNacimiento=$_POST['txtFechaNacimiento'];
+		$fNacimiento=toMysqlDate($_POST['txtFechaNacimiento']);
 		$telefono=$_POST['txtTelefono'];
 		$email=$_POST['txtEmail'];
 		$estadoCivil=$_POST['cmbEstadoCivil'];
@@ -18,9 +19,18 @@ if(isset($_REQUEST)){
 		$cargo=$_POST['cmbCargo'];
 		$pais=$_POST['cmbPais'];
 		$fCreacion=date("Y-m-d H:i:s");
-		if(mysql_query("INSERT INTO USUARIO(usuario, clave, estado, fecha_creacion, fk_id_rol) VALUES('$usuario','$clave','A','$fCreacion','2')",$ln)){
-			$idUsuario=mysql_insert_id($ln);
-			if(mysql_query("INSERT INTO EMPLEADO(nombres, apellidos, genero, fecha_nacimiento, telefono, email, estado_civil, numero_documento, fk_id_cargo, fk_id_pais, fk_id_tipo_documento) VALUES('$nombre','$apellido','$genero','$fNacimiento','$telefono','$email','$estadoCivil','$documento','$cargo','$pais','$tipoDocumento')",$ln)) $success=true;
+		if($accion=="nvo"){
+			if(mysql_query("INSERT INTO USUARIO(usuario, clave, estado, fecha_creacion, fk_id_rol) VALUES('$usuario','$clave','A','$fCreacion','2')",$ln)){
+				$idUsuario=mysql_insert_id($ln);
+				if(mysql_query("INSERT INTO EMPLEADO(nombres, apellidos, genero, fecha_nacimiento, telefono, email, estado_civil, numero_documento, fk_id_cargo, fk_id_pais, fk_id_tipo_documento, fk_id_usuario) VALUES('$nombre','$apellido','$genero','$fNacimiento','$telefono','$email','$estadoCivil','$documento','$cargo','$pais','$tipoDocumento','$idUsuario')",$ln)) $success=true;
+			}
+		}else if($accion=="mod" && $id!=""){
+			$qrIdUser=mysql_query("SELECT fk_id_usuario FROM EMPLEADO WHERE id_empleado='$id'",$ln);
+			list($idUser)=mysql_fetch_array($qrIdUser);
+			if($idUser!=""){
+				if($clave!="") mysql_query("UPDATE USUARIO set clave=md5('$clave') WHERE id_usuario='$idUser'",$ln);
+				if(mysql_query("UPDATE EMPLEADO SET nombres='$nombre', apellidos='$apellido', genero='$genero', fecha_nacimiento='$fNacimiento', telefono='$telefono', email='$email', estado_civil='$estadoCivil', numero_documento='$documento', fk_id_cargo='$cargo', fk_id_pais='$pais', fk_id_tipo_documento='$tipoDocumento' WHERE id_empleado='$id'",$ln)) $success=true;
+			}
 		}
 		$resp=array("success"=>$success);
 		echo json_encode($resp);
@@ -35,7 +45,7 @@ if(isset($_REQUEST)){
 				"nombres"=>$row['nombres'],
 				"apellidos"=>$row['apellidos'],
 				"genero"=>$row['genero'],
-				"fecha_nacimiento"=>$row['fecha_nacimiento'],
+				"fecha_nacimiento"=>fromMysqlDate($row['fecha_nacimiento']),
 				"telefono"=>$row['telefono'],
 				"email"=>$row['email'],
 				"estado_civil"=>$row['estado_civil'],
@@ -63,5 +73,15 @@ if(isset($_REQUEST)){
 		$resp=array("success"=>$success);
 		echo json_encode($resp);
 	}
+}
+function toMysqlDate($fecha){
+	list($d,$m,$y)=explode("/",$fecha);
+	$cad=$y."-".$m."-".$d;
+	return $cad;
+}
+function fromMysqlDate($fecha){
+	list($y,$m,$d)=explode("-",$fecha);
+	$cad=$d."/".$m."/".$y;
+	return $cad;
 }
 ?>
