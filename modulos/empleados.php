@@ -65,7 +65,7 @@
                         <div class="form-group col-lg-6">
                             <label class="control-label" > Fecha de nacimiento *</label>
                             <div class='input-group date' id="txtFechaNacimiento" >
-                                <input type='text' class="form-control cssData" name="txtFechaNacimiento" />
+                                <input type='text' class="form-control cssData" name="txtFechaNacimiento" id="txtFechaNacimientoInput" />
                                 <span class="input-group-addon">
                                     <span class="fa fa-calendar"></span>
                                 </span>
@@ -116,7 +116,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label" > Cargo</label>
+                            <label class="control-label" > Cargo *</label>
                             <select class="form-control" name="cmbCargo" id="cmbCargo">
                                 <option value=""> Seleccione una opci&oacute;n</option>
                                 <?php
@@ -128,7 +128,7 @@
                             </select>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label class="control-label" > Pais</label>
+                            <label class="control-label" > Pais *</label>
                             <select class="form-control" name="cmbPais" id="cmbPais">
                                 <option value=""> Seleccione una opci&oacute;n</option>
                                 <?php
@@ -140,8 +140,28 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label" > Estado *</label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="radEstado" id="inlineRadioEstadoA" value="A" checked="checked"> Activo
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radEstado" id="inlineRadioEstadoI" value="I"> Desactivo
+                            </label>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="control-label" > Administrador *</label><br>
+                            <label class="radio-inline">
+                                <input type="radio" name="radAdmin" id="inlineRadioAdmin1" value="1" checked="checked"> Administrador
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radAdmin" id="inlineRadioAdmin0" value="0"> Usuario
+                            </label>
+                        </div>
+                    </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" id="btnGuardarEmpleado" name="btnGuardarEmpleado">
+                        <button class="btn btn-primary" type="submit" name="btnGuardarEmpleado">
                             <i class="fa fa-save"></i>
                             Guardar
                         </button>
@@ -162,16 +182,22 @@
             <tr role="row">
                 <th> Nombre del empleado</th>
                 <th> Cargo</th>
+                <th> Estado</th>
+                <th> Administrador</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $qr = mysql_query("SELECT e.id_empleado, CONCAT(e.nombres,' ',e.apellidos) as nombreCompleto, c.nombre_cargo FROM EMPLEADO as e LEFT JOIN CARGO as c ON e.fk_id_cargo=c.id_cargo", $ln);
+            $qr = mysql_query("SELECT e.id_empleado, CONCAT(e.nombres,' ',e.apellidos) as nombreCompleto, c.nombre_cargo, u.estado, u.is_admin FROM EMPLEADO as e LEFT JOIN CARGO as c ON e.fk_id_cargo=c.id_cargo LEFT JOIN USUARIO as u ON e.fk_id_usuario=u.id_usuario", $ln);
             while($row=mysql_fetch_array($qr)){
+                $estado=($row['estado']=="A")?"Activo":"Desactivado";
+                $admin=($row['is_admin']=="1")?"Administrador":"Usuario";
                 echo "<tr>";
                 echo "<td>".$row['nombreCompleto']."</td>";
                 echo "<td>".$row['nombre_cargo']."</td>";
+                echo "<td>".$estado."</td>";
+                echo "<td>".$admin."</td>";
                 echo "<td style='width:50px'>";
                 echo "<div class='input-group-btn'>";
                 echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
@@ -201,12 +227,16 @@ $(document).ready(function() {
         todayHighlight: true,
     });
     $("#btnNuevo").click(function(){
+        $("#txtClave" ).rules("add", {required: true, minlength: 6});
+        $("label.error").hide();
+        $(".error").removeClass("error");
         $("#txtNombre").val("");
         $("#txtApellido").val("");
         $("#txtUsuario").prop('disabled', false);
         $("#txtUsuario").val("");
         $("#txtClave").val("");
         $("#inlineRadio1").prop("checked", true);
+        $('#txtFechaNacimiento').val("");
         $('#txtFechaNacimiento').datepicker('update', "");
         $("#txtTelefono").val("");
         $("#cmbEstadoCivil").val("");
@@ -215,11 +245,29 @@ $(document).ready(function() {
         $("#txtDocumento").val("");
         $("#cmbCargo").val("");
         $("#cmbPais").val("");
+        $("#inlineRadioEstadoA").prop("checked", true);
+        $("#inlineRadioAdmin0").prop("checked", true);
+        $("#cmbPais").val("");
         $("#accion").val("nvo");
         $("#id").val("");
         $("#divFormUsuario").modal('show');
     });
-    $("#btnGuardarEmpleado").click(function(){ guardarEmpleado(); });
+
+    $("#manto_form").validate({
+        rules:{
+            txtNombre: { required: true, maxlength:100 },
+            txtApellido: { required: true, maxlength:100 },
+            txtUsuario: { required: true, minlength:6, maxlength:100 },
+            txtClave: { required: true, minlength:6, maxlength:100 },
+            radGenero: { required: true },
+            radEstado: { required: true },
+            radAdmin: { required: true },
+            txtFechaNacimiento: { required: true },
+            cmbCargo: { required: true },
+            cmbPais: { required: true }
+        },
+        submitHandler: function(form) { guardarEmpleado() }
+    });
 });
 
 
@@ -243,22 +291,35 @@ function guardarEmpleado(){
 }
 
 function eliminarRegistro(id){
-    var url = "api/empleados.php";
-    var data = "accion=elim&id="+id;
-    $.ajax({
-        url:url,
-        type:'POST',
-        data:data,
-        success:function(res){
-            var obj = jQuery.parseJSON(res);
-            if(obj.success){
-                window.location.href="?m=emp";
+    new Messi('¿Realmente desea eliminar este registro?.', {
+        title: 'Eliminar',
+        buttons: [
+            {id: 0, label: 'Si', val: 'Y', class: 'btn-danger'},
+            {id: 1, label: 'No', val: 'N'}
+        ],
+        callback: function(val) {
+            if(val=="Y"){
+                var url = "api/empleados.php";
+                var data = "accion=elim&id="+id;
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                    data:data,
+                    success:function(res){
+                        var obj = jQuery.parseJSON(res);
+                        if(obj.success){
+                            window.location.href="?m=emp";
+                        }
+                    }
+                });
             }
         }
     });
 }
 
 function abrirModificar(id){
+    $("label.error").hide();
+    $(".error").removeClass("error");
     var url = "api/empleados.php";
     var data = "accion=get&id="+id;
     $.ajax({
@@ -283,8 +344,13 @@ function abrirModificar(id){
                 $("#txtDocumento").val(obj.datos[0].numero_documento);
                 $("#cmbCargo").val(obj.datos[0].fk_id_cargo);
                 $("#cmbPais").val(obj.datos[0].fk_id_pais);
+                if(obj.datos[0].admin=="1") $("#inlineRadioAdmin1").prop("checked", true);
+                else $("#inlineRadioAdmin0").prop("checked", true);
+                if(obj.datos[0].estado=="A") $("#inlineRadioEstadoA").prop("checked", true);
+                else $("#inlineRadioEstadoI").prop("checked", true);
                 $("#accion").val("mod");
                 $("#id").val(obj.datos[0].id_empleado);
+                $( "#txtClave" ).rules("remove");
             }
         }
     });

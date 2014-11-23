@@ -6,10 +6,21 @@ include('conf.php');
 /** Verificamos que se haya escogido un modulo, sino
 * tomamos el valor por defecto de la configuración.
 */
-if (!empty($_GET['m']))
+session_start();
+if(isset($_GET['m'])){
+	if($_GET['m']=="logout"){
+		unset($_SESSION['id_user'], $_SESSION['id_rol'], $_SESSION['id_admin'], $_SESSION['nombre'], $_SESSION['apellido']);
+		session_destroy();
+	}
+}
+
+if (!empty($_GET['m']) && isset($_SESSION['id_user'])){
 	$modulo = $_GET['m'];
-else
+}elseif(isset($_SESSION['id_user'])){
 	$modulo = MODULO_DEFECTO;
+}else{
+	$modulo = "login";
+}
 
 /** También debemos verificar que el valor que nos 
 * pasaron, corresponde a un modulo que existe, caso

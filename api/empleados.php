@@ -14,13 +14,15 @@ if(isset($_REQUEST)){
 		$telefono=$_POST['txtTelefono'];
 		$email=$_POST['txtEmail'];
 		$estadoCivil=$_POST['cmbEstadoCivil'];
-		$tipoDocumento=$_POST['cmbTipoDocumento'];
+		$tipoDocumento=($_POST['cmbTipoDocumento']!="")?$_POST['cmbTipoDocumento']:'1';
 		$documento=$_POST['txtDocumento'];
 		$cargo=$_POST['cmbCargo'];
 		$pais=$_POST['cmbPais'];
+		$admin=$_POST['radAdmin'];
+		$estado=$_POST['radEstado'];
 		$fCreacion=date("Y-m-d H:i:s");
 		if($accion=="nvo"){
-			if(mysql_query("INSERT INTO USUARIO(usuario, clave, estado, fecha_creacion, fk_id_rol) VALUES('$usuario','$clave','A','$fCreacion','2')",$ln)){
+			if(mysql_query("INSERT INTO USUARIO(usuario, clave, estado, fecha_creacion, is_admin, tipo, fk_id_rol) VALUES('$usuario',md5('$clave'),'$estado','$fCreacion','$admin','E','2')",$ln)){
 				$idUsuario=mysql_insert_id($ln);
 				if(mysql_query("INSERT INTO EMPLEADO(nombres, apellidos, genero, fecha_nacimiento, telefono, email, estado_civil, numero_documento, fk_id_cargo, fk_id_pais, fk_id_tipo_documento, fk_id_usuario) VALUES('$nombre','$apellido','$genero','$fNacimiento','$telefono','$email','$estadoCivil','$documento','$cargo','$pais','$tipoDocumento','$idUsuario')",$ln)) $success=true;
 			}
@@ -28,7 +30,9 @@ if(isset($_REQUEST)){
 			$qrIdUser=mysql_query("SELECT fk_id_usuario FROM EMPLEADO WHERE id_empleado='$id'",$ln);
 			list($idUser)=mysql_fetch_array($qrIdUser);
 			if($idUser!=""){
-				if($clave!="") mysql_query("UPDATE USUARIO set clave=md5('$clave') WHERE id_usuario='$idUser'",$ln);
+				$modPass="";
+				if($clave!="") $modPass=",clave=md5('$clave')";
+				mysql_query("UPDATE USUARIO set estado='$estado', is_admin='$admin' $modPass WHERE id_usuario='$idUser'",$ln);
 				if(mysql_query("UPDATE EMPLEADO SET nombres='$nombre', apellidos='$apellido', genero='$genero', fecha_nacimiento='$fNacimiento', telefono='$telefono', email='$email', estado_civil='$estadoCivil', numero_documento='$documento', fk_id_cargo='$cargo', fk_id_pais='$pais', fk_id_tipo_documento='$tipoDocumento' WHERE id_empleado='$id'",$ln)) $success=true;
 			}
 		}
@@ -37,7 +41,7 @@ if(isset($_REQUEST)){
 	}else if($accion=="get"){
 		$id=$_REQUEST['id'];
 		$datos=array();
-		$qr=mysql_query("SELECT e.id_empleado, e.nombres, e.apellidos, e.genero, e.fecha_nacimiento, e.telefono, e.email, e.estado_civil, e.numero_documento, e.fk_id_cargo, e.fk_id_pais, e.fk_id_tipo_documento, u.usuario FROM EMPLEADO e LEFT JOIN USUARIO u ON e.fk_id_usuario=u.id_usuario WHERE e.id_empleado='$id'",$ln);
+		$qr=mysql_query("SELECT e.id_empleado, e.nombres, e.apellidos, e.genero, e.fecha_nacimiento, e.telefono, e.email, e.estado_civil, e.numero_documento, e.fk_id_cargo, e.fk_id_pais, e.fk_id_tipo_documento, u.usuario, u.estado, u.is_admin FROM EMPLEADO e LEFT JOIN USUARIO u ON e.fk_id_usuario=u.id_usuario WHERE e.id_empleado='$id'",$ln);
 		if(mysql_num_rows($qr)==1){
 			$row=mysql_fetch_array($qr);
 			$datos[]=array(
@@ -53,7 +57,9 @@ if(isset($_REQUEST)){
 				"fk_id_cargo"=>$row['fk_id_cargo'],
 				"fk_id_pais"=>$row['fk_id_pais'],
 				"fk_id_tipo_documento"=>$row['fk_id_tipo_documento'],
-				"usuario"=>$row['usuario']
+				"usuario"=>$row['usuario'],
+				"estado"=>$row['estado'],
+				"admin"=>$row['is_admin'],
 			);
 		}
 		$resp=array("success"=>true,"datos"=>$datos);

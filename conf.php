@@ -17,7 +17,7 @@ $conf['cat'] = array('archivo' => 'catalogos.php');
 $conf['est'] = array('archivo' => 'reportes_estadisticas.php');
 $conf['emp'] = array('archivo' => 'empleados.php');
 $conf['cli'] = array('archivo' => 'clientes.php');
-$conf['login'] = array('archivo' => 'login.php', 'layout' => 'layout_login.php');
+$conf['login'] = array('archivo' => '', 'layout' => 'layout_login.php');
 $conf['esthab'] = array('archivo' => 'estado_habitaciones.php');
 //catalogos
 $conf['serv'] = array('archivo' => 'catalogo_servicio.php');
