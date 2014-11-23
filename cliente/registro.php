@@ -23,7 +23,7 @@ include("../includes/conexion.php");
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/validaciones.js"></script>
 <!-- Datepicker JavaScript -->
-<script src="../js/bootstrap-datepicker.js"></script>
+<script src="css/datepicker.js"></script>
 
 <!--************************* Validar que los passwords coinciden **********************-->
   <script type="text/javascript" language="JavaScript">
@@ -122,9 +122,8 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
 <!-- ****************************************************************************************** -->
 <body>
     <div class="container">
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/>            
-      <h3>Crear tu cuenta</h3>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">           
+      <header>Crear tu cuenta</header>
       <!-- **********************************FORMULARIO********************************************* -->          
       <form action="insert_registro.php" method="post" id="passwordForm">
       <header>Nombres:</header>
@@ -185,10 +184,10 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
       <header>Repetir contrasena:</header>
       <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/> 
 
-      <input type="submit">
+      <input type="submit" value="enviar">
       <!-- **********************************FORMULARIO********************************************* -->     
 
-      <a href="login.html">Ya tienes una cuenta? Iniciar sesion</a>
+      <a href="login.php">Ya tienes una cuenta? Iniciar sesion</a>
     </form>
   </div> 
 </div> 
