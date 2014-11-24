@@ -10,7 +10,6 @@ include("../includes/conexion.php");
 
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
 <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
   <!-- End WOWSlider.com HEAD section -->
 
 <!---- Bootstrap---->
@@ -18,12 +17,13 @@ include("../includes/conexion.php");
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
 <link href="../css/datepicker.css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/validaciones.js"></script>
 <!-- Datepicker JavaScript -->
-<script src="css/datepicker.js"></script>
 
 <!--************************* Validar que los passwords coinciden **********************-->
   <script type="text/javascript" language="JavaScript">
@@ -141,7 +141,7 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
       <input type="radio" name="genero" value="Mujer">Mujer<br><br/>
 
       <header>Pais:</header>
-      <select name="cmbPais" id="cmbPais" required="" />
+      <select name="cmbPais" id="cmbPais" required="">
           <option value=""> Seleccione una opci&oacute;n</option>
           <?php
               $qr = mysql_query("SELECT id_pais, nombre_pais FROM PAIS ORDER BY nombre_pais ASC",$ln);
