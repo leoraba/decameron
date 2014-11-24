@@ -13,7 +13,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="includes/slide.php" target="_blank">Inicio</a></li>
+                <li class="active"><a href="includes/wowslide.php" target="_blank">Inicio</a></li>
                 <li><a href="includes/convenciones.php" target="_blank">Convenciones</a></li>
                 <li><a href="includes/todoincluido.php" target="_blank">Vacaciones con todo incluido</a></li>
                 <li><a href="includes/condiciones.php" target="_blank">Condiciones</a></li>
