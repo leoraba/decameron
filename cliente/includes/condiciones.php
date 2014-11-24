@@ -1,5 +1,8 @@
-
-<h4>Condiciones del Royal Decameron Salinitas - ALL INCLUSIVE</h4>
+<div class="page-header">
+      <h3>Condiciones del hotel <small>Todo en un agradable ambiente</small></h3>
+  </div>
+  <img src="img/dec5.jpg" class="img-rounded" width="100%"><br/><br/>
+Condiciones del Royal Decameron Salinitas - ALL INCLUSIVE
 ENTRADA<br/>
 
 A partir de las 15:00 (3.00 PM)<br/><br/>

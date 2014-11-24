@@ -1,3 +1,4 @@
+<br/>
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
 <li><img src="data1/images/d1.jpg" alt="" title="" id="wows1_0"/>Ven y descubre la magia del Todo Incluido Decameron, un concepto para pasar las mejores vacaciones</li>

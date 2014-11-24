@@ -1,48 +1,9 @@
-<!doctype html> 
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Royal Decameron</title>
-	<meta name="viewport" content="width=device-width, ininitial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-</head>
-<body><br/>
-  <div class="container">
-    <div class="row">
-      <div class="span6">
-        <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50"/>
-</div>
-
-<div class="span6">
-  <div class="text-right">
-    <div class="btn-group btn-group-lg">
-     <button type="button" class="btn btn-primary"><a href="login.php" style="color: #FFF">Inicia sesion</a></button>
-      </div>
-       <div class="btn-group btn-group-lg">
-   <button type="button" class="btn btn-default"><a href="registro.php" style="color: #000000">Registrate</a></button>
-       </div>
-     </div>
-</div>    
-
-<div class="row">
-  <div class="span12">
-    <div class="text-center">
-      <div class="btn-group" style="margin: 9px 0;">
-      <button type="button" class="btn btn-default"><a href="index.php">INICIO</a> </button>
-      <button type="button" class="btn btn-default"><a href="convenciones.php">CONVENCIONES</a> </button>
-      <button type="button" class="btn btn-default"><a href="todoincluido.php">VACACIONES TODO INCLUIDO</a></button> 
-      <button type="button" class="btn btn-default"><a href="condiciones.php">CONDICIONES</a></button> 
-      <button type="button" class="btn btn-default"><a href="preguntasfrecuentes.php">PREGUNTAS FRECUENTES</a></button> 
-      <button type="button" class="btn btn-default"><a href="servicios.php">SERVICIOS</a></button>           
-      <button type="button" class="btn btn-default"><a href="#">CONTACTO</a></button>
-    </div>
-    </div>
+<div class="page-header">
+      <h3>Servicios del hotel <small>Siempre a tu disposicion</small></h3>
   </div>
-</div>
-		<p>
-		Internet<br/>
+  <img src="img/dec1.jpg" class="img-rounded" width="100%"><br/><br/>
+
+Internet<br/>
 ¡Gratis! Hay conexión a internet Wi-Fi disponible en algunas habitaciones. Gratis.<br/>
 Hay conexión a internet por cable disponible en algunas habitaciones. De pago.<br/>
 ¡Gratis! Hay conexión a internet Wi-Fi disponible en las zonas comunes. Gratis.<br/><br/>
@@ -69,8 +30,3 @@ General<br/>
 Aire acondicionado, Caja fuerte<br/>
 
 
-		</p>
-
-	</div>
-</body>
-</html>

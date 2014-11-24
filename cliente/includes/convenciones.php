@@ -1,4 +1,8 @@
-<br/>
+<div class="page-header">
+      <h3>Para tus convenciones <small>Tenemos todo lo que necesitas</small></h3>
+  </div>
+  <img src="img/dec4.jpg" class="img-rounded" width="100%"><br/><br/>
+
 CONVENCIONES CON TODO INCLUIDO<br/><br/>
 
 Hoteles Decameron ofrece todos sus planes bajo la modalidad del "TODO INCLUIDO" sin límites de consumo para eventos y convenciones corporativas.
@@ -7,28 +11,26 @@ Disponemos de modernos Centros de Convenciones, dotados con todas las comodidade
 <br/><br/>
 <img align="right" src="img/9.jpg" alt="" class="img-circle">
 <img align="right" src="img/15.jpg" alt="" class="img-rounded">
-    <h4>
     * Convenciones<br/>
     * Reuniones de ventas<br/>
     * Capacitaciones<br/>
     * Conferencias<br/>
     * Lanzamiento de productos<br/>
     * Seminarios y viajes de incentivos entre otros<br/><br/>
-  </h4>
 
-<p>Contamos con un equipo humano altamente comprometido, garantizándole:<br/><br/></p>
+Contamos con un equipo humano altamente comprometido, garantizándole:<br/><br/>
 
 <img align="right" src="img/14.jpg" alt="" class="img-rounded">
 <img align="right" src="img/17.jpg" alt="" class="img-circle">
-<h6> 
+
     * Coordinador permanente del evento<br/>
     * Cóctel de bienvenida<br/>
     * Salones dotados con aire acondicionado central, y equipos audiovisuales básicos<br/>
     * Montaje de acuerdo a las necesidades del grupo<br/>
     * Dos coffee breaks diarios por noche de alojamiento<br/>
     * Seminarios y viajes de incentivos entre otros<br/>
-    * Adicionalmente fiestas tema y talleres vivenciales<br/><br/>
-</h6>    
+    * Adicionalmente fiestas tema y talleres vivenciales<br/><br/><br/>
+   
 <br/>Por estas y muchas más razones esperamos tener la oportunidad de demostrarle porque somos la PRIMERA Y MEJOR opciónes
 </p>		
 	</div>
