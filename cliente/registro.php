@@ -1,6 +1,7 @@
 <?php
 include("../includes/conexion.php");
 ?>
+<<<<<<< HEAD
 <!doctype html> 
 <html>
 <head>
@@ -121,27 +122,34 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
 </head>
 <!-- ****************************************************************************************** -->
 <body>
+=======
+>>>>>>> Validaciones de Jquery en registro.php e index.php
     <div class="container">
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">  
-    <br/><br/>       
-      <header>Crear tu cuenta</header>
+      <div class="row">  
+         
+      <H3>Crear tu cuenta</h3>
       <!-- **********************************FORMULARIO********************************************* -->          
       <form action="insert_registro.php" method="post" id="passwordForm">
-      <header>Nombres:</header>
+      <h5>Nombres:</h5>
       <input type="text" name="nombres" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres" required="" />
       
-      <header>Apellidos:</header>
+      <h5>Apellidos:</h5>
       <input type="text" name="apellidos" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
 
-      <header>Email:</header>
+      <h5>Email:</h5>
       <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico" required="" />
 
-      <header>Genero:</header>
+      <h5>Genero:</h5>
       <input type="radio" name="genero" value="Hombre" checked="checked">Hombre<br>
       <input type="radio" name="genero" value="Mujer">Mujer<br><br/>
 
+<<<<<<< HEAD
       <header>Pais:</header>
       <select name="cmbPais" id="cmbPais" required="">
+=======
+      <h5>Pais:</h5>
+      <select name="cmbPais" id="cmbPais" required="" />
+>>>>>>> Validaciones de Jquery en registro.php e index.php
           <option value=""> Seleccione una opci&oacute;n</option>
           <?php
               $qr = mysql_query("SELECT id_pais, nombre_pais FROM PAIS ORDER BY nombre_pais ASC",$ln);
@@ -151,7 +159,7 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
           ?>
       </select>
 
-      <header>Tipo de documento:</header>
+      <h5>Tipo de documento:</h5>
       <select name="cmbTipoDocumento" id="cmbTipoDocumento">
           <option value=""> Seleccione una opci&oacute;n</option>
           <?php
@@ -162,35 +170,26 @@ $("#fecha_nacimiento").datepicker("option", "maxDate", selectedDate);
           ?>
       </select>
 
-      <header># de documento:</header>
+      <h5># de documento:</h5>
       <input type="text" name="num_documento" maxlength="20" placeholder="# de documento">
 
-      <header># Telefono:</header>
-      <input type='number' name="num_telefono" maxlength="10" placeholder="# de telefono">
+      <h5># Telefono:</h5>
+      <input type='text' name="num_telefono" maxlength="10" placeholder="# de telefono">
 
-      <header>Fecha de nacimiento:</header>
-      <div class='input-group date' id="fecha_nacimiento">
-          <input type='text' class="form-control" name="fecha_nacimiento" required="" />
-          <span class="input-group-addon">
-              <span class="fa fa-calendar"></span>
-          </span>
-      </div>
+      <h5>Fecha de nacimiento:</h5>
+      <input name="fecha_nacimiento" id='fecha_nacimiento' class="form-control" type="datepicker" placeholder="Seleccionar" required=""/>
 
-      <header>Usuario:</header>
+      <h5>Usuario:</h5>
       <input type="text" name="usuario" maxlength="30" placeholder="Usuario" required="" />
 
-      <header>Contrasena:</header>
+      <h5>Contrasena:</h5>
       <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
             
-      <header>Repetir contrasena:</header>
-      <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/> 
+      <h5>Repetir contrasena:</h5>
+      <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/><br/> 
 
       <input type="submit" value="enviar">
       <!-- **********************************FORMULARIO********************************************* -->     
-
-      <a href="login.php">Ya tienes una cuenta? Iniciar sesion</a>
     </form>
-  </div> 
-</div> 
-</body>
-</html>     	
+  </div>
+</div>

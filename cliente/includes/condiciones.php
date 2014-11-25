@@ -2,20 +2,20 @@
       <h3>Condiciones del hotel <small>Todo en un agradable ambiente</small></h3>
   </div>
   <img src="img/dec5.jpg" class="img-rounded" width="100%"><br/><br/>
-Condiciones del Royal Decameron Salinitas - ALL INCLUSIVE
-ENTRADA<br/>
+Condiciones del Royal Decameron Salinitas - ALL INCLUSIVE<br/><br/>
+ENTRADA<br/><br/>
 
 A partir de las 15:00 (3.00 PM)<br/><br/>
 
-SALIDA<br/>
+SALIDA<br/><br/>
 
 Hasta las 13:00 (1:00 PM)<br/><br/>
 
-CANCELACION/PRE-PAGO<br/>
+CANCELACION/PRE-PAGO<br/><br/>
 
 Las condiciones de cancelación y de pago por adelantado pueden variar según el tipo de habitación. Consulta las condiciones de la habitación cuando la selecciones en el menú superior.<br/><br/>
 
-SOBRE NINOS Y CAMAS SUPLETORIAS<br/>
+SOBRE NINOS Y CAMAS SUPLETORIAS<br/><br/>
 
 Pueden alojarse niños de todas las edades.<br/><br/>
 ¡Gratis! Hasta 2 menores de 3 años se pueden alojar gratis en cunas. <br/> <br/>
@@ -25,10 +25,10 @@ Número máximo de camas supletorias / cunas en la habitación: 1.<br/><br/>
 Las camas supletorias y/o cunas están disponibles bajo petición y deben ser confirmadas por el alojamiento.<br/><br/>
 Los suplementos no se calculan automáticamente en el importe total y deben pagarse por separado durante la estancia.<br/><br/>
 		
-MASCOTAS<br/>
+MASCOTAS<br/><br/>
 No se admiten ningun tipo de mascotas en las instalaciones del hotel.<br/><br/>
 
-TARJETAS DE CREDITO<br/>
+TARJETAS DE CREDITO<br/><br/>
    
 - Visa<br/>
 - American Express<br/>
