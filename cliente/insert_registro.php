@@ -5,7 +5,7 @@ $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
 $genero = $_POST['genero'];
 $num_documento = $_POST['num_documento'];
-$fec_nacimiento = $_POST['fecha_nacimiento'];
+$fec_nacimiento = $_POST['nacimiento'];
 $contra = $_POST['contra'];
 $usuario = $_POST['usuario'];
 $cmbpais = $_POST['cmbPais'];
@@ -15,7 +15,7 @@ $sql = "INSERT INTO USUARIO (usuario, clave, estado, fecha_creacion, fk_id_rol) 
 
 if (mysql_query($sql,$ln)) {
 	$id=mysql_insert_id($ln);
-	$sq2 = "INSERT INTO CLIENTE_TITULAR (nombres, apellidos, email, genero, num_documento, fecha_nacimiento, fk_id_tipo_cliente, fk_id_tipo_documento, fk_id_pais, fk_id_usuario) VALUES ('$nombres', '$apellidos', '$email','$genero', '$num_documento', '$fec_nacimiento', '1','$cmbtipodoc','$cmbpais','$id')";
+	$sq2 = "INSERT INTO CLIENTE_TITULAR (nombres, apellidos, email, genero, num_documento, nacimiento, fk_id_tipo_cliente, fk_id_tipo_documento, fk_id_pais, fk_id_usuario) VALUES ('$nombres', '$apellidos', '$email','$genero', '$num_documento', '$nacimiento', '1','$cmbtipodoc','$cmbpais','$id')";
 	mysql_query($sq2,$ln);
 	echo "Usted se ha registrado exitosamente";
 }else {

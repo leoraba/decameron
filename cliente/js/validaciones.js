@@ -33,9 +33,11 @@ $(function() {
   });
   $( "#to" ).datepicker({
     dateFormat: 'dd/mm/yy',
+    minDate: 0,
       maxDate: '+365d',
   });
 });
+
 
 //4. cargar paginas del navbar
 $(document).ready(function(){
@@ -47,14 +49,8 @@ $("#content").load(page);
 return false;
 });
 
+
 //************************************************** Registro.php **************************************************
-//5. fecha nacimiento
-$(function() {
- $( "#fecha_nacimiento" ).datepicker({
-  dateFormat: 'dd/mm/yy',
-      maxDate: '-266m',
-  });
- });
 
 //6. Verificar que los passwords coinciden.
  $(document).ready(function(){

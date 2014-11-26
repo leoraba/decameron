@@ -10,8 +10,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script> 
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
   <link rel="stylesheet" type="text/css" href="engine1/style.css" />
   <script type="text/javascript" src="engine1/jquery.js"></script>
@@ -45,7 +44,7 @@
             <input name="to" id='to' class="form-control" type="datepicker" placeholder="Seleccionar" required=""/>
            
             <!-- Select Basic -->
-            <header># de habitaciones</header>
+            <label class="control-label"># de habitaciones</label>
             <select id="n_habitaciones" name="n_habitaciones" class="form-control">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -54,7 +53,7 @@
             </select>
  
             <!-- Select Basic -->
-            <header>Tipo de habitacion:</header>
+            <label class="control-label">Tipo de habitacion:</label>
             <select id="t_hab" name="t_hab" class="form-control" required=""/>
             <option value="">Ninguna...</option>
             <option value="1">Estandar (1 cama doble)</option>
@@ -96,13 +95,10 @@
     </div>
   </div>
 </div>
-
 <!-- jQuery Version 1.11.1 -->
-<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/validaciones.js"></script><!-- Validaciones de todos los JQuery -->
 <!-- jQuery Version 1.11.1 -->
-
 </body>
 </html>  
