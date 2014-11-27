@@ -18,49 +18,15 @@
 <script type="text/javascript" src="engine1/jquery.js"></script>
 <!-- End WOWSlider.com HEAD section -->
 
-<script type="text/javascript" language="JavaScript">
-function acctionMenu(acc){
-  if(acc=='initConvenciones'){
-    $("#divConvenciones").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  }else if(acc=='initTodoincluido'){
-    $("#divTodoincluido").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  } else if (acc=='initCondiciones'){
-    $("#divCondiciones").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  } else if (acc=='initPreguntasfrecuentes'){
-    $("#divPreguntasfrecuentes").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  } else if (acc=='initServicios'){
-    $("#divServicios").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  } else if (acc=='initLogin'){
-    $("#divLogin").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  } else (acc=='initRegistro'){
-    $("#divRegistro").show();
-    $("#divSlide").hide();
-    $("#divConsultar").hide();
-  }   
-}
-</script>
-
 </head>
   <body>
     <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-    <?php include('includes/nav.php'); ?>
+    <?php include('includes/nav.php');?>
     </nav>
 
   <div class="container" id='divSlide'><!-- Inicio div id="slide" -->
   <br/>
-  <?php include('includes/wowslide.php'); ?><br/><br/>
+  <?php include('includes/wowslide.php');?><br/><br/>
   </div>
 
     <div class="container" id='divConsultar'><!-- Inicio div id="consultar" -->

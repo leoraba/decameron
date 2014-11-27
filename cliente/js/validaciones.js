@@ -1,6 +1,87 @@
 //****************************************** Index.php *************************************************
 //1. Validar navegacion en opcines del navbar
-
+function acctionMenu(acc){
+  if(acc=='initConvenciones'){
+    $("#divConvenciones").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divRegistro").hide();
+  }else if(acc=='initTodoincluido'){
+    $("#divTodoincluido").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divRegistro").hide();
+    $("#divConvenciones").hide();
+  } else if (acc=='initCondiciones'){
+    $("#divCondiciones").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divRegistro").hide();
+    $("#divConvenciones").hide();
+  } else if (acc=='initPreguntasfrecuentes'){
+    $("#divPreguntasfrecuentes").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divRegistro").hide();
+    $("#divConvenciones").hide();
+  } else if (acc=='initServicios'){
+    $("#divServicios").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divLogin").hide();
+    $("#divRegistro").hide();
+    $("#divConvenciones").hide();
+  } else if (acc=='initLogin'){
+    $("#divLogin").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divRegistro").hide();
+    $("#divConvenciones").hide();
+  }  else if(acc=='initRegistro'){
+    $("#divRegistro").show();
+    $("#divSlide").hide();
+    $("#divConsultar").hide();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divConvenciones").hide();
+  } else {
+    $("#divSlide").show();
+    $("#divConsultar").show();
+    $("#divTodoincluido").hide();
+    $("#divCondiciones").hide();
+    $("#divPreguntasfrecuentes").hide();
+    $("#divServicios").hide();
+    $("#divLogin").hide();
+    $("#divConvenciones").hide();
+  }
+}
 //2. Zoom a imagen
 $(document).ready(function(){
        $('#mapa').width(200);
