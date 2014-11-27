@@ -1,7 +1,7 @@
 <?php
 include("../includes/conexion.php");
-$desde = $_POST['from'];
-$hasta = $_POST['to'];
+$desde = $_POST['from1'];
+$hasta = $_POST['to1'];
 $t_hab = $_POST['t_hab'];
 $c_extra = $_POST['c_extra'];
 $n_acomp = $_POST['n_acomp'];

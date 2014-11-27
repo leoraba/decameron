@@ -19,8 +19,8 @@
                 <li><a href="includes/condiciones.php" target="_blank">Condiciones</a></li>
                 <li><a href="includes/preguntasfrecuentes.php" target="_blank">Preguntas frecuentes</a></li>
                 <li><a href="includes/servicios.php" target="_blank">Nuestros servicios</a></li>
-                <li><a href="login.php" target="_blank">Iniciar sesion</a></li>
-                <li><a href="registro.php" target="_blank">Registrarse</a></li>
+                <li><a href="includes/login.php" target="_blank">Iniciar sesion</a></li>
+                <li><a href="includes/registro.php" target="_blank">Registrarse</a></li>
             </ul>
         </div>
     </div>

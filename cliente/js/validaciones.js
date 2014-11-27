@@ -24,7 +24,7 @@ $(document).ready(function(){
        });
    });
 
-//3. Validacion de fechas
+//3. Validacion de fechas de entrada, salida y nacimiento 
 $(function() {
  $( "#from" ).datepicker({
   dateFormat: 'dd/mm/yy',
@@ -36,8 +36,21 @@ $(function() {
     minDate: 0,
       maxDate: '+365d',
   });
+  $( "#from1" ).datepicker({
+    dateFormat: 'dd/mm/yy',
+    minDate: 0,
+      maxDate: '+365d',
+  });
+  $( "#to1" ).datepicker({
+    dateFormat: 'dd/mm/yy',
+    minDate: 0,
+      maxDate: '+365d',
+  });
+   $( "#nacimiento" ).datepicker({
+  dateFormat: 'dd/mm/yy',
+      maxDate: '-18y',
+  });
 });
-
 
 //4. cargar paginas del navbar
 $(document).ready(function(){
@@ -117,4 +130,21 @@ $(document).ready(function() {
     });
 });
 
-//9. 
+//9. Mensajes de alerta
+
+$('#con1').click( function() { alert('La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.'); });
+
+
+//10. ******** CARRITO *******
+ $("#t_habi").change(function() {
+     var val = $(this).val();
+     $("#hab").val(val);
+  });
+  $("#n_cama").change(function() {
+     var val = $(this).val();
+     $("#c_extra").val(val);
+  });
+  $("#t_balcon").change(function() {
+     var val = $(this).val();
+     $("#tbal").val(val);
+  });

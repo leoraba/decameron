@@ -15,6 +15,8 @@
 <script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!---- Bootstrap---->
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
 
 <!-- CALENDARIO -->
 <script>
@@ -41,13 +43,50 @@ $("#salida").val(selectedDate);
 
 </head>
 <body><br/>
-<div class="container"><!-- **********************************PREVIEW********************************************* -->  
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+      <?php include('includes/nav.php'); ?>
+    </nav>
+
+<div class="container">
+  <div class="row">
+  <br/> <br/> <br/> 
+    <?php
+include("../includes/conexion.php");
+$from = $_POST['from'];
+$to = $_POST['to'];
+$n_habitaciones = $_POST['n_habitaciones'];
+$t_hab = $_POST['t_hab'];
+
+
+$sq1 = "SELECT COUNT(id_reserva_habitacion) FROM RESERVA_HABITACION WHERE fecha_inicio >= $from AND fecha_fin <= $to AND fk_id_tipo_habitacion=$t_hab";
+$sq2 = "SELECT COUNT(id_habitacion) FROM HABITACION WHERE fk_id_tipo_habitacion =$t_hab AND estado_habitacion='d'";
+
+$qr1=mysql_query($sq1,$ln);
+$row_reserva=mysql_fetch_array($qr1);
+$resultado_reserva=$row_reserva[0];
+
+$qr2=mysql_query($sq2,$ln);
+$row_habitacion=mysql_fetch_array($qr2);
+$resultado_habitacion=$row_habitacion[0];
+
+echo "$resultado_reserva";
+echo "$resultado_habitacion";
+echo "$sq1";
+echo "$sq2";
+if($resultado_reserva>=$resultado_habitacion){
+  echo "no hay disponibles";
+} else {
+  echo "si hay disponibles";
+}
+?>
+</div>
+</div>
+
+<div class="container">
   <div class="row"> 
-    <a title="Inicio" href="index.php"><img src="img/logo.png" width="150" height="50" href:"index.php"/></a><br/><br/>
-    
     <!-- **********************************FORMULARIO********************************************* -->  
     <form id="reserva" name="reserva" action="insert_reserva.php" method="post">
-
+<br/><br/>
      <table class="table table-striped table-bordered" cellspacing="1" >
         <thead>
           <tr class="info">
@@ -88,9 +127,9 @@ $("#salida").val(selectedDate);
          </script><br/>
 
 		       <span><br/>Entrada:&nbsp;</span>
-            <input id="from" name="from" class="form-control" type="text" style="width:80px" placeholder="Seleccionar" required=""/>
+            <input id="from" name="from" class="form-control" type="text" style="width:200px" placeholder="Seleccionar" required=""/>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;Salida:&nbsp;</span>
-            <input id="to" name="to" class="form-control" type="text" style="width:80px" placeholder="Seleccionar" required=""/>
+            <input id="to" name="to" class="form-control" type="text" style="width:200px" placeholder="Seleccionar" required=""/>
   
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
@@ -365,6 +404,10 @@ $("#salida").val(selectedDate);
  <!-- **********************************FORMULARIO********************************************* -->  
  
      </div>
-
+<!-- jQuery Version 1.11.1 -->
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/validaciones.js"></script><!-- Validaciones de todos los JQuery -->
+<!-- jQuery Version 1.11.1 -->
 </body>
 </html>

@@ -1,17 +1,17 @@
 <?php
 include("../includes/conexion.php");
 ?>
+<!doctype html> 
+    <div class="container">
+    <div class="row">           
       <header>Crear tu cuenta</header>
       <!-- **********************************FORMULARIO********************************************* -->          
-      <form action="insert_registro.php" method="post">
+      <form action="insert_registro.php" method="post" id="passwordForm">
       <header>Nombres:</header>
       <input type="text" name="nombres" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres" required="" />
       
       <header>Apellidos:</header>
       <input type="text" name="apellidos" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
-
-      <header>Fecha de nacimiento:</header>
-  <input name="nacimiento" id='nacimiento' type="datepicker" placeholder="Seleccionar" required=""/>
 
       <header>Email:</header>
       <input type="email" name="email" maxlength="30" placeholder="Tu correo electronico" required="" />
@@ -46,7 +46,15 @@ include("../includes/conexion.php");
       <input type="text" name="num_documento" maxlength="20" placeholder="# de documento">
 
       <header># Telefono:</header>
-      <input type='text' name="num_telefono" maxlength="10" placeholder="# de telefono">
+      <input type='number' name="num_telefono" maxlength="10" placeholder="# de telefono">
+
+      <header>Fecha de nacimiento:</header>
+      <div class='input-group date' id="fecha_nacimiento">
+          <input type='text' class="form-control" name="fecha_nacimiento" required="" />
+          <span class="input-group-addon">
+              <span class="fa fa-calendar"></span>
+          </span>
+      </div>
 
       <header>Usuario:</header>
       <input type="text" name="usuario" maxlength="30" placeholder="Usuario" required="" />
