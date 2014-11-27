@@ -1,13 +1,5 @@
 //****************************************** Index.php *************************************************
 //1. Validar navegacion en opcines del navbar
-$(document).ready(function(){
-$("#content").load("includes/wowslide.php");
-});
-$('a').click(function(){
-var page = $(this).attr('href');
-$("#content").load(page);
-return false;
-});
 
 //2. Zoom a imagen
 $(document).ready(function(){

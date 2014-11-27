@@ -1,6 +1,6 @@
-<div class="page-header">
+
       <h3>Condiciones del hotel <small>Todo en un agradable ambiente</small></h3>
-  </div>
+ 
   <img src="img/dec5.jpg" class="img-rounded" width="100%"><br/><br/>
 Condiciones del Royal Decameron Salinitas - ALL INCLUSIVE<br/><br/>
 ENTRADA<br/><br/>
