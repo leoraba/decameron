@@ -140,21 +140,28 @@
         <span id="errmsg"></span>
         <br/><br/>
         <label class="control-label">Usuario :</label><br/>
-        <input type="text" name="usuario" maxlength="30" placeholder="Usuario" required="" />
+        <input type="text" name="usuario" maxlength="30" class="input_un" onpaste="return false" placeholder=". _ y @ son permitidos" required="" />
         <br/><br/>
+        <script>
+        jQuery(document).ready(function() {
+        jQuery('.input_un').keypress(function(tecla) {
+        if((tecla.charCode < 48 || tecla.charCode > 57) && (tecla.charCode < 95 || tecla.charCode > 122) && (tecla.charCode < 64 || tecla.charCode > 91) && (tecla.charCode < 45 || tecla.charCode > 46) && (tecla.charCode != 32)) return false;
+            });
+        });
+        </script>
         <label class="control-label">Contrasena :</label><br/>
-        <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
+        <input type="password" name="contra" class="password" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
         <br/><br/>
         <label class="control-label">Repetir contrasena :</label><br/>
-        <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
+        <input type="password" name="rcontra" class="confpass" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
         <br/><br/>
-        <input type="submit" value="enviar">
+        <input id="submit" type="submit" value="enviar">
         <br/><br/>
         </form>
         </div>
         </div>
         </div><!-- Fin div id="registro" -->
-
+        
         <div class="container" id="divCondiciones" style="display: none">
         <?php include("includes/condiciones.php");?>
         </div>

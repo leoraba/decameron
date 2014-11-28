@@ -139,28 +139,25 @@ return false;
 //************************************************** Registro.php **************************************************
 
 //6. Verificar que los passwords coinciden.
- $(document).ready(function(){
-  var password1 = document.getElementById('password1');
-    var password2 = document.getElementById('password2');
-      password1.addEventListener('change', checkPasswordValidity, false);
-        password2.addEventListener('change', checkPasswordValidity, false);
-          var form = document.getElementById('passwordForm');
-            form.addEventListener('submit', function() {
-              checkPasswordValidity();
-                if (!this.checkValidity()) {
-                  event.preventDefault();
-              //Implement you own means of displaying error messages to the user here.
-                  password1.focus();
-                }
-              }, false);
-
-  var checkPasswordValidity = function() {
-    if (password1.value != password2.value) {
-      password1.setCustomValidity('Las contrasenas no coinciden.');
-       } else {
-        password1.setCustomValidity('');
-          }
-        };
+ $(document).ready(function() {
+    $('#submit').click(function(event){
+    
+        data = $('.password').val();
+        var len = data.length;
+        
+        if(len < 8) {
+            alert("La contrasena debe contener al menos 8 caracteres");
+            // Prevent form submission
+            event.preventDefault();
+        }
+         
+        if($('.password').val() != $('.confpass').val()) {
+            alert("Contrasena y Repetir contrasena no coinciden. Favor verificar");
+            // Prevent form submission
+            event.preventDefault();
+        }
+         
+    });
 });
 
 //7. Validar nombre y apellidos contengan solo letras
@@ -181,7 +178,6 @@ jQuery(document).ready(function() {
         if((tecla.charCode < 48 || tecla.charCode > 57) && (tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)) return false;
     });
 });
-
 
 //9. Validar si el nombre de usuario esta disponible
 $(document).ready(function() {

@@ -7,6 +7,7 @@ $genero = $_POST['genero'];
 $num_documento = $_POST['num_documento'];
 $fec_nacimiento = $_POST['nacimiento'];
 $contra = $_POST['contra'];
+$telefono = $_POST['num_telefono']; //falta agregar campo
 $usuario = $_POST['usuario'];
 $cmbpais = $_POST['cmbPais'];
 $cmbtipodoc = $_POST['cmbTipoDocumento'];

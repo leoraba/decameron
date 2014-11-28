@@ -4,19 +4,15 @@
 <meta charset="utf-8">
 <title>Reserva</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!---- Bootstrap---->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
-<link rel="stylesheet" href="css/jquery-ui.css" />
-<script src="js/jquery-1.11.0.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="dist/js/bootstrapValidator.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!---- Bootstrap---->
-<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
+<!---- Bootstrap---->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css">
+<link rel="stylesheet" href="dist/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
 <!-- CALENDARIO -->
 <script>
@@ -42,10 +38,8 @@ $("#salida").val(selectedDate);
 <!-- CALENDARIO -->
 
 </head>
-<body><br/>
-<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-      <?php include('includes/nav.php'); ?>
-    </nav>
+<body>
+<br/>
 
 <div class="container">
   <div class="row">
@@ -84,6 +78,10 @@ if($resultado_reserva>=$resultado_habitacion){
 
 <div class="container">
   <div class="row"> 
+    <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <?php include('includes/nav.php');?>
+    </nav>
+
     <!-- **********************************FORMULARIO********************************************* -->  
     <form id="reserva" name="reserva" action="insert_reserva.php" method="post">
 <br/><br/>
@@ -124,41 +122,45 @@ if($resultado_reserva>=$resultado_habitacion){
           $("#con1").click(function () {
          alert("La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.");
           });
-         </script><br/>
+         </script><br/><br/>
 
-		       <span><br/>Entrada:&nbsp;</span>
-            <input id="from" name="from" class="form-control" type="text" style="width:200px" placeholder="Seleccionar" required=""/>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;Salida:&nbsp;</span>
-            <input id="to" name="to" class="form-control" type="text" style="width:200px" placeholder="Seleccionar" required=""/>
-  
+		       <label class ="control-label">Fecha de entrada :</label><br/>
+            <input id="from" name="from" type="text"  placeholder="Seleccionar" required=""/>
+            <br/><br/>
+            <label class ="control-label">Fecha de salida :</label><br/>
+            <input id="to" name="to" type="text"  placeholder="Seleccionar" required=""/>
+            <br/><br/>
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
             <script type="text/javascript" language="JavaScript">
             $("#con2").click(function () {
             alert("Número máximo de camas supletorias o cunas en la habitación: 1.\n\nLas camas supletorias y/o cunas están disponibles bajo petición y deben ser confirmadas por el alojamiento.\n\nLos suplementos no se calculan automáticamente en el importe total y deben pagarse por separado durante la estancia.");
             });
-            </script><br/>
+            </script><br/><br/>
            
-	         <span><br/>Tipo:</span>
-		        <select id="t_hab" name="t_hab" class="form-control" required=""/>
+	         <label class ="control-label">Tipo de habitacion :</label><br/>
+		        <select id="t_hab" name="t_hab" style="height:30px" required=""/>
             <option value="">Elejir...</option>
             <option value="sencilla">Estandar (1 cama king)</option>
             <option value="doble">Doble (2 camas dobles)</option>
             </select>
+            <br/><br/>
 
-	         <span>&nbsp;&nbsp;&nbsp;Cama extra?</span>
-		        <select id="n_cama" name="c_extra" class="form-control">
+	         <label class ="control-label">Deseas adicionar una cama/cuna extra? :</label><br/>
+		        <select id="n_cama" name="c_extra" style="height:30px">
             <option value="">Ninguna...</option>
 		        <option value="cama">Una cama adicional</option>
             <option value="cuna">Una cuna adicional</option>
             </select>
+            <br/><br/>
 
-           <span>&nbsp;&nbsp;&nbsp;Tipo de balcon:</span>
-		        <select id="t_balcon" name="t_balcon" class="form-control" required=""/>
+           <label class ="control-label">Tipo de balcon :</label><br/>
+		        <select id="t_balcon" name="t_balcon" style="height:30px" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Vista a la piscina</option>
             <option value="2">Vista al jardin</option>
             </select>
+            <br/><br/>
 
           <h4>3. Detalle de Huespedes</h4>
           <input type="button" id="con3" value="Ver condiciones"/> 
@@ -166,7 +168,7 @@ if($resultado_reserva>=$resultado_habitacion){
           $("#con3").click(function () {
           alert("¡Gratis! Hasta 2 menores de 3 años se pueden alojar gratis en cunas.\n\nHasta 2 niños de 3 a 11 años se pueden alojar por 60 USD por noche utilizando las camas existentes.\n\nHasta 2 niños mayores de esa edad o adultos se pueden alojar por 158 USD por noche utilizando las camas existentes.");
           });
-          </script>
+          </script><br/><br/>
  
     <!--**************************************** CARRITO *********************************************************-->
 
@@ -236,178 +238,218 @@ if($resultado_reserva>=$resultado_habitacion){
   }  
 }
 </script>
-<!-- ghfssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
-      <header><br/>Huespedes por habitacion</header>
-	    <select id="acomp" name="n_acomp" class="form-control" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
+<!-- ****************************************************************************************************-->
+      <label class ="control-label">Huespedes a registar en habitacion :</label><br/>
+	    <select id="acomp" name="n_acomp" style="height:30px" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
-      </select><br/>
+      </select><br/><br/>
       
     <div id="reg1Acomp">
-      <h5> Datos huesped:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombres" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombres" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_1" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero1" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero1" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
     </div>
 
     <div id="reg2Acomp">
-      <h5> Datos huesped 1:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Apellidos" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 1:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_1" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero1" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
-            <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
-      </select>
-      <h5> Datos huesped 2:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <input type="radio" name="genero1" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
+           <option value="">Elejir...</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
+      </select><br/>
+      <h4> Datos huesped 2:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_2" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_2" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero2" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero2" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
     </div>
 
     <div id="reg3Acomp">
-      <h5> Datos huesped 1:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 1:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_1" class="input_letras"maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_1" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero1" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero1" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
-      <h5> Datos huesped 2:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 2:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_2" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_2" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero2" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero2" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
-      <h5> Datos huesped 3:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_3" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_3" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 3:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_3" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_3" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero3" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero3" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero3" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
     </div>
   
 <div id="reg4Acomp">
-      <h5> Datos huesped 1:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_1" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_1" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 1:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_1" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero1" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero1" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
-      <h5> Datos huesped 2:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_2" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 2:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_2" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_2" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero2" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero2" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
-      <h5> Datos huesped 3:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_3" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_3" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 3:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_3" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_3" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero3" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero3" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_1" name="edad_acom_1" class="form-control" required=""/>
+      <input type="radio" name="genero3" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
-      <h5> Datos huesped 4:</h5>
-      <header>Nombres:</header>
-      <input type="text" name="nom_acom_4" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Apellidos:</header>
-      <input type="text" name="ape_acom_4" maxlength="30" placeholder="Nombre" required=""/>
-      <header>Genero:</header>
+      <h4> Datos huesped 4:</h4>
+      <label class ="control-label">Nombres :</label><br/>
+      <input type="text" name="nom_acom_4" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
+      <br/><br/>
+      <label class ="control-label">Apellidos :</label><br/>
+      <input type="text" name="ape_acom_4" class="input_letras" maxlength="30" placeholder="Apellidos" required=""/>
+      <br/><br/>
+      <label class ="control-label">Genero :</label><br/>
       <input type="radio" name="genero4" value="Hombre" checked="checked">Hombre
-      <input type="radio" name="genero4" value="Mujer">Mujer<br/><br/>
-      <header>Edad:</header>
-      <select id="edad_acom_4" name="edad_acom_4" class="form-control" required=""/>
+      <input type="radio" name="genero4" value="Mujer">Mujer
+      <br/><br/>
+      <label class ="control-label">Rango de edad :</label><br/>
+      <select id="edad_acom_4" name="edad_acom_4" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño de 3 a 11 años</option>
-            <option value="2">Adulto</option>
+            <option value="1">Niño/a menor de 3 años</option>
+            <option value="2">Niño/a de 3 a 11 años</option>
+            <option value="3">Adulto</option>
       </select>
     </div>
 <br/>
 <input type="submit" value="Realizar reservacion" style="font-face: 'Comic Sans MS'; font-size: larger; color: white; background-color: #289510; border: 5pt ridge lightgrey">
-
+<br/><br/>
 </form>
     </div> 
  <!-- **********************************FORMULARIO********************************************* -->  
  
      </div>
 <!-- jQuery Version 1.11.1 -->
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/validaciones.js"></script><!-- Validaciones de todos los JQuery -->
+<script type="text/javascript" src="js/validaciones.js"></script>
 <!-- jQuery Version 1.11.1 -->
+
 </body>
 </html>
