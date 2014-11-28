@@ -164,26 +164,26 @@ return false;
 });
 
 //7. Validar nombre y apellidos contengan solo letras
-function sololetras(e){
-        key=e.keyCode || e.witch;
-        teclado=String.fromCharCode(key).toLowerCase();
-        letras=" abcdefghijklmnñopqrstuvwxyz";
-        especiales="8-37-38-46-164";
-        teclado_especial=false;
+jQuery('.input_letras').keypress(function(tecla) {
+if((tecla.charCode < 97 || tecla.charCode > 122) && (tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode != 32)) return false;
+});
 
-        for (var i in especiales){
-        if (key==especiales[i]){
-        teclado_especial=true;
-        break;
-         }
-        }
+//8. validar solo numeros
+jQuery(document).ready(function() {
+    jQuery('.input_num').keypress(function(tecla) {
+        if(tecla.charCode < 48 || tecla.charCode > 57) return false;
+    });
+});
 
-        if (letras.indexOf(teclado)==-1 && !teclado_especial){
-        return false;
-          }
-         }
+//8. validar alfanumerico
+jQuery(document).ready(function() {
+    jQuery('.input_alphanum').keypress(function(tecla) {
+        if((tecla.charCode < 48 || tecla.charCode > 57) && (tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)) return false;
+    });
+});
 
-//8. Validar si el nombre de usuario esta disponible
+
+//9. Validar si el nombre de usuario esta disponible
 $(document).ready(function() {
     $('#usuario').blur(function(){
 
@@ -203,11 +203,6 @@ $(document).ready(function() {
     });
 });
 
-//9. Mensajes de alerta
-
-$('#con1').click( function() { alert('La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.'); });
-
-
 //10. ******** CARRITO *******
  $("#t_habi").change(function() {
      var val = $(this).val();
@@ -221,3 +216,5 @@ $('#con1').click( function() { alert('La estadía NO puede ser mayor a 31 días,
      var val = $(this).val();
      $("#tbal").val(val);
   });
+
+

@@ -94,24 +94,24 @@
         <form action="insert_registro.php" method="post">
         <?php include("../includes/conexion.php");?>
         <h3>Crear tu cuenta</h3>
-        <label class="control-label">Nombres</label><br/>
-        <input type="text" name="nombres" class="form-control" style="width:200px" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus nombres" required="" />
-        <br/>
-        <label class="control-label">Apellidos</label><br/>
-        <input type="text" name="apellidos" class="form-control" style="width:200px" onkeypress="return sololetras(event)" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
-        <br/>
-        <label class="control-label">Fecha de nacimiento</label><br/>
-        <input name  ="nacimiento" id='nacimiento' class="form-control" style="width:200px" type="datepicker" style="width:200px" placeholder="Seleccionar" required=""/>
-        <br/>
-        <label class ="control-label">Correo electronico</label><br/>
-        <input type  ="email" name="email" maxlength="30" class="form-control" style="width:200px" placeholder="Tu correo electronico" required="" />
-        <br/>
-        <label class ="control-label">Genero</label><br/>
-        <input type  ="radio" name="genero" value="Hombre" checked="checked">Hombre<br>
-        <input type  ="radio" name="genero" value="Mujer">Mujer<br><br/>
-        <br/>
-        <label class="control-label">Pais de origen</label><br/>
-        <select name="cmbPais" id="cmbPais" class="form-control" style="width:200px" required="" />
+        <label class="control-label">Nombres :</label><br/>
+        <input type="text" name="nombres" class="input_letras" onpaste="return false" maxlength="30" placeholder="Tus nombres" required="" />
+        <br/><br/>
+        <label class="control-label">Apellidos :</label><br/>
+        <input type="text" name="apellidos" class="input_letras" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
+        <br/><br/>
+        <label class= "control-label">Fecha de nacimiento :</label><br/>
+        <input name ="nacimiento" id='nacimiento' type="datepicker" placeholder="Seleccionar" required=""/>
+        <br/><br/>
+        <label class ="control-label">Correo electronico :</label><br/>
+        <input type  ="email" name="email" maxlength="30" placeholder="Tu correo electronico" required="" />
+        <br/><br/>
+        <label class ="control-label">Genero :</label><br/>
+        <input type  ="radio" name="genero" value="Hombre">Hombre<br>
+        <input type  ="radio" name="genero" value="Mujer">Mujer
+        <br/><br/>
+        <label class="control-label">Pais de origen :</label><br/>
+        <select name="cmbPais" id="cmbPais" style="height:30px" required="" />
         <option value=""> Seleccione una opci&oacute;n</option>
         <?php
         $qr = mysql_query("SELECT id_pais, nombre_pais FROM PAIS ORDER BY nombre_pais ASC",$ln);
@@ -120,9 +120,9 @@
         } 
         ?>
         </select>
-        <br/>
-        <label class="control-label">Tipo de documento</label><br/>
-        <select name="cmbTipoDocumento" id="cmbTipoDocumento" class="form-control" style="width:200px">
+        <br/><br/>
+        <label class="control-label">Tipo de documento :</label><br/>
+        <select name="cmbTipoDocumento" id="cmbTipoDocumento" style="height:30px">
         <option value=""> Seleccione una opci&oacute;n</option>
         <?php
         $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
@@ -131,24 +131,25 @@
         }
         ?>
         </select>
-        <br/>
-        <label class="control-label"># de documento</label>
-        <input type="text" name="num_documento" maxlength="20" class="form-control" style="width:200px" placeholder="# de documento" required="" />
-        <br/>
-        <label class="control-label"># de telefono</label><br/>
-        <input type='text' name="num_telefono" id="num_telefono" maxlength="10" class="form-control" style="width:200px" placeholder="# de telefono" required="" />
+        <br/><br/>
+        <label class="control-label"># de documento :</label><br/>
+        <input type="text" name="num_documento" maxlength="12" class="input_alphanum" placeholder="# de documento" required="" />
+        <br/><br/>
+        <label class="control-label"># de telefono :</label><br/>
+        <input type='text' name="num_telefono" id="num_telefono" class="input_num" onpaste="return false" maxlength="10" placeholder="# de telefono" required="" />
         <span id="errmsg"></span>
-        <br/>
-        <label class="control-label">Usuario</label><br/>
-        <input type="text" name="usuario" maxlength="30" class="form-control" style="width:200px" placeholder="Usuario" required="" />
-        <br/>
-        <label class="control-label">Contrasena</label><br/>
-        <input type="password" name="contra" class="form-control" style="width:200px" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
-        
-        <label class="control-label">Repetir contrasena</label><br/>
-        <input type="password" name="rcontra" class="form-control" style="width:200px" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/><br/>
-        
+        <br/><br/>
+        <label class="control-label">Usuario :</label><br/>
+        <input type="text" name="usuario" maxlength="30" placeholder="Usuario" required="" />
+        <br/><br/>
+        <label class="control-label">Contrasena :</label><br/>
+        <input type="password" name="contra" required id="password1"  pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
+        <br/><br/>
+        <label class="control-label">Repetir contrasena :</label><br/>
+        <input type="password" name="rcontra" required id="password2" pattern=".{8,}" required title="Tu contrasena debe tener al menos 8 caracteres" placeholder="8 caracteres minimo"/>
+        <br/><br/>
         <input type="submit" value="enviar">
+        <br/><br/>
         </form>
         </div>
         </div>
