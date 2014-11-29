@@ -35,22 +35,25 @@
     <form action="reserva_habitacion.php" method="post">
     <h4>CONSULTAR</h4>
     <label class="control-label">Fecha de entrada</label><br/>
-    <input name="from" id='from' class="form-control" type="datepicker" placeholder="Seleccionar" required=""/>
+    <input name="from" id='from' type="datepicker" placeholder="Seleccionar" required=""/>
+    <br/><br/>
     <label class="control-label">Fecha de salida</label><br/>
-    <input name="to" id='to' class="form-control" type="datepicker" placeholder="Seleccionar" required=""/>
-    <label class="control-label"># de habitaciones</label>
-    <select id="n_habitaciones" name="n_habitaciones" class="form-control">
+    <input name="to" id='to' type="datepicker" placeholder="Seleccionar" required=""/>
+    <br/><br/>
+    <label class="control-label"># de habitaciones</label><br/>
+    <select id="n_habitaciones" name="n_habitaciones" style="height:30px">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     </select>
+    <br/><br/>
     <label class="control-label">Tipo de habitacion:</label>
-    <select id="t_hab" name="t_hab" class="form-control" required=""/>
+    <select id="t_hab" name="t_hab" style="height:30px" required=""/>
     <option value="">Seleccionar...</option>
     <option value="1">Estandar (1 cama doble)</option>
     <option value="2">Doble (2 camas dobles) </option>
-    </select>
+    </select><br/><br/>
     <input type="submit" value="CONSULTAR">
     </form>
     </div>

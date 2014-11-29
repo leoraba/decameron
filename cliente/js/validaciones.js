@@ -103,25 +103,39 @@ $(function() {
   dateFormat: 'dd/mm/yy',
     minDate: 0,
       maxDate: '+6m',
+      changeMonth: true,
+            changeYear: true,
   });
   $( "#to" ).datepicker({
     dateFormat: 'dd/mm/yy',
     minDate: 0,
       maxDate: '+365d',
+      changeMonth: true,
+            changeYear: true,
+          
   });
   $( "#from1" ).datepicker({
     dateFormat: 'dd/mm/yy',
     minDate: 0,
       maxDate: '+365d',
+      changeMonth: true,
+            changeYear: true,
+            
   });
   $( "#to1" ).datepicker({
     dateFormat: 'dd/mm/yy',
     minDate: 0,
       maxDate: '+365d',
+      changeMonth: true,
+            changeYear: true,
+            
   });
    $( "#nacimiento" ).datepicker({
   dateFormat: 'dd/mm/yy',
       maxDate: '-18y',
+      changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:1996'
   });
 });
 
