@@ -114,8 +114,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li <?=($modulo=="prod")?"class='active'":""?>>
-                        <a href="?m=prod"><i class="fa fa-fw fa-edit"></i> Productos</a>
+                    <li <?=($modulo=="mainprod")?"class='active'":""?>>
+                        <a href="?m=mainprod"><i class="fa fa-fw fa-edit"></i> Productos</a>
                     </li>
                     <li <?=($modulo=="cat")?"class='active'":""?>>
                         <a href="?m=cat"><i class="fa fa-fw fa-wrench"></i> Cat&aacute;logos</a>

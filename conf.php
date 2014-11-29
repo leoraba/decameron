@@ -9,7 +9,7 @@ define('MODULO_PATH', realpath('./modulos/'));
 define('LAYOUT_PATH', realpath('./layouts/'));
 
 $conf['home'] = array('archivo' => 'home.php');
-$conf['prod'] = array('archivo' => 'main_productos.php');
+$conf['mainprod'] = array('archivo' => 'main_productos.php');
 $conf['sal'] = array('archivo' => 'main_salones.php');
 $conf['hab'] = array('archivo' => 'reserva_habitacion.php');
 $conf['fact'] = array('archivo' => 'facturacion.php');
