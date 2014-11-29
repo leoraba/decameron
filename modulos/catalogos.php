@@ -66,7 +66,7 @@
 		</a>
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="m=documento" class="thumbnail">
+		<a href="?m=doc" class="thumbnail">
 			<i class="fa fa-credit-card"></i>
 			<div class="caption">
 				<h5>Documentos</h5>
