@@ -89,4 +89,21 @@
 			</div>
 		</a>
 	</div>
+	<div class="col-md-2 col-sm-3 col-xs-6">
+		<a href="?m=banco" class="thumbnail">
+			<i class="fa fa-bank"></i>
+			<div class="caption">
+				<h5>Banco</h5>
+			</div>
+		</a>
+	</div>
+	<div class="col-md-2 col-sm-3 col-xs-6">
+		<a href="?m=empre" class="thumbnail">
+			<i class="fa fa-home"></i>
+			<div class="caption">
+				<h5>Empresa</h5>
+			</div>
+		</a>
+	</div>
+	
 </div>
