@@ -74,7 +74,7 @@
                                 <?php
                                     $qrtipo=mysql_query("SELECT id_tipo_habitacion, nombre_tipo FROM TIPO_HABITACION ORDER BY nombre_tipo DESC",$ln);
                                     while($row=mysql_fetch_array($qrtipo)){
-                                        echo "<option ".$row['id_tipo_habitacion'].">".$row['nombre_tipo']."</option>\n";
+                                        echo "<option value='".$row['id_tipo_habitacion']."'>".$row['nombre_tipo']."</option>\n";
                                     }
                                 ?>
                             </select>
@@ -87,7 +87,7 @@
                                 <?php
                                     $qrtipo=mysql_query("SELECT id_tipo_habitacion, nombre_tipo FROM TIPO_HABITACION ORDER BY nombre_tipo DESC",$ln);
                                     while($row=mysql_fetch_array($qrtipo)){
-                                        echo "<option ".$row['id_tipo_habitacion'].">".$row['nombre_tipo']."</option>\n";
+                                        echo "<option value='".$row['id_tipo_habitacion']."'>".$row['nombre_tipo']."</option>\n";
                                     }
                                 ?>
                             </select>
@@ -100,7 +100,7 @@
                             <?php
                                 $qrtipo=mysql_query("SELECT id_tipo_habitacion, nombre_tipo FROM TIPO_HABITACION ORDER BY nombre_tipo DESC",$ln);
                                 while($row=mysql_fetch_array($qrtipo)){
-                                    echo "<option ".$row['id_tipo_habitacion'].">".$row['nombre_tipo']."</option>\n";
+                                    echo "<option value='".$row['id_tipo_habitacion']."'>".$row['nombre_tipo']."</option>\n";
                                 }
                             ?>
                             </select>
@@ -143,15 +143,15 @@
                                 $qr=mysql_query("SELECT ct.id_cliente_titular, ct.nombres, ct.apellidos, ct.num_documento, td.tipo_documento FROM CLIENTE_TITULAR ct LEFT JOIN TIPO_DOCUMENTO td ON ct.fk_id_tipo_documento=td.id_tipo_documento ORDER BY ct.nombres DESC",$ln);
                                 while($row=mysql_fetch_array($qr)){
                                     $cadenaCliente=$row['nombres']." ".$row['apellidos']."(".$row['tipo_documento'].": ".$row['num_documento'].")";
-                                    echo "<option id='".$row['id_cliente_titular']."'>$cadenaCliente</option>\n";
+                                    echo "<option value='".$row['id_cliente_titular']."'>$cadenaCliente</option>\n";
                                 }
                             ?>
                         </select>
-                        <button class="btn btn-lg btn-link" type="button" name="btnNuevoCliente" id="btnNuevoCliente">Nuevo cliente</button>
+                        <button class="btn btn-lg btn-link" type="button" name="btnNuevoHuesped" id="btnNuevoHuesped">Nuevo Huesped</button>
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" type="button" id="btnGuardarHuesped" name="btnGuardarHuesped">
+                    <button class="btn btn-primary" type="submit" id="btnGuardarHuesped" name="btnGuardarHuesped">
                         <i class="fa fa-save"></i>
                         Guardar
                     </button>
@@ -225,7 +225,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -280,7 +280,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -335,7 +335,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -390,7 +390,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -479,7 +479,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -534,7 +534,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -589,7 +589,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -644,7 +644,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -735,7 +735,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -790,7 +790,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -845,7 +845,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -900,7 +900,7 @@
                                         <?php
                                             $qrTipoDocu=mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento DESC",$ln);
                                             while($row=mysql_fetch_array($qrTipoDocu)){
-                                                echo "<option id=".$row['id_tipo_documento'].">".$row['tipo_documento']."</option>\n";
+                                                echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>\n";
                                             }
                                         ?>
                                     </select>
@@ -1118,10 +1118,7 @@
             allowClear: true,
             minimumInputLength: 3
         });
-        $("#btnGuardarHuesped").click(function(){
-            $( "#divGuest" ).hide();
-            $( "#divCompanion1" ).show("slide", { direction: "right"}, 1000); 
-        });
+        
         $("#btnRegresarDate").click(function(){
             $( "#divGuest" ).hide();
             $( "#divDate" ).show("slide", { direction: "left"}, 1500);
@@ -1145,8 +1142,8 @@
         //validacion formularios paso 1 y paso 3
         $("#paso1_form").validate({
             rules:{
-                txtFechaInicio: { required: true, date: true },
-                txtFechaFin: { required: true, date: true, validateDates: true }
+                txtFechaInicio: { required: true },
+                txtFechaFin: { required: true, validateDates: true }
             },
             submitHandler: function(form) { 
                 $( "#spanTipoHab1" ).text($("#cmbTipoHabitacion1").val());
@@ -1156,27 +1153,40 @@
                 $( "#divGuest" ).show("slide", { direction: "right"}, 1000);
             }
         });
+        $("#paso2_form").validate({
+            rules:{
+                txtSearchHuesped: { require: true }
+            },
+            submitHandler: function(form) {
+                if($("#txtSearchHuesped").val()!=""){
+                    $( "#divGuest" ).hide();
+                    $( "#divCompanion1" ).show("slide", { direction: "right"}, 1000); 
+                }else{
+                    new Messi('Seleccione un huesped', {title: 'Huesped', titleClass: 'anim error', buttons: [{id: 0, label: 'Close', val: 'X'}], modal: true });
+                }
+            }
+        });
 
         $("#paso3_form_h1").validate({
             rules:{
                 txtNombreHab1Huesped1: { required: true, maxlength: 100 },
                 txtApellidoHab1Huesped1: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab1Huesped1: { required: true, date: true },
+                txtFechaNacimientoHab1Huesped1: { required: true },
                 txtDocumentoHab1Huesped1: { required: true, maxlength: 50 },
 
                 txtNombreHab1Huesped2: { required: true , maxlength: 100 },
                 txtApellidoHab1Huesped2: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab1Huesped2: { required: true, date: true },
+                txtFechaNacimientoHab1Huesped2: { required: true },
                 txtDocumentoHab1Huesped2: { required: true, maxlength: 50 },
 
                 txtNombreHab1Huesped3: { required: true , maxlength: 100 },
                 txtApellidoHab1Huesped3: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab1Huesped3: { required: true, date: true },
+                txtFechaNacimientoHab1Huesped3: { required: true },
                 txtDocumentoHab1Huesped3: { required: true, maxlength: 50 },
 
                 txtNombreHab1Huesped4: { required: true , maxlength: 100 },
                 txtApellidoHab1Huesped4: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab1Huesped4: { required: true, date: true },
+                txtFechaNacimientoHab1Huesped4: { required: true },
                 txtDocumentoHab1Huesped4: { required: true, maxlength: 50 },
 
             },
@@ -1191,22 +1201,22 @@
             rules:{
                 txtNombreHab2Huesped1: { required: true, maxlength: 100 },
                 txtApellidoHab2Huesped1: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab2Huesped1: { required: true, date: true },
+                txtFechaNacimientoHab2Huesped1: { required: true },
                 txtDocumentoHab2Huesped1: { required: true, maxlength: 50 },
 
                 txtNombreHab2Huesped2: { required: true , maxlength: 100 },
                 txtApellidoHab2Huesped2: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab2Huesped2: { required: true, date: true },
+                txtFechaNacimientoHab2Huesped2: { required: true },
                 txtDocumentoHab2Huesped2: { required: true, maxlength: 50 },
 
                 txtNombreHab2Huesped3: { required: true , maxlength: 100 },
                 txtApellidoHab2Huesped3: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab2Huesped3: { required: true, date: true },
+                txtFechaNacimientoHab2Huesped3: { required: true },
                 txtDocumentoHab2Huesped3: { required: true, maxlength: 50 },
 
                 txtNombreHab2Huesped4: { required: true , maxlength: 100 },
                 txtApellidoHab2Huesped4: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab2Huesped4: { required: true, date: true },
+                txtFechaNacimientoHab2Huesped4: { required: true },
                 txtDocumentoHab2Huesped4: { required: true, maxlength: 50 },
 
             },
@@ -1221,22 +1231,22 @@
             rules:{
                 txtNombreHab3Huesped1: { required: true, maxlength: 100 },
                 txtApellidoHab3Huesped1: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab3Huesped1: { required: true, date: true },
+                txtFechaNacimientoHab3Huesped1: { required: true },
                 txtDocumentoHab3Huesped1: { required: true, maxlength: 50 },
 
                 txtNombreHab3Huesped2: { required: true , maxlength: 100 },
                 txtApellidoHab3Huesped2: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab3Huesped2: { required: true, date: true },
+                txtFechaNacimientoHab3Huesped2: { required: true },
                 txtDocumentoHab3Huesped2: { required: true, maxlength: 50 },
 
                 txtNombreHab3Huesped3: { required: true , maxlength: 100 },
                 txtApellidoHab3Huesped3: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab3Huesped3: { required: true, date: true },
+                txtFechaNacimientoHab3Huesped3: { required: true },
                 txtDocumentoHab3Huesped3: { required: true, maxlength: 50 },
 
                 txtNombreHab3Huesped4: { required: true , maxlength: 100 },
                 txtApellidoHab3Huesped4: { required: true, maxlength: 100 },
-                txtFechaNacimientoHab3Huesped4: { required: true, date: true },
+                txtFechaNacimientoHab3Huesped4: { required: true },
                 txtDocumentoHab3Huesped4: { required: true, maxlength: 50 },
 
             },
@@ -1268,8 +1278,7 @@
             success:function(res){
                 var obj = jQuery.parseJSON(res);
                 if(obj.success){
-                    alert("Reservacion guardada exitosamente");
-                    window.location.href="?m=hab";
+                    new Messi('Reserva creada exitosamente.', {title: 'Reserva', titleClass: 'success', buttons: [{id: 0, label: 'Close', val: 'X'}], modal: true, callback: function(){ window.location.href="?m=hab"; }});
                 }
             }
         });
