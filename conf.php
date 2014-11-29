@@ -32,4 +32,7 @@ $conf['tar'] = array('archivo' => 'catalogo_tarifa.php');
 $conf['cathab'] = array('archivo' => 'catalogo_habitacion.php');
 $conf['thab'] = array('archivo' => 'catalogo_thabitacion.php');
 $conf['edi'] = array('archivo' => 'catalogo_edificio.php');
+$conf['empre'] = array('archivo' => 'catalogo_empresa.php');
+$conf['giro'] = array('archivo' => 'catalogo_giro.php');
+$conf['banco'] = array('archivo' => 'catalogo_banco.php');
 ?>
