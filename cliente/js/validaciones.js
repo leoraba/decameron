@@ -119,7 +119,8 @@ $(function() {
     minDate: 0,
       maxDate: '+365d',
       changeMonth: true,
-            changeYear: true,
+      changeYear: true,
+            yearRange: '2014:2015'
             
   });
   $( "#to1" ).datepicker({
@@ -128,6 +129,7 @@ $(function() {
       maxDate: '+365d',
       changeMonth: true,
             changeYear: true,
+            yearRange: '2014:2015'
             
   });
    $( "#nacimiento" ).datepicker({

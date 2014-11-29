@@ -11,6 +11,9 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+<link href="../css/messi/messi.min.css" rel="stylesheet" type="text/css">
+<script src="../js/messi/messi.min.js"></script>
+
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/validaciones.js"></script>
 <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
@@ -186,18 +189,7 @@
         </div>
 
              <div class="container" id='divLogin' style="display: none"><!-- inicio div id="login" -->
-             <div class="col-md-12"><br/>
-             <h3>Iniciar sesion</h3>
-             <form action="verificar_login.php" method="post" name="passwordForm" id="passwordForm">
-             <header>Usuario:</header>
-             <input type="text" name="user" id="user" class="form-control" style="width:250px" maxlength="30" placeholder="Usuario">
-             <header>Contrasena:</header>
-             <input type="password" name="pass" class="form-control" style="width:250px"  maxlength="30" placeholder="Contrasena">
-             <br/>
-             <input type="submit" value="Iniciar sesion"><br/>
-             <!-- Change this to a button or input when using this as a form -->
-             </form>
-             </div>
+             <?php include("includes/login.php");?>
              </div><!-- inicio div id="login" -->
 
             <div class="container" id='divReserva' style="display: none"><!-- inicio div id="reserva" -->

@@ -15,26 +15,6 @@
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
 <!-- CALENDARIO -->
-<script>
-$(function () {
-$("#from").datepicker({
-minDate: 'today',
-onClose: function (selectedDate) {
-$("#to").datepicker("option", "minDate", selectedDate);
-$("#entrada").val(selectedDate);
-}
-});
-$("#to").datepicker({
-maxDate: "+12M",
-changeMonth: true,
-changeYear: true,
-onClose: function (selectedDate) {
-$("#from").datepicker("option", "maxDate", selectedDate);
-$("#salida").val(selectedDate);
-}
-});
-});
-</script>
 <!-- CALENDARIO -->
 
 </head>
@@ -88,13 +68,13 @@ if($resultado_reserva>=$resultado_habitacion){
      <table class="table table-striped table-bordered" cellspacing="1" >
         <thead>
           <tr class="info">
-            <th>Entrada</th>
-            <th>Salida</th>
-            <th>Tipo habitacion</th>
-            <th>Cama extra</th>
-            <th>Balcon</th>
-            <th># huespedes</th>
-            <th>Precio total</th>
+            <th>Entrada :</th>
+            <th>Salida :</th>
+            <th>Tipo habitacion :</th>
+            <th>Cama extra :</th>
+            <th>Balcon :</th>
+            <th># huespedes :</th>
+            <th>Precio total :</th>
           </tr>
       </thead>
       <tbody>
@@ -105,7 +85,7 @@ if($resultado_reserva>=$resultado_habitacion){
           <td ><input id="c_extra" type="text" readonly style="width:80px"></td>
           <td ><input id="tbal" type="text" readonly style="width:80px"></td>
           <td ><input id="thues" name="thues" type="text" readonly style="width:80px"></td>
-          <td>TOTAL $55555</td>
+          <td><input id="preciototal" type="text" readonly style="width:80px"></td>
         </tr>
       </tbody>
     </table>
@@ -125,10 +105,10 @@ if($resultado_reserva>=$resultado_habitacion){
          </script><br/><br/>
 
 		       <label class ="control-label">Fecha de entrada :</label><br/>
-            <input id="from" name="from" type="text"  placeholder="Seleccionar" required=""/>
+            <input id="from1" name="from" type="text"  placeholder="Seleccionar" required=""/>
             <br/><br/>
             <label class ="control-label">Fecha de salida :</label><br/>
-            <input id="to" name="to" type="text"  placeholder="Seleccionar" required=""/>
+            <input id="to1" name="to" type="text"  placeholder="Seleccionar" required=""/>
             <br/><br/>
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
@@ -141,7 +121,7 @@ if($resultado_reserva>=$resultado_habitacion){
 	         <label class ="control-label">Tipo de habitacion :</label><br/>
 		        <select id="t_hab" name="t_hab" style="height:30px" required=""/>
             <option value="">Elejir...</option>
-            <option value="sencilla">Estandar (1 cama king)</option>
+            <option value="sencilla">Sencilla (1 cama king)</option>
             <option value="doble">Doble (2 camas dobles)</option>
             </select>
             <br/><br/>
@@ -185,7 +165,28 @@ if($resultado_reserva>=$resultado_habitacion){
      var val = $(this).val();
      $("#tbal").val(val);
   })
+  $("#from1").change(function() {
+     var val = $(this).val();
+     $("#entrada").val(val);
+  })
+  $("#to1").change(function() {
+     var val = $(this).val();
+     $("#salida").val(val);
+  })
    </script>
+
+<script type="text/javascript" language="JavaScript">
+    $("#edad_acom_1").change(function() {
+     var val = $(this).val();
+     if (val=='1'){
+     $("#preciototal").val(val);
+    } else if (val=='2'){
+      $("#preciototal").val(val);
+    } else (val=='3'){
+      $("#preciototal").val(val);
+    }
+  })
+</script>
     <!-- ********************************************CARRITO******************************************************* -->
 
     <!-- ACOMPANANTES -->
