@@ -138,13 +138,6 @@ if($resultado_reserva>=$resultado_habitacion){
 
     <!-- ACOMPANANTES -->
     <script type="text/javascript" language="JavaScript">
-    $(document).ready(function () {
-    toggleFields();
-    $("#acomp").change(function () {
-        toggleFields();
-        totalreserva();
-     });
-    });
     function toggleFields() {
 
     var i = $("#acomp").val();

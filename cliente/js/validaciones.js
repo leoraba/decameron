@@ -278,6 +278,7 @@ $(document).ready(function () {
     totalreserva();
     $("#acomp").change(function () {
         totalreserva();
+        toggleFields();
      });
     });
     function totalreserva() {
@@ -287,11 +288,9 @@ $(document).ready(function () {
     var k = $("#edad_acom_2").val();
     var l = $("#edad_acom_3").val();
     var m = $("#edad_acom_4").val();
-
     switch  (n) {
 
     case "1":
-
     if (j=="1"){
     $("#preciototal").val(57);
     } else if (j=="2") {
