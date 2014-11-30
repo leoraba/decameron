@@ -159,7 +159,8 @@ $(document).ready(function() {
     $("#manto_form").validate({
         rules:{
             txtNombreServicio: { required: true, maxlength: 100, minlength: 6 },
-            txtPrecioRegular: { required: true, maxlength: 10 }
+            
+            txtPrecioRegular: { required: true, number: true, maxlength: 10 }
         }
     });
 } );
