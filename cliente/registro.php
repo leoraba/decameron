@@ -1,5 +1,5 @@
 <?php
-include("../includes/conexion.php");
+include("includes/conexion.php");
 ?>
       <header>Crear tu cuenta</header>
       <!-- **********************************FORMULARIO********************************************* -->          

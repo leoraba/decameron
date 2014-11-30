@@ -22,8 +22,8 @@
   <div class="row">
   <br/> <br/> <br/> 
 
-    <?php /*
-include("../includes/conexion.php");
+    <?php 
+include("includes/conexion.php");
 $from = $_POST['from'];
 $to = $_POST['to'];
 $n_habitaciones = $_POST['n_habitaciones'];
@@ -49,7 +49,7 @@ if($resultado_reserva>=$resultado_habitacion){
   echo "no hay disponibles";
 } else {
   echo "si hay disponibles";
-}*/
+}
 ?> 
 </div>
 </div>
@@ -83,7 +83,7 @@ if($resultado_reserva>=$resultado_habitacion){
           <td ><input id="c_extra" type="text" readonly style="width:100px"></td>
           <td ><input id="tbal" type="text" readonly style="width:100px"></td>
           <td ><input id="thues" name="thues" type="text" readonly style="width:100px"></td>
-          <td><input id="preciototal" type="text" readonly style="width:100px"></td>
+          <td><input id="preciototal" name="preciototal" type="text" readonly style="width:100px"></td>
         </tr>
       </tbody>
     </table>
@@ -99,10 +99,10 @@ if($resultado_reserva>=$resultado_habitacion){
            <br/><br/>
 
 		       <label class ="control-label">Fecha de entrada :</label><br/>
-            <input id="from1" name="from" type="text"  placeholder="Seleccionar" required=""/>
+            <input id="from1" name="from1" type="text"  placeholder="Seleccionar" required=""/>
             <br/><br/>
             <label class ="control-label">Fecha de salida :</label><br/>
-            <input id="to1" name="to" type="text"  placeholder="Seleccionar" required=""/>
+            <input id="to1" name="to1" type="text"  placeholder="Seleccionar" required=""/>
             <br/><br/>
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
@@ -204,6 +204,21 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
+
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento1" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_1" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -224,6 +239,21 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento1" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_1" maxlength="20" placeholder="# de documento">
+       <br/><br/>
+
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
            <option value="">Elejir...</option>
@@ -241,6 +271,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento2" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_2" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -261,6 +305,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento1" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_1" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -278,6 +336,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento2" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_2" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
            <option value="">Elejir...</option>
@@ -295,6 +367,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero3" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero3" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento3" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_3" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -315,8 +401,22 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento1" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_1" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
+      <select id="edad_acom_3" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -332,6 +432,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento2" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_2" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -349,6 +463,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero3" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero3" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento3" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_3" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
@@ -366,6 +494,20 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero4" value="Hombre" checked="checked">Hombre
       <input type="radio" name="genero4" value="Mujer">Mujer
       <br/><br/>
+      <label class ="control-label">Tipo de documento :</label><br/>
+      <select name="cmbTipoDocumento4" id="cmbTipoDocumento">
+          <option value=""> Seleccione una opci&oacute;n</option>
+          <?php
+              $qr = mysql_query("SELECT id_tipo_documento, tipo_documento FROM TIPO_DOCUMENTO ORDER BY tipo_documento ASC",$ln);
+              while($row = mysql_fetch_array($qr)){
+                  echo "<option value='".$row['id_tipo_documento']."'>".$row['tipo_documento']."</option>";
+              }
+          ?>
+      </select>
+
+      <label class ="control-label"># de documento :</label><br/>
+      <input type="text" name="num_documento_acomp_4" maxlength="20" placeholder="# de documento">
+       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_4" name="edad_acom_4" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
