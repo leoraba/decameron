@@ -33,7 +33,7 @@
             </div>
             <div class="panel-body">
               <div class="jumbotron">
-                <form action="verificar_login.php" method="post" name="passwordForm" id="passwordForm">
+                <form action="../verificar_login.php" method="post" name="passwordForm" id="passwordForm">
                   <img src="img/logo.png" width="100" height="80"/><br/><br/><br/>
                   <label class="control-label">Usuario :</label><br/>
                   <input type="text" name="user" id="user" class="form-control" style="width:250px" maxlength="30" placeholder="Usuario">

@@ -97,6 +97,7 @@ $(document).ready(function(){
        });
    });
 
+
 //3. Validacion de fechas de entrada, salida y nacimiento 
 $(function() {
  $( "#from" ).datepicker({
@@ -228,5 +229,135 @@ $(document).ready(function() {
      var val = $(this).val();
      $("#tbal").val(val);
   });
+
+//**************************************** reserva_habitacion.php ****************************************************
+//1. mensajes de alerta:
+
+ $("#con1").click(function () {
+  alert("La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.");
+});
+
+$("#con2").click(function () {
+  alert("Número máximo de camas supletorias o cunas en la habitación: 1.\n\nLas camas supletorias y/o cunas están disponibles bajo petición y deben ser confirmadas por el alojamiento.\n\nLos suplementos no se calculan automáticamente en el importe total y deben pagarse por separado durante la estancia.");
+});
+
+$("#con3").click(function () {
+  alert("¡Gratis! Hasta 2 menores de 3 años se pueden alojar gratis en cunas.\n\nHasta 2 niños de 3 a 11 años se pueden alojar por 60 USD por noche utilizando las camas existentes.\n\nHasta 2 niños mayores de esa edad o adultos se pueden alojar por 158 USD por noche utilizando las camas existentes.");
+});
+
+//2. carrito
+
+$("#t_hab").change(function() {
+     var val = $(this).val();
+     $("#hab").val(val);
+  });
+  $("#n_cama").change(function() {
+     var val = $(this).val();
+     $("#c_extra").val(val);
+  });
+  $("#t_balcon").change(function() {
+     var val = $(this).val();
+     $("#tbal").val(val);
+  });
+  $("#from1").change(function() {
+     var val = $(this).val();
+     $("#entrada").val(val);
+  });
+  $("#to1").change(function() {
+     var val = $(this).val();
+     $("#salida").val(val);
+  });
+
+  //3. precio total de reservacion
+
+$(document).ready(function () {
+    totalreserva();
+    $("#acomp").change(function () {
+        totalreserva();
+     });
+    });
+    function totalreserva() {
+
+    var n = $("#acomp").val();
+    var j = $("#edad_acom_1").val();
+    var k = $("#edad_acom_2").val();
+    var l = $("#edad_acom_3").val();
+    var m = $("#edad_acom_4").val();
+
+    switch  (n) {
+
+    case "1":
+
+    if (j=="1"){
+    $("#preciototal").val(57);
+    } else if (j=="2") {
+      $("#preciototal").val(122);
+    } else {
+      $("#preciototal").val(0);
+    }
+    break;
+
+    case "2":
+    if ((j=="1") && (k=="1")){
+    $("#preciototal").val(114);
+    } else if ( ((j=="1") && (k=="2")) || ((j=="2") && (k=="1")) ) {
+      $("#preciototal").val(179);
+    } else if ((j=="2") && (k=="2")){
+      $("#preciototal").val(244);
+    } else {
+      $("#preciototal").val(0);
+    }
+    break;
+
+    case "3":
+
+    if ((j=="1") && (k=="1") && (l=="1")){
+      $("#preciototal").val(171);
+     }
+    else if (((j=="1") && (k=="1") && (l=="2")) || ((j=="1") && (k=="2") && (l=="1")) || ((j=="2") && (k=="1") && (l=="1"))) {
+    $("#preciototal").val(236);
+     }
+    else if (((j=="1") && (k=="2") && (l=="2")) || ((j=="2") && (k=="2") && (l=="1")) || ((j=="2") && (k=="1") && (l=="2"))) {
+    $("#preciototal").val(301);
+     }
+     else if ((j=="2") && (k=="2") && (l=="2")){
+      $("#preciototal").val(366);
+     }
+     else {
+      $("#preciototal").val(0);
+     }
+     break;
+
+     case "4":
+     if ((j=="1") && (k=="1") && (l=="1") && (m=="1")){
+      $("#preciototal").val(228);
+     }
+     else if (((j=="2") && (k=="1") && (l=="1") && (m=="1")) || ((j=="1") && (k=="2") && (l=="1") && (m=="1")) || ((j=="1") && (k=="1") && (l=="2") && (m=="1")) || ((j=="1") && (k=="1") && (l=="1") && (m=="2"))){
+     $("#preciototal").val(293);
+     }
+     else if (((j=="2") && (k=="2") && (l=="1") && (m=="1")) || ((j=="1") && (k=="2") && (l=="2") && (m=="1")) || ((j=="1") && (k=="1") && (l=="2") && (m=="2")) || ((j=="1") && (k=="2") && (l=="1") && (m=="2"))){
+      $("#preciototal").val(358);
+     }
+     else if (((j=="2") && (k=="2") && (l=="2") && (m=="1")) || ((j=="2") && (k=="2") && (l=="1") && (m=="2")) || ((j=="2") && (k=="1") && (l=="2") && (m=="2")) || ((j=="1") && (k=="2") && (l=="2") && (m=="2"))){
+     $("#preciototal").val(423);
+     }
+     else if ((j=="2") && (k=="2") && (l=="2") && (m=="2")){
+      $("#preciototal").val(488);
+     }
+
+     else {
+      $("#preciototal").val(0);
+     }
+     break;
+
+    default:
+    $("#preciototal").val(0);
+ }
+
+}
+
+
+
+
 
 

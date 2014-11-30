@@ -14,9 +14,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
-<!-- CALENDARIO -->
-<!-- CALENDARIO -->
-
 </head>
 <body>
 <br/>
@@ -24,7 +21,8 @@
 <div class="container">
   <div class="row">
   <br/> <br/> <br/> 
-    <?php
+
+    <?php /*
 include("../includes/conexion.php");
 $from = $_POST['from'];
 $to = $_POST['to'];
@@ -51,8 +49,8 @@ if($resultado_reserva>=$resultado_habitacion){
   echo "no hay disponibles";
 } else {
   echo "si hay disponibles";
-}
-?>
+}*/
+?> 
 </div>
 </div>
 
@@ -95,14 +93,10 @@ if($resultado_reserva>=$resultado_habitacion){
 
 <div class="container">
  <div class="row">               
- <!-- **********************************FORMULARIO********************************************* -->  
+ <!-- ***************************************************FORMULARIO********************************************* -->  
           <h4>1. Fechas de reserva</h4>
            <input type="submit" id="con1" value="Ver condiciones"/> 
-           <script type="text/javascript" language="JavaScript">
-          $("#con1").click(function () {
-         alert("La estadía NO puede ser mayor a 31 días, ni menor a 2 días.\n\nSi desea reservar mas de 31 dias debera hacer una nueva reservacion.");
-          });
-         </script><br/><br/>
+           <br/><br/>
 
 		       <label class ="control-label">Fecha de entrada :</label><br/>
             <input id="from1" name="from" type="text"  placeholder="Seleccionar" required=""/>
@@ -112,13 +106,9 @@ if($resultado_reserva>=$resultado_habitacion){
             <br/><br/>
             <h4>2. Detalles de habitacion</h4>
             <input type="submit" id="con2" value="Ver condiciones"/> 
-            <script type="text/javascript" language="JavaScript">
-            $("#con2").click(function () {
-            alert("Número máximo de camas supletorias o cunas en la habitación: 1.\n\nLas camas supletorias y/o cunas están disponibles bajo petición y deben ser confirmadas por el alojamiento.\n\nLos suplementos no se calculan automáticamente en el importe total y deben pagarse por separado durante la estancia.");
-            });
-            </script><br/><br/>
-           
-	         <label class ="control-label">Tipo de habitacion :</label><br/>
+            <br/><br/>
+
+	          <label class ="control-label">Tipo de habitacion :</label><br/>
 		        <select id="t_hab" name="t_hab" style="height:30px" required=""/>
             <option value="">Elejir...</option>
             <option value="sencilla">Sencilla (1 cama king)</option>
@@ -144,63 +134,21 @@ if($resultado_reserva>=$resultado_habitacion){
 
           <h4>3. Detalle de Huespedes</h4>
           <input type="button" id="con3" value="Ver condiciones"/> 
-          <script type="text/javascript" language="JavaScript">
-          $("#con3").click(function () {
-          alert("¡Gratis! Hasta 2 menores de 3 años se pueden alojar gratis en cunas.\n\nHasta 2 niños de 3 a 11 años se pueden alojar por 60 USD por noche utilizando las camas existentes.\n\nHasta 2 niños mayores de esa edad o adultos se pueden alojar por 158 USD por noche utilizando las camas existentes.");
-          });
           </script><br/><br/>
- 
-    <!--**************************************** CARRITO *********************************************************-->
-
-<script type="text/javascript" language="JavaScript">
-  $("#t_hab").change(function() {
-     var val = $(this).val();
-     $("#hab").val(val);
-  });
-  $("#n_cama").change(function() {
-     var val = $(this).val();
-     $("#c_extra").val(val);
-  })
-  $("#t_balcon").change(function() {
-     var val = $(this).val();
-     $("#tbal").val(val);
-  })
-  $("#from1").change(function() {
-     var val = $(this).val();
-     $("#entrada").val(val);
-  })
-  $("#to1").change(function() {
-     var val = $(this).val();
-     $("#salida").val(val);
-  })
-   </script>
-
-<script type="text/javascript" language="JavaScript">
-    $("#edad_acom_1").change(function() {
-     var val = $(this).val();
-     if (val=='1'){
-     $("#preciototal").val(val);
-    } else if (val=='2'){
-      $("#preciototal").val(val);
-    } else (val=='3'){
-      $("#preciototal").val(val);
-    }
-  })
-</script>
-    <!-- ********************************************CARRITO******************************************************* -->
 
     <!-- ACOMPANANTES -->
     <script type="text/javascript" language="JavaScript">
     $(document).ready(function () {
-    toggleFields(); 
+    toggleFields();
     $("#acomp").change(function () {
         toggleFields();
+        totalreserva();
      });
     });
     function toggleFields() {
 
     var i = $("#acomp").val();
-
+  
     switch (i) {
 
   case "1":
@@ -229,6 +177,7 @@ if($resultado_reserva>=$resultado_habitacion){
   $("#reg1Acomp").hide();
   $("#reg2Acomp").hide();
   $("#reg3Acomp").hide();
+  break;
 
   default:
   $("#reg1Acomp").hide();
@@ -236,12 +185,13 @@ if($resultado_reserva>=$resultado_habitacion){
   $("#reg3Acomp").hide();
   $("#reg3Acomp").hide();
 
-  }  
+  }
 }
 </script>
 <!-- ****************************************************************************************************-->
+
       <label class ="control-label">Huespedes a registar en habitacion :</label><br/>
-	    <select id="acomp" name="n_acomp" style="height:30px" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
+	    <select id="acomp" name="n_acomp" style="height:30px" onclick="totalreserva()" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -263,9 +213,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
     </div>
 
@@ -284,9 +233,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
            <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select><br/>
       <h4> Datos huesped 2:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -302,9 +250,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
     </div>
 
@@ -323,9 +270,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
       <h4> Datos huesped 2:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -340,10 +286,9 @@ if($resultado_reserva>=$resultado_habitacion){
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
-            <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+           <option value="">Elejir...</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
       <h4> Datos huesped 3:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -359,9 +304,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
     </div>
   
@@ -380,9 +324,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
       <h4> Datos huesped 2:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -398,9 +341,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
       <h4> Datos huesped 3:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -416,9 +358,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
       <h4> Datos huesped 4:</h4>
       <label class ="control-label">Nombres :</label><br/>
@@ -434,9 +375,8 @@ if($resultado_reserva>=$resultado_habitacion){
       <label class ="control-label">Rango de edad :</label><br/>
       <select id="edad_acom_4" name="edad_acom_4" style="height:30px"  required=""/>
             <option value="">Elejir...</option>
-            <option value="1">Niño/a menor de 3 años</option>
-            <option value="2">Niño/a de 3 a 11 años</option>
-            <option value="3">Adulto</option>
+            <option value="1">Niño/a de 3 a 11 años</option>
+            <option value="2">Adulto</option>
       </select>
     </div>
 <br/>
