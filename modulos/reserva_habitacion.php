@@ -1138,6 +1138,9 @@
         jQuery.validator.addMethod("validateDates", function(value, element) {
             return this.optional(element) || restaFechas($("#txtFechaInicioInput").val(),$("#txtFechaFinInput").val())>0;
         }, "La fecha de fin debe ser mayor que la fecha de inicio");
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z," "]+$/i.test(value);
+        }, "Campo valido solo para letras");
 
         //validacion formularios paso 1 y paso 3
         $("#paso1_form").validate({
@@ -1146,9 +1149,9 @@
                 txtFechaFin: { required: true, validateDates: true }
             },
             submitHandler: function(form) { 
-                $( "#spanTipoHab1" ).text($("#cmbTipoHabitacion1").val());
-                $( "#spanTipoHab2" ).text($("#cmbTipoHabitacion2").val());
-                $( "#spanTipoHab3" ).text($("#cmbTipoHabitacion3").val());
+                $( "#spanTipoHab1" ).text($("#cmbTipoHabitacion1 :selected").text());
+                $( "#spanTipoHab2" ).text($("#cmbTipoHabitacion2 :selected").text());
+                $( "#spanTipoHab3" ).text($("#cmbTipoHabitacion3 :selected").text());
                 $( "#divDate" ).hide();
                 $( "#divGuest" ).show("slide", { direction: "right"}, 1000);
             }
@@ -1169,25 +1172,25 @@
 
         $("#paso3_form_h1").validate({
             rules:{
-                txtNombreHab1Huesped1: { required: true, maxlength: 100 },
-                txtApellidoHab1Huesped1: { required: true, maxlength: 100 },
+                txtNombreHab1Huesped1: { required: true, maxlength: 100, lettersonly: true },
+                txtApellidoHab1Huesped1: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab1Huesped1: { required: true },
-                txtDocumentoHab1Huesped1: { required: true, maxlength: 50 },
+                txtDocumentoHab1Huesped1: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab1Huesped2: { required: true , maxlength: 100 },
-                txtApellidoHab1Huesped2: { required: true, maxlength: 100 },
+                txtNombreHab1Huesped2: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab1Huesped2: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab1Huesped2: { required: true },
-                txtDocumentoHab1Huesped2: { required: true, maxlength: 50 },
+                txtDocumentoHab1Huesped2: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab1Huesped3: { required: true , maxlength: 100 },
-                txtApellidoHab1Huesped3: { required: true, maxlength: 100 },
+                txtNombreHab1Huesped3: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab1Huesped3: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab1Huesped3: { required: true },
-                txtDocumentoHab1Huesped3: { required: true, maxlength: 50 },
+                txtDocumentoHab1Huesped3: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab1Huesped4: { required: true , maxlength: 100 },
-                txtApellidoHab1Huesped4: { required: true, maxlength: 100 },
+                txtNombreHab1Huesped4: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab1Huesped4: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab1Huesped4: { required: true },
-                txtDocumentoHab1Huesped4: { required: true, maxlength: 50 },
+                txtDocumentoHab1Huesped4: { required: true, maxlength: 50, minlength: 7 },
 
             },
             submitHandler: function(form) { 
@@ -1199,25 +1202,25 @@
         });
         $("#paso3_form_h2").validate({
             rules:{
-                txtNombreHab2Huesped1: { required: true, maxlength: 100 },
-                txtApellidoHab2Huesped1: { required: true, maxlength: 100 },
+                txtNombreHab2Huesped1: { required: true, maxlength: 100, lettersonly: true },
+                txtApellidoHab2Huesped1: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab2Huesped1: { required: true },
-                txtDocumentoHab2Huesped1: { required: true, maxlength: 50 },
+                txtDocumentoHab2Huesped1: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab2Huesped2: { required: true , maxlength: 100 },
-                txtApellidoHab2Huesped2: { required: true, maxlength: 100 },
+                txtNombreHab2Huesped2: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab2Huesped2: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab2Huesped2: { required: true },
-                txtDocumentoHab2Huesped2: { required: true, maxlength: 50 },
+                txtDocumentoHab2Huesped2: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab2Huesped3: { required: true , maxlength: 100 },
-                txtApellidoHab2Huesped3: { required: true, maxlength: 100 },
+                txtNombreHab2Huesped3: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab2Huesped3: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab2Huesped3: { required: true },
-                txtDocumentoHab2Huesped3: { required: true, maxlength: 50 },
+                txtDocumentoHab2Huesped3: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab2Huesped4: { required: true , maxlength: 100 },
-                txtApellidoHab2Huesped4: { required: true, maxlength: 100 },
+                txtNombreHab2Huesped4: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab2Huesped4: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab2Huesped4: { required: true },
-                txtDocumentoHab2Huesped4: { required: true, maxlength: 50 },
+                txtDocumentoHab2Huesped4: { required: true, maxlength: 50, minlength: 7 },
 
             },
             submitHandler: function(form) { 
@@ -1229,25 +1232,25 @@
         });
         $("#paso3_form_h3").validate({
             rules:{
-                txtNombreHab3Huesped1: { required: true, maxlength: 100 },
-                txtApellidoHab3Huesped1: { required: true, maxlength: 100 },
+                txtNombreHab3Huesped1: { required: true, maxlength: 100, lettersonly: true },
+                txtApellidoHab3Huesped1: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab3Huesped1: { required: true },
-                txtDocumentoHab3Huesped1: { required: true, maxlength: 50 },
+                txtDocumentoHab3Huesped1: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab3Huesped2: { required: true , maxlength: 100 },
-                txtApellidoHab3Huesped2: { required: true, maxlength: 100 },
+                txtNombreHab3Huesped2: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab3Huesped2: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab3Huesped2: { required: true },
-                txtDocumentoHab3Huesped2: { required: true, maxlength: 50 },
+                txtDocumentoHab3Huesped2: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab3Huesped3: { required: true , maxlength: 100 },
-                txtApellidoHab3Huesped3: { required: true, maxlength: 100 },
+                txtNombreHab3Huesped3: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab3Huesped3: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab3Huesped3: { required: true },
-                txtDocumentoHab3Huesped3: { required: true, maxlength: 50 },
+                txtDocumentoHab3Huesped3: { required: true, maxlength: 50, minlength: 7 },
 
-                txtNombreHab3Huesped4: { required: true , maxlength: 100 },
-                txtApellidoHab3Huesped4: { required: true, maxlength: 100 },
+                txtNombreHab3Huesped4: { required: true , maxlength: 100, lettersonly: true },
+                txtApellidoHab3Huesped4: { required: true, maxlength: 100, lettersonly: true },
                 txtFechaNacimientoHab3Huesped4: { required: true },
-                txtDocumentoHab3Huesped4: { required: true, maxlength: 50 },
+                txtDocumentoHab3Huesped4: { required: true, maxlength: 50, minlength: 7 },
 
             },
             submitHandler: function(form) { 
