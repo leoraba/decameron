@@ -191,14 +191,15 @@ if($resultado_reserva>=$resultado_habitacion){
 <!-- ****************************************************************************************************-->
 
       <label class ="control-label">Huespedes a registar en habitacion :</label><br/>
-	    <select id="acomp" name="n_acomp" style="height:30px" onchange="totalreserva()">
+	    <select id="acomp" name="n_acomp" style="height:30px" onchange="totalreserva()" required=""/>
+      <option value="">Seleccionar...</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
       </select><br/><br/>
       
-    <div id="reg1Acomp">
+    <div id="reg1Acomp" style="display: none">
       <h4> Datos huesped:</h4>
       <label class ="control-label">Nombres :</label><br/>
       <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombres" required=""/>
@@ -218,7 +219,7 @@ if($resultado_reserva>=$resultado_habitacion){
       </select>
     </div>
 
-    <div id="reg2Acomp">
+    <div id="reg2Acomp" style="display: none">
       <h4> Datos huesped 1:</h4>
       <label class ="control-label">Nombres :</label><br/>
       <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>
@@ -255,7 +256,7 @@ if($resultado_reserva>=$resultado_habitacion){
       </select>
     </div>
 
-    <div id="reg3Acomp">
+    <div id="reg3Acomp" style="display: none">
       <h4> Datos huesped 1:</h4>
       <label class ="control-label">Nombres :</label><br/>
       <input type="text" name="nom_acom_1" class="input_letras"maxlength="30" placeholder="Nombre" required=""/>
@@ -309,7 +310,7 @@ if($resultado_reserva>=$resultado_habitacion){
       </select>
     </div>
   
-<div id="reg4Acomp">
+<div id="reg4Acomp" style="display: none">
       <h4> Datos huesped 1:</h4>
       <label class ="control-label">Nombres :</label><br/>
       <input type="text" name="nom_acom_1" class="input_letras" maxlength="30" placeholder="Nombre" required=""/>

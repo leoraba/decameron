@@ -355,7 +355,7 @@ $(document).ready(function () {
      break;
 
     default:
-    $("#preciototal").val(0);
+    $("#preciototal").val();
  }
 
 }
