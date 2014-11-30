@@ -68,22 +68,22 @@ if($resultado_reserva>=$resultado_habitacion){
           <tr class="info">
             <th>Entrada :</th>
             <th>Salida :</th>
-            <th>Tipo habitacion :</th>
+            <th>Tipo de habitacion :</th>
             <th>Cama extra :</th>
-            <th>Balcon :</th>
+            <th>Tipo de balcon :</th>
             <th># huespedes :</th>
-            <th>Precio total :</th>
+            <th>PRECIO TOTAL :</th>
           </tr>
       </thead>
       <tbody>
         <tr>
-          <td ><input id="entrada" type="text" readonly style="width:80px"></td>
-          <td ><input id="salida" type="text" readonly style="width:80px"></td>
-          <td ><input id="hab" type="text" readonly style="width:80px"></td>
-          <td ><input id="c_extra" type="text" readonly style="width:80px"></td>
-          <td ><input id="tbal" type="text" readonly style="width:80px"></td>
-          <td ><input id="thues" name="thues" type="text" readonly style="width:80px"></td>
-          <td><input id="preciototal" type="text" readonly style="width:80px"></td>
+          <td ><input id="entrada" type="text" readonly style="width:100px"></td>
+          <td ><input id="salida" type="text" readonly style="width:100px"></td>
+          <td ><input id="hab" type="text" readonly style="width:100px"></td>
+          <td ><input id="c_extra" type="text" readonly style="width:100px"></td>
+          <td ><input id="tbal" type="text" readonly style="width:100px"></td>
+          <td ><input id="thues" name="thues" type="text" readonly style="width:100px"></td>
+          <td><input id="preciototal" type="text" readonly style="width:100px"></td>
         </tr>
       </tbody>
     </table>
@@ -205,7 +205,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -225,7 +225,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" required=""/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
            <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -242,7 +242,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -262,7 +262,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_1" name="edad_acom_1" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -279,7 +279,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
            <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -296,7 +296,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero3" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -316,7 +316,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero1" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -333,7 +333,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero2" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_2" name="edad_acom_2" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -350,7 +350,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero3" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_1" name="edad_acom_1" style="height:30px"  required=""/>
+      <select id="edad_acom_3" name="edad_acom_3" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
@@ -367,7 +367,7 @@ if($resultado_reserva>=$resultado_habitacion){
       <input type="radio" name="genero4" value="Mujer">Mujer
       <br/><br/>
       <label class ="control-label">Rango de edad :</label><br/>
-      <select id="edad_acom_4" name="edad_acom_4" style="height:30px"  required=""/>
+      <select id="edad_acom_4" name="edad_acom_4" style="height:30px" onchange="totalreserva()" required=""/>
             <option value="">Elejir...</option>
             <option value="1">Niño/a de 3 a 11 años</option>
             <option value="2">Adulto</option>
