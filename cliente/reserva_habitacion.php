@@ -191,7 +191,7 @@ if($resultado_reserva>=$resultado_habitacion){
 <!-- ****************************************************************************************************-->
 
       <label class ="control-label">Huespedes a registar en habitacion :</label><br/>
-	    <select id="acomp" name="n_acomp" style="height:30px" onclick="totalreserva()" onchange='document.reserva.thues.value=this.options[this.options.selectedIndex].value'>
+	    <select id="acomp" name="n_acomp" style="height:30px" onchange="totalreserva()">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

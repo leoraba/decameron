@@ -267,6 +267,10 @@ $("#t_hab").change(function() {
      var val = $(this).val();
      $("#salida").val(val);
   });
+   $("#acomp").change(function() {
+     var val = $(this).val();
+     $("#thues").val(val);
+  });
 
   //3. precio total de reservacion
 
