@@ -17,5 +17,4 @@ if(mysql_num_rows($sql)==1){
 	echo "SELECT u.id_usuario, c.nombres, c.apellidos FROM USUARIO u INNER JOIN CLIENTE_TITULAR c ON c.fk_id_usuario=u.id_usuario WHERE usuario='$user' and clave=md5('$pass') and estado='A'";
 	echo "Usuario o contrasena son incorrectas, por favor verificar";
 }
-
 ?>

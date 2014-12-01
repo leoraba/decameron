@@ -2,7 +2,7 @@
 include("includes/conexion.php");
 
 echo $_POST['n_acomp'];
-/*
+
 $desde = $_POST['from1'];
 $hasta = $_POST['to1'];
 $t_hab = $_POST['t_hab'];
@@ -51,23 +51,27 @@ function insertar(){
 if ($n_acomp = 1){
 $sql = "INSERT INTO  reserva_habitacion VALUES ('".date('Y-m-d H:i:s')."', '$desde', '$hasta','".generateRandomString()."', '$preciototal','$desde','$hasta','$c_extra')";
 $sq2 = "INSERT INTO  acompanante VALUES ('$nom_acom_1', '$ape_acom_1','$genero_acom_1', '$num_documento_acomp_1','".date('Y-m-d H:i:s')."','$preciototal')";
-echo "Se ha realizado la reserva exitosamente";
+echo "Se ha realizado la reserva exitosamente para una persona";
 } else if ($n_acomp = 2){
-echo "no ha realizado la reserva exitosamente";
+$sql = "INSERT INTO  reserva_habitacion VALUES ('".date('Y-m-d H:i:s')."', '$desde', '$hasta','".generateRandomString()."', '$preciototal','$desde','$hasta','$c_extra')";
+$sq2 = "INSERT INTO  acompanante VALUES ('$nom_acom_1', '$ape_acom_1','$genero_acom_1', '$num_documento_acomp_1','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq3 = "INSERT INTO  acompanante VALUES ('$nom_acom_2', '$ape_acom_2','$genero_acom_2', '$num_documento_acomp_2','".date('Y-m-d H:i:s')."','$preciototal')";
+echo "Se ha realizado la reserva exitosamente para dos personas";
 } else if ($n_acomp = 3){
-echo "no ha realizado la reserva exitosamente";
+$sql = "INSERT INTO  reserva_habitacion VALUES ('".date('Y-m-d H:i:s')."', '$desde', '$hasta','".generateRandomString()."', '$preciototal','$desde','$hasta','$c_extra')";
+$sq2 = "INSERT INTO  acompanante VALUES ('$nom_acom_1', '$ape_acom_1','$genero_acom_1', '$num_documento_acomp_1','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq3 = "INSERT INTO  acompanante VALUES ('$nom_acom_2', '$ape_acom_2','$genero_acom_2', '$num_documento_acomp_2','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq4 = "INSERT INTO  acompanante VALUES ('$nom_acom_3', '$ape_acom_3','$genero_acom_3', '$num_documento_acomp_3','".date('Y-m-d H:i:s')."','$preciototal')";
+echo "Se ha realizado la reserva exitosamente para tres personas";
 } else ($n_acomp = 4) {
-echo "no ha realizado la reserva exitosamente";
+$sql = "INSERT INTO  reserva_habitacion VALUES ('".date('Y-m-d H:i:s')."', '$desde', '$hasta','".generateRandomString()."', '$preciototal','$desde','$hasta','$c_extra')";
+$sq2 = "INSERT INTO  acompanante VALUES ('$nom_acom_1', '$ape_acom_1','$genero_acom_1', '$num_documento_acomp_1','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq3 = "INSERT INTO  acompanante VALUES ('$nom_acom_2', '$ape_acom_2','$genero_acom_2', '$num_documento_acomp_2','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq4 = "INSERT INTO  acompanante VALUES ('$nom_acom_3', '$ape_acom_3','$genero_acom_3', '$num_documento_acomp_3','".date('Y-m-d H:i:s')."','$preciototal')";
+$sq5 = "INSERT INTO  acompanante VALUES ('$nom_acom_4', '$ape_acom_4','$genero_acom_4', '$num_documento_acomp_4','".date('Y-m-d H:i:s')."','$preciototal')";
+echo "Se ha realizado la reserva exitosamente para 4 personas";
  }
 }
 
-if (mysql_query($sql,$ln)) {
-	$id=mysql_insert_id($ln);
-	$sq2 = "INSERT INTO  (nombres, apellidos, email, genero, num_documento, fecha_nacimiento, fk_id_tipo_cliente, fk_id_tipo_documento, fk_id_pais, fk_id_usuario) VALUES ('$nombres', '$apellidos', '$email','$genero', '$num_documento', '$fec_nacimiento', '1','$cmbtipodoc','$cmbpais','$id')";
-	mysql_query($sq2,$ln);
-	echo "Se ha realizado la reserva exitosamente";
-}else {
-	echo "Error al realizar la reserva, verifique los valores ingresados";
-}*/
 ?>
 
