@@ -35,10 +35,10 @@
     <form action="reserva_habitacion.php" method="post">
     <h4>CONSULTAR</h4>
     <label class="control-label">Fecha de entrada</label><br/>
-    <input name="from" id='from' type="datepicker" placeholder="Seleccionar" required=""/>
+    <input name="from" id='from' type="datepicker" value="<?php echo date('d/m/y'); ?>" readonly>
     <br/><br/>
     <label class="control-label">Fecha de salida</label><br/>
-    <input name="to" id='to' type="datepicker" placeholder="Seleccionar" required=""/>
+    <input name="to" id='to' type="datepicker" value="<?php echo date('d/m/y'); ?>" readonly>
     <br/><br/>
     <label class="control-label"># de habitaciones</label><br/>
     <select id="n_habitaciones" name="n_habitaciones" style="height:30px">
@@ -84,7 +84,7 @@
     <div class="row">
     <div class="col-sm-12">
     <footer>
-    <p>© Ing de software II 02-2014</p>
+    <p>© Ing de software II Virtual 02-2014</p>
     </footer>
     </div>
     </div>
@@ -104,7 +104,7 @@
         <input type="text" name="apellidos" class="input_letras" onpaste="return false" maxlength="30" placeholder="Tus apellidos" required="" />
         <br/><br/>
         <label class= "control-label">Fecha de nacimiento :</label><br/>
-        <input name ="nacimiento" id='nacimiento' type="datepicker" placeholder="Seleccionar" required=""/>
+        <input name ="nacimiento" id='nacimiento' type="datepicker" value="<?php echo date('d/m/y'); ?>" readonly>
         <br/><br/>
         <label class ="control-label">Correo electronico :</label><br/>
         <input type  ="email" name="email" maxlength="30" placeholder="Tu correo electronico" required="" />
@@ -189,9 +189,6 @@
              <?php include("includes/login.php");?>
              </div><!-- inicio div id="login" -->
 
-            <div class="container" id='divReserva' style="display: none"><!-- inicio div id="reserva" -->
-            <?php include("reserva_habitacion.php");?>
-            </div><!-- fin div id="reserva" -->  
 
     <!-- jQuery Version 1.11.1 -->
     <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>

@@ -293,6 +293,7 @@ $(document).ready(function () {
     case "1":
     if (j=="1"){
     $("#preciototal").val(57);
+
     } else if (j=="2") {
       $("#preciototal").val(122);
     } else {
@@ -358,9 +359,3 @@ $(document).ready(function () {
  }
 
 }
-
-
-
-
-
-
