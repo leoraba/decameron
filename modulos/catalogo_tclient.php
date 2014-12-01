@@ -147,9 +147,14 @@
 $(document).ready(function() {
     $('#table1').dataTable();
     $("#btnGuardarEdit").click(function(){ guardarEditarForm(); });
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z," "]+$/i.test(value);
+        }, "Campo valido solo para letras");
+
     $("#manto_form").validate({
         rules:{
-            txtNombre: { required: true, maxlength: 15, minlength: 3 },
+            txtNombre: { required: true, maxlength: 15, minlength: 3, lettersonly:true}
         }
     });
 } );
