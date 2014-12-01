@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['btnGuardar'])){
-        $tipo = $_POST['txtTipoDocumento'];
-        mysql_query("INSERT INTO TIPO_DOCUMENTO(tipo_documento) VALUES('$tipo)",$ln);
+        $tipo = $_POST['txtTipo'];
+        mysql_query("INSERT INTO TIPO_DOCUMENTO(tipo_documento) VALUES('$tipo')",$ln);
     }else if(isset($_GET['elim'])){
         $id = $_GET['id'];
         mysql_query("DELETE FROM TIPO_DOCUMENTO WHERE id_tipo_documento = '$id'",$ln);
@@ -10,7 +10,7 @@
 
 <!-- Page Heading -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-10">
         <h1>
             Documentos
         </h1>
@@ -32,27 +32,25 @@
 
 <div class="row">
     <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         <form role="form" id="manto_form" action="" method="POST">
             <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
                     <i class="fa fa-plus"></i>
-                    Nuevo
+                    Nuevo Tipo
                 </div>
                 
                 <!-- Body del form -->
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group col-lg-8">
-                            <label class="control-label" > Nombre del Tipo *</label><br/>
-                            <input class="form-control" placeholder="" name="txtTipoDocumento" id="txtTipoDocumento" >
+                            <label class="control-label" >Nombre del tipo*</label><br/>
+                            <input class="form-control" placeholder="" name="txtTipo" id="txtTipo" >
                         </div>
                     </div>
+                    
                 </div>
-
-
-
                 <!-- Botones -->
                 <div class="panel-footer">
                     <button class="btn btn-primary" type="submit" id="btnGuardar" name="btnGuardar">
@@ -70,9 +68,9 @@
                 </div>
             </div>
         </form>
-    </div>    
+    </div>
+    
 </div>
-
 
 <!-- Formulario editar -->
 <div id="divEditarForm" class="modal fade">
@@ -80,18 +78,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"> Documentos</h4>
-
+                <h4 class="modal-title"> Tipo de Documento</h4>
             </div>
+
             <form role="form" id="editar_form" action="" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="accion" id="accion" value="mdo">
                     <input type="hidden" name="idEdit" id="idEdit" value="">
                     <div class="row">
-                        <div class="form-group col-lg-8">
-                            <label class="control-label" > Nombre del Tipo *</label><br/>
-                            <input class="form-control" placeholder="" name="txtTipoDocumentoEdit" id="txtTipoDocumentoEdit" >
+                        <div class="form-group col-lg-6">
+                            <label class="control-label"> Nombre del Tipo * </label><br/>
+                            <input class="form-control" placeholder="" name="txtTipoEdit" id="txtTipoEdit">
                         </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -107,14 +106,16 @@
 
 
 
+
+
 <div class="row">
     <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
     <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
-                <th>Tipo del Documento</th>
-                <th width="100px">&nbsp;</th>
+                <th>Nombre de Tipo de Documento</th>
+               <th width="100px">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -130,7 +131,6 @@
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
                 echo "<li><a href='#' onClick=\"abrirEditarForm('".$row['id_tipo_documento']."')\">Modificar</a></li>";
-                
                 echo "<li><a href='?m=doc&elim=1&id=".$row['id_tipo_documento']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
@@ -140,15 +140,21 @@
             ?>
         </tbody>
     </table>
-    <div class="col-lg-3"></div>
+    <div class="col-lg-2"></div>
 </div>
+
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function() {
     $('#table1').dataTable();
     $("#btnGuardarEdit").click(function(){ guardarEditarForm(); });
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z," "]+$/i.test(value);
+        }, "Campo valido solo para letras");
+
     $("#manto_form").validate({
         rules:{
-            txtTipoDocumento: { required: true, maxlength: 100, minlength: 6 },
+            txtTipo: { required: true, maxlength: 15, minlength: 3, lettersonly:true}
         }
     });
 } );
@@ -162,7 +168,7 @@ function abrirEditarForm(id){
         success:function(res){
             var obj = jQuery.parseJSON(res);
             if(obj.success){
-                $("#txtTipoDocumentoEdit").val(obj.tipo);
+                $("#txtTipoEdit").val(obj.tipo);
                 
                 $("#idEdit").val(id);
             }
@@ -189,8 +195,5 @@ function guardarEditarForm(id){
     });
 }
 </script>
-
-
-
 
 
