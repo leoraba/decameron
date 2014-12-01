@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['btnGuardar'])){
-        $nombreEdificio = $_POST['txtNombreEdificio'];
-        mysql_query("INSERT INTO EDIFICIO(nombre_edificio) VALUES('$nombreEdificio')",$ln);
+        $nombre = $_POST['txtNombreEdificio'];
+        mysql_query("INSERT INTO EDIFICIO(nombre_edificio) VALUES('$nombre')",$ln);
     }else if(isset($_GET['elim'])){
         $id=$_GET['id'];
         mysql_query("DELETE FROM EDIFICIO WHERE id_edificio='$id'",$ln);
@@ -30,7 +30,8 @@
 
 <!-- contenido -->
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
             <div class="panel panel-primary">
                 <!-- titulo del form -->
@@ -76,6 +77,44 @@
         </ul>
     </div>
 </div>
+
+
+
+<!-- Formulario editar -->
+<div id="divEditarForm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edificios</h4>
+            </div>
+            <form role="form" id="editar_form" action="" method="POST">
+                <div class="modal-body">
+                    <input type="hidden" name="accion" id="accion" value="mdo">
+                    <input type="hidden" name="idEdit" id="idEdit" value="">
+                    <div class="row">
+                        <div class="form-group col-lg-8">
+                            <label class="control-label" > Nombre del Edificio *</label><br/>
+                            <input class="form-control" placeholder="" name="txtNombreEdificioEdit" id="txtNombreEdificioEdit" >
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" name="btnGuardarEdit" id="btnGuardarEdit">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
@@ -98,7 +137,7 @@
                 echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
-                echo "<li><a href='#'>Modificar</a></li>";
+               echo "<li><a href='#' onClick=\"abrirEditarForm('".$row['id_edificio']."')\">Modificar</a></li>";
                 echo "<li><a href='?m=edi&elim=1&id=".$row['id_edificio']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
@@ -114,6 +153,54 @@
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function() {
     $('#table1').dataTable();
-} );
+    $("#btnGuardarEdit").click(function(){ guardarEditarForm(); });
 
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z," "]+$/i.test(value);
+        }, "Campo valido solo para letras");
+
+    $("#manto_form").validate({
+        rules:{
+            txtNombreEdificio: { required: true, maxlength: 25, minlength: 6, lettersonly:true }
+            
+            
+        }
+    });
+} );
+function abrirEditarForm(id){
+    var url = "api/edificios.php";
+    var data = "accion=get&id="+id;
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:data,
+        success:function(res){
+            var obj = jQuery.parseJSON(res);
+            if(obj.success){
+                $("#txtNombreEdificioEdit").val(obj.nombre);
+                
+                $("#idEdit").val(id);
+            }
+        }
+    });
+
+    $("#divEditarForm").modal('show');
+
+}
+function guardarEditarForm(id){
+ var url = "api/edificios.php";
+ var data = $("#editar_form").serialize();
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:data,
+        success:function(res){
+            var obj = jQuery.parseJSON(res);
+            if(obj.success){
+                $("#lean_overlay").trigger("click");
+                window.location.href='?m=edi';
+            }
+        }
+    });
+}
 </script>
