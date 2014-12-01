@@ -17,7 +17,7 @@ if(isset($_REQUEST)){
 		$nombre=$_POST['txtNombreTipoEdit'];
 		$precio=$_POST['txtPrecioEdit'];
 		
-		if(mysql_query("UPDATE TIPO_HABITACION SET nombre_TIPO='$nombre', precio_regular='$precio' WHERE id_tipo_habitacion='$id'",$ln)) $success=true;
+		if(mysql_query("UPDATE TIPO_HABITACION SET nombre_tipo='$nombre', precio='$precio' WHERE id_tipo_habitacion='$id'",$ln)) $success=true;
 		$resp=array("success"=>$success);
 		echo json_encode($resp);
 	}

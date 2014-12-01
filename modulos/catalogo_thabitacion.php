@@ -31,7 +31,8 @@
 
 <!-- contenido -->
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-6">
         <form role="form" id="manto_form" action="" method="POST">
             <div class="panel panel-primary">
                 <!-- titulo del form -->
@@ -43,14 +44,14 @@
                 <!-- Body del form -->
                 <div class="panel-body">
                     <div class="row">
-                        <div class="form-group col-lg-8">
-                            <label class="control-label" > Nombre tipo de habitaci&oacute;n *</label><br/>
+                        <div class="form-group col-lg-7">
+                            <label class="control-label" > Nombre tipo de Habitaci&oacute;n *</label><br/>
                             <input class="form-control" placeholder="" name="txtNombreTipo" id="txtNombreTipo" >
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label class="control-label" > Precio de habitaci&oacute;n *</label><br/>
+                            <label class="control-label" > Precio de Habitaci&oacute;n *</label><br/>
                             <input class="form-control" placeholder="$" name="txtPrecio" id="txtPrecio" >
                         </div>
                     </div>
@@ -83,9 +84,50 @@
         </ul>
     </div>
 </div>
+
+    <!-- Formulario editar -->
+<div id="divEditarForm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Tipo Habitaci&oacute;n</h4>
+            </div>
+            <form role="form" id="editar_form" action="" method="POST">
+                <div class="modal-body">
+                    <input type="hidden" name="accion" id="accion" value="mdo">
+                    <input type="hidden" name="idEdit" id="idEdit" value="">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label" > Nombre Tipo de Habitaci&oacute;n *</label><br/>
+                            <input class="form-control" placeholder="" name="txtNombreTipoEdit" id="txtNombreTipoEdit" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label" > Precio *</label><br/>
+                            <input class="form-control" placeholder="$" name="txtPrecioEdit" id="txtPrecioEdit" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" name="btnGuardarEdit" id="btnGuardarEdit">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-6">
     <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
@@ -107,7 +149,7 @@
                 echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
                 echo "</button>";
                 echo "<ul class='dropdown-menu pull-right' role='menu'>";
-                echo "<li><a href='#'>Modificar</a></li>";
+               echo "<li><a href='#' onClick=\"abrirEditarForm('".$row['id_tipo_habitacion']."')\">Modificar</a></li>";
                 echo "<li><a href='?m=thab&elim=1&id=".$row['id_tipo_habitacion']."'>Eliminar</a></li>";
                 echo "</ul>";
                 echo "</div>";
@@ -123,6 +165,63 @@
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function() {
     $('#table1').dataTable();
+    $("#btnGuardarEdit").click(function(){ guardarEditarForm(); });
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z," "]+$/i.test(value);
+        }, "Campo valido solo para letras");
+
+    $("#manto_form").validate({
+        rules:{
+            txtNombreTipo: { required: true, maxlength: 100, minlength: 6, lettersonly:true },
+            
+            txtPrecio: { required: true, number: true, maxlength: 10 }
+            
+        }
+    });
 } );
 
+
+
+function abrirEditarForm(id){
+    var url = "api/thabitaciones.php";
+    var data = "accion=get&id="+id;
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:data,
+        success:function(res){
+            var obj = jQuery.parseJSON(res);
+            if(obj.success){
+                $("#txtNombreTipoEdit").val(obj.nombre);
+                $("#txtPrecioEdit").val(obj.precio);
+                $("#idEdit").val(id);
+            }
+        }
+    });
+
+    $("#divEditarForm").modal('show');
+
+}
+function guardarEditarForm(id){
+ var url = "api/thabitaciones.php";
+ var data = $("#editar_form").serialize();
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:data,
+        success:function(res){
+            var obj = jQuery.parseJSON(res);
+            if(obj.success){
+                $("#lean_overlay").trigger("click");
+                window.location.href='?m=thab';
+            }
+        }
+    });
+}
 </script>
+
+
+
+
+
