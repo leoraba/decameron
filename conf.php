@@ -35,4 +35,6 @@ $conf['edi'] = array('archivo' => 'catalogo_edificio.php');
 $conf['empre'] = array('archivo' => 'catalogo_empresa.php');
 $conf['giro'] = array('archivo' => 'catalogo_giro.php');
 $conf['banco'] = array('archivo' => 'catalogo_banco.php');
+$conf['temp'] = array('archivo' => 'catalogo_temporada.php');
+
 ?>
