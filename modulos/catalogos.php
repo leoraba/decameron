@@ -91,7 +91,7 @@
 	</div>
 
 	<div class="col-md-2 col-sm-3 col-xs-6">
-		<a href="?m=cathab" class="thumbnail">
+		<a href="?m=temp" class="thumbnail">
 			<i class="fa fa-building"></i>
 			<div class="caption">
 				<h5>Temporadas</h5>

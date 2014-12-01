@@ -1,18 +1,19 @@
 <?php
     if(isset($_POST['btnGuardar'])){
-        $nombre = $_POST['txtNombre'];
         $dia = $_POST['cmbDia'];
-        $precio = $_POST['txtPrecioRegular'];
-        mysql_query("INSERT INTO TARIFA(nombre_tarifa, dia, precio_regular) VALUES('$nombre','$dia,'$precio')",$ln);
+        $precio = $_POST['txtPrecio'];
+        $tipo = $_POST['radTipo'];
+        mysql_query("INSERT INTO TARIFA(dia, precio_regular, tipo_huesped) VALUES('$dia','$precio','$tipo')",$ln);
     }else if(isset($_GET['elim'])){
         $id = $_GET['id'];
-        mysql_query("DELETE FROM TARIFA WHERE id_tarifa = '$id'",$ln);
+        mysql_query("DELETE FROM TARIFA WHERE id_tarifa ='$id'",$ln);
     }
 ?>
 
+
 <!-- Page Heading -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-5">
         <h1>
             Tarifas
         </h1>
@@ -31,29 +32,21 @@
 </div>
 
 <!-- contenido -->
-
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-6">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-5">
         <form role="form" id="manto_form" action="" method="POST">
             <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
                     <i class="fa fa-plus"></i>
-                    Nueva
+                    Nueva Tarifa
                 </div>
                 
                 <!-- Body del form -->
                 <div class="panel-body">
                     <div class="row">
-                        <div class="form-group col-lg-8">
-                            <label class="control-label" >Nombre de Tarifa *</label><br/>
-                            <input class="form-control" placeholder="" name="txtNombre" id="txtNombre" >
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-lg-8">
+                        <div class="form-group col-lg-6">
                             <label class="control-label" > D&iacute;a de la Semana *</label><br/>
                             <select class="form-control" name="cmbDia" id="cmbDia">
                                 <option value=""> Seleccione una opci&oacute;n</option>
@@ -67,23 +60,30 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="row">
-                        <div class="form-group col-lg-8">
-                            <label class="control-label" >Precio *</label><br/>
-                            <input class="form-control" placeholder="$" name="txtPrecioRegular" id="txtPrecioRegular" >
+                        <div class="form-group col-lg-4">
+                            <label class="control-label" > Precio *</label><br/>
+                            <input class="form-control" placeholder="$" name="txtPrecio" id="txtPrecio" >
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="form-group col-lg-5">
+                            <label class="control-label" > Tipo de Huesped *</label><br/>
+                            <label class="radio-inline">
+                                <input type="radio" name="radTipo" id="inlineRadio1" value="N" checked="checked"> Ni&ntilde;o
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radTipo" id="inlineRadio2" value="A"> Adulto
+                            </label>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Botones -->
+                 <!-- Botones -->
                 <div class="panel-footer">
                     <button class="btn btn-primary" type="submit" id="btnGuardar" name="btnGuardar">
                         <i class="fa fa-save"></i>
                         Guardar
                     </button>
-
                     <a class="btn btn-default" href="?m=cat">
                         <i class="fa fa-reply"></i>
                         Cancelar
@@ -94,9 +94,9 @@
                     </button>
                 </div>
             </div>
+                
         </form>
     </div>
-    
 </div>
 
 <!-- Formulario editar -->
@@ -105,21 +105,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"> Tarifas</h4>
+                    <h4 class="modal-title">Tarifas</h4>
             </div>
             <form role="form" id="editar_form" action="" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="accion" id="accion" value="mdo">
                     <input type="hidden" name="idEdit" id="idEdit" value="">
+                    
                     <div class="row">
-                        <div class="form-group col-lg-8">
-                            <label class="control-label" > Nombre de la Tarifa *</label><br/>
-                            <input class="form-control" placeholder="" name="txtNombreEdit" id="txtNombreEdit" >
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-lg-8">
+                        <div class="form-group col-lg-6">
                             <label class="control-label" > D&iacute;a de la Semana *</label><br/>
                             <select class="form-control" name="cmbDiaEdit" id="cmbDiaEdit">
                                 <option value=""> Seleccione una opci&oacute;n</option>
@@ -133,12 +127,23 @@
                             </select>
                         </div>
                     </div>
-                    
 
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" > Precio *</label><br/>
-                            <input class="form-control" placeholder="$" name="txtPrecioRegularEdit" id="txtPrecioRegularEdit" >
+                            <input class="form-control" placeholder="$" name="txtPrecioEdit" id="txtPrecioEdit" >
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-5">
+                            <label class="control-label" > Tipo de Huesped *</label><br/>
+                            <label class="radio-inline">
+                                <input type="radio" name="radTipoEdit" id="inlineRadio1Edit" value="N" checked="checked"> Ni&ntilde;o
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radTipoEdit" id="inlineRadio2Edit" value="A"> Adulto
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -153,28 +158,28 @@
     </div>
 </div>
 
-
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-6">
-    <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="130%">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-5">
+    <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr role="row">
-                <th>Nombre de la Tarifa</th>
-                <th>D&iacute;a de la Semana</th>
-                <th>Precio Regular</th>
+                <th>Dia de la Semana</th>
+                <th>Precio </th>
+                <th>Tipo de Huesped</th>
+
                 <th width="100px">&nbsp;</th>
                 
             </tr>
         </thead>
         <tbody>
             <?php
-            $qr = mysql_query("SELECT id_tarifa, nombre_tarifa, dia, precio_regular FROM TARIFA ORDER BY nombre_tarifa ASC", $ln);
+            $qr = mysql_query("SELECT id_tarifa, dia, precio_regular,tipo_huesped FROM TARIFA ORDER BY dia ASC", $ln);
             while($row=mysql_fetch_array($qr)){
                 echo "<tr>";
-                echo "<td>".$row['nombre_tarifa']."</td>";
                 echo "<td>".$row['dia']."</td>";
                 echo "<td> $".$row['precio_regular']."</td>";
+                echo "<td> $".$row['tipo_huesped']."</td>";
                 echo "<td style='width:50px'>";
                 echo "<div class='input-group-btn'>";
                 echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
@@ -189,7 +194,6 @@
                 echo "</tr>";
             }
             ?>
-
         </tbody>
     </table>
     <div class="col-lg-2"></div>
@@ -199,15 +203,19 @@
 $(document).ready(function() {
     $('#table1').dataTable();
     $("#btnGuardarEdit").click(function(){ guardarEditarForm(); });
+    
     $("#manto_form").validate({
         rules:{
-            txtNombre: { required: true, maxlength: 100, minlength: 6 },
             cmbDia: { required: true },
             
-            txtPrecioRegular: { required: true, number: true, maxlength: 10 }
+            txtPrecio: { required: true, number: true, maxlength: 10 },
+            radTipo:{ required: true }
+
         }
     });
 } );
+
+
 function abrirEditarForm(id){
     var url = "api/tarifas.php";
     var data = "accion=get&id="+id;
@@ -218,9 +226,9 @@ function abrirEditarForm(id){
         success:function(res){
             var obj = jQuery.parseJSON(res);
             if(obj.success){
-                $("#txtNombreEdit").val(obj.nombre);
                 $("#cmbDiaEdit").val(obj.dia);
-                $("#txtPrecioRegularEdit").val(obj.precio);
+                $("#txtPrecioEdit").val(obj.precio);
+                $("#radTipoEdit").val(obj.tipo);
                 $("#idEdit").val(id);
             }
         }
@@ -246,10 +254,6 @@ function guardarEditarForm(id){
     });
 }
 </script>
-
-
-
-
 
 
 
