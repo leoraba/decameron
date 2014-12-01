@@ -74,12 +74,13 @@ if(isset($_REQUEST)){
         $arrayTarifas[]=array("dia"=>$rwTar['dia'], "precio_regular"=>$rwTar['precio_regular'], "tipo_huesped"=>$rwTar['tipo_huesped']);
     }
 	//ingresar factura
+    $totaCosto=0;
 	$numFactura=$fechaHoyUnido.rand(1000,9999);
 	if(mysql_query("INSERT INTO FACTURA(num_factura, fecha_emision, estado, fk_id_tipo_pago, fk_id_cliente_titular)
 		VALUES('$numFactura','$fechaHoy','$estadoReserva','$tipoPago','$idClienteTitular')",$ln)){
     	$lastIdFactura=mysql_insert_id($ln);
     	
-        
+        $costoTotalHabitacion=0;
     	for($i=1;$i<=$cantHabitaciones;$i++){
     		$codRandReserva=generateRandomString();
             $tipoHab=$_POST["cmbTipoHabitacion".$i];
@@ -98,10 +99,14 @@ if(isset($_REQUEST)){
                 $edad=edad($fNacimientoHuespedHab);
                 $tipo_huesped=($edad>=18)?"A":"N";
                 $cuotaHuesped=getCuotaHuesped($fechaInicio,$fechaFin,$arrayDescuento,$tipo_huesped,$arrayTarifas);
-    		    mysql_query("INSERT INTO ACOMPANANTE(nombres, apellidos, genero, num_documento, fecha_nacimiento, cuota, fk_id_tipo_documento, fk_id_reserva_habitacion)
+                $costoTotalHabitacion+=$cuotaHuesped;
+                mysql_query("INSERT INTO ACOMPANANTE(nombres, apellidos, genero, num_documento, fecha_nacimiento, cuota, fk_id_tipo_documento, fk_id_reserva_habitacion)
                     VALUES('$nombreHuespedHab','$apellidoHuespedHab','$sexoHuespedHab','$docHuespedHab','$fNacimientoHuespedHab','$cuotaHuesped','$tipoDocHuespedHab','$idReserva')",$ln);
             }
+            $totaCosto+=$costoTotalHabitacion;
+            mysql_query("UPDATE RESERVA_HABITACION SET costo='$costoTotalHabitacion' WHERE id_reserva_habitacion='$idReserva'",$ln);
         }
+        mysql_query("UPDATE FACTURA SET total_costo='$totalCosto', subtotal_costo_habitacion='$totalCosto' WHERE id_factura='$lastIdFactura'",$ln);
     	$success=true;
     }
 
@@ -109,95 +114,3 @@ if(isset($_REQUEST)){
 
 	$resp=array("success"=>$success);
 	echo json_encode($resp);
-
-
-/*
-	Array
-(
-    [txtFechaInicio] => 28/11/2014
-    [txtFechaFin] => 30/11/2014
-    [cmbHabitacion] => 2
-    [cmbTipoHabitacion1] => Sencilla
-    [cmbTipoHabitacion2] => Doble
-    [cmbTipoHabitacion3] => Sencilla
-    [txtSearchHuesped] => 5
-    [cmbHuespedes1] => 1
-    [txtNombreHab1Huesped1] => leonardo
-    [txtApellidoHab1Huesped1] => rivera
-    [sexoHab1Huesped1] => M
-    [txtFechaNacimientoHab1Huesped1] => 05/11/2014
-    [cmbTipoDocumentoHab1Huesped1] => Pasaporte
-    [txtDocumentoHab1Huesped1] => 123455
-    [txtNombreHab1Huesped2] => 
-    [txtApellidoHab1Huesped2] => 
-    [sexoHab1Huesped2] => M
-    [txtFechaNacimientoHab1Huesped2] => 
-    [cmbTipoDocumentoHab1Huesped2] => Pasaporte
-    [txtDocumentoHab1Huesped2] => 
-    [txtNombreHab1Huesped3] => 
-    [txtApellidoHab1Huesped3] => 
-    [sexoHab1Huesped3] => M
-    [txtFechaNacimientoHab1Huesped3] => 
-    [cmbTipoDocumentoHab1Huesped3] => Pasaporte
-    [txtDocumentoHab1Huesped3] => 
-    [txtNombreHab1Huesped4] => 
-    [txtApellidoHab1Huesped4] => 
-    [sexoHab1Huesped4] => M
-    [txtFechaNacimientoHab1Huesped4] => 
-    [cmbTipoDocumentoHab1Huesped4] => Pasaporte
-    [txtDocumentoHab1Huesped4] => 
-    [cmbHuespedes2] => 1
-    [txtNombreHab2Huesped1] => david
-    [txtApellidoHab2Huesped1] => mancia
-    [sexoHab2Huesped1] => M
-    [txtFechaNacimientoHab2Huesped1] => 27/11/2014
-    [cmbTipoDocumentoHab2Huesped1] => Pasaporte
-    [txtDocumentoHab2Huesped1] => 1231222
-    [txtNombreHab2Huesped2] => 
-    [txtApellidoHab2Huesped2] => 
-    [sexoHab2Huesped2] => M
-    [txtFechaNacimientoHab2Huesped2] => 
-    [cmbTipoDocumentoHab2Huesped2] => Pasaporte
-    [txtDocumentoHab2Huesped2] => 
-    [txtNombreHab2Huesped3] => 
-    [txtApellidoHab2Huesped3] => 
-    [sexoHab2Huesped3] => M
-    [txtFechaNacimientoHab2Huesped3] => 
-    [cmbTipoDocumentoHab2Huesped3] => Pasaporte
-    [txtDocumentoHab2Huesped3] => 
-    [txtNombreHab2Huesped4] => 
-    [txtApellidoHab2Huesped4] => 
-    [sexoHab2Huesped4] => M
-    [txtFechaNacimientoHab2Huesped4] => 
-    [cmbTipoDocumentoHab2Huesped4] => Pasaporte
-    [txtDocumentoHab2Huesped4] => 
-    [btnGuardarHabitacion2] => 
-    [cmbHuespedes3] => 1
-    [txtNombreHab3Huesped1] => 
-    [txtApellidoHab3Huesped1] => 
-    [sexoHab3Huesped1] => M
-    [txtFechaNacimientoHab3Huesped1] => 
-    [cmbTipoDocumentoHab3Huesped1] => Pasaporte
-    [txtDocumentoHab3Huesped1] => 
-    [txtNombreHab3Huesped2] => 
-    [txtApellidoHab3Huesped2] => 
-    [sexoHab3Huesped2] => M
-    [txtFechaNacimientoHab3Huesped2] => 
-    [cmbTipoDocumentoHab3Huesped2] => Pasaporte
-    [txtDocumentoHab3Huesped2] => 
-    [txtNombreHab3Huesped3] => 
-    [txtApellidoHab3Huesped3] => 
-    [sexoHab3Huesped3] => M
-    [txtFechaNacimientoHab3Huesped3] => 
-    [cmbTipoDocumentoHab3Huesped3] => Pasaporte
-    [txtDocumentoHab3Huesped3] => 
-    [txtNombreHab3Huesped4] => 
-    [txtApellidoHab3Huesped4] => 
-    [sexoHab3Huesped4] => M
-    [txtFechaNacimientoHab3Huesped4] => 
-    [cmbTipoDocumentoHab3Huesped4] => Pasaporte
-    [txtDocumentoHab3Huesped4] => 
-)
-*/
-	
-}

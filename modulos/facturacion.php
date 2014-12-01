@@ -9,7 +9,7 @@
                 <i class="fa fa-home"></i> <a href='?m=home'> Inicio</a>
             </li>
             <li class="active">
-                <i class="fa fa-dollar"></i> Facturaci&oacute;n
+                <i class="fa fa-dollar"></i>  <a href='?m=fact'>Facturaci&oacute;n</a>
             </li>
         </ol>
     </div>
@@ -18,16 +18,32 @@
 <!-- contenido -->
 <div id="divSearch">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-10">
             <label class="control-label">Busqueda:</label>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group input-group">
-                <input type="text" class="form-control" placeholder="nombre de cliente o # de habitacion">
-                <span class="input-group-btn"><button type="button" class="btn btn-default" id="btnBuscar"><i class="fa fa-search"></i></button></span>
-            </div>
+        <div class="col-lg-10">
+            <form name="factura_form" id="factura_form" action="" method="POST">
+                <div class="form-group input-group">
+                    <select class="form-control" name="txtSearchHuesped" id="txtSearchHuesped">
+                        <option></option>
+                        <?php
+                            $qr=mysql_query("SELECT ct.id_cliente_titular, ct.nombres, ct.apellidos, ct.num_documento, td.tipo_documento FROM CLIENTE_TITULAR ct LEFT JOIN TIPO_DOCUMENTO td ON ct.fk_id_tipo_documento=td.id_tipo_documento ORDER BY ct.nombres DESC",$ln);
+                            while($row=mysql_fetch_array($qr)){
+                                $cadenaCliente=$row['nombres']." ".$row['apellidos']."(".$row['tipo_documento'].": ".$row['num_documento'].")";
+                                echo "<option value='".$row['id_cliente_titular']."'>$cadenaCliente</option>\n";
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group input-group">
+                    <button class="btn btn-primary" type="submit" id="btnMostrarFactura" name="btnMostrarFactura">
+                        <i class="fa fa-save"></i>
+                        Mostrar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -49,42 +65,22 @@
                     <div class="col-lg-6">
                     </div>
                     <div class="col-lg-6">
-                            <h1>Factura # <b>28883</b></h1>
+                            <h1>Factura # <b><div id="txtNumFactura"></div></b></h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <b>Ciudad y fecha:</b>Sonsonate, Sabado 01 de noviembre del 2014<br><br>
+                        <b>Ciudad y fecha:</b>Sonsonate, <?=date("d-m-Y")?><br><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <b>Nombre del cliente:</b><span id="txtNombre"></span><br><br>
                     </div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th># de Orden</th>
-                            <th>Detalle</th>
-                            <th>Monto (USD)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>3326</td>
-                            <td>Hospedaje 2 adultos 1 ni&ntilde;o</td>
-                            <td>$321.33</td>
-                        </tr>
-                        <tr>
-                            <td>3451</td>
-                            <td>1 servicio de spa</td>
-                            <td>$19.25</td>
-                        </tr>
-                        <tr>
-                            <td>3502</td>
-                            <td>1 alquiler de bicicleta</td>
-                            <td>$2.00</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="table-responsive" id="regTabla">
+                
             </div>
             <div class="row well">
                 <div class="col-lg-6">
@@ -93,9 +89,9 @@
                     <h1>Total:</h1>
                 </div>
                 <div class="col-lg-6">
-                    <h3>$342.58</h3>
-                    <h3>$44.53</h3>
-                    <h1>$387.11</h1>
+                    <h3><span id="txtSubtotal"></span></h3>
+                    <h3><span id="txtIva"></span></h3>
+                    <h1><span id="txtTotal"></span></h1>
                 </div>
             </div>
         </div>
@@ -104,9 +100,43 @@
 
 <script type="text/javascript" language="Javascript">
     $(document).ready(function(){
-        $("#btnBuscar").click(function(){
-           $("#divInfo").show();
-           $("#divSearch").hide();
+        $("#txtSearchHuesped").select2({
+            placeholder: "Nombre del huesped",
+            allowClear: true,
+            minimumInputLength: 3
+        });
+        $("#factura_form").validate({
+            rules:{
+                txtSearchHuesped: { require: true }
+            },
+            submitHandler: function(form) {
+                if($("#txtSearchHuesped").val()!=""){
+                    var url = "api/factura.php";
+                    var id = $("#txtSearchHuesped").val();
+                    $.ajax({
+                        url:url,
+                        type:'GET',
+                        data:'accion=get&id='+id,
+                        success:function(res){
+                            var obj = jQuery.parseJSON(res);
+                            if(obj.success){
+                                $("#txtNumFactura").text(obj.num_factura);
+                                $("#txtNombre").text(obj.nombre+" "+obj.apellido);
+                                $("#txtSubtotal").text(obj.total_costo);
+                                $("#txtIva").text(obj.iva);
+                                $("#txtTotal").text(obj.total_total);
+                                $("#regTabla").append(obj.reservaciones);
+
+
+                                $("#divInfo").show();
+                                $("#divSearch").hide();
+                            }
+                        }
+                    });
+                }else{
+                    new Messi('Seleccione un huesped', {title: 'Huesped', titleClass: 'anim error', buttons: [{id: 0, label: 'Close', val: 'X'}], modal: true });
+                }
+            }
         });
     });
 </script>

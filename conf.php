@@ -19,6 +19,7 @@ $conf['emp'] = array('archivo' => 'empleados.php');
 $conf['cli'] = array('archivo' => 'clientes.php');
 $conf['login'] = array('archivo' => '', 'layout' => 'layout_login.php');
 $conf['esthab'] = array('archivo' => 'estado_habitaciones.php');
+$conf['chinout'] = array('archivo' => 'chk_inout.php');
 //catalogos
 $conf['serv'] = array('archivo' => 'catalogo_servicio.php');
 $conf['marca'] = array('archivo' => 'catalogo_marca.php');

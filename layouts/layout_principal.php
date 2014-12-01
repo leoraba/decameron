@@ -97,8 +97,11 @@
                 	<li <?=($modulo=="home")?"class='active'":""?>>
                         <a href="?m=home"><i class="fa fa-fw fa-home"></i> Inicio</a>
                     </li>
-                	<li <?=($modulo=="hab")?"class='active'":""?>>
+                    <li <?=($modulo=="hab")?"class='active'":""?>>
                         <a href="?m=hab"><i class="fa fa-fw fa-calendar"></i> Reservar habitaci&oacute;n</a>
+                    </li>
+                    <li <?=($modulo=="chinout")?"class='active'":""?>>
+                        <a href="?m=chinout"><i class="fa fa-fw fa-key"></i> Habitaciones</a>
                     </li>
                     <li <?=($modulo=="esthab")?"class='active'":""?>>
                         <a href="?m=esthab"><i class="fa fa-fw fa-building-o"></i> Estado Habitaci&oacute;n</a>
