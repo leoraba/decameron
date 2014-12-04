@@ -114,3 +114,5 @@ if(isset($_REQUEST)){
 
 	$resp=array("success"=>$success);
 	echo json_encode($resp);
+}
+?>

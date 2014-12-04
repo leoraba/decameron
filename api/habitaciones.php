@@ -7,7 +7,7 @@ if(isset($_REQUEST)){
 		$idReserva=$_POST['idReservaCheckin'];
 		$habitacion=$_POST['cmbHabitacion'];
 		$fechaHoy=date("Y-m-d H:i:s");
-		mysql_query("UPDATE RESERVA_HABITACION SET checkin='$fechaHoy', id_habitacion='$habitacion',  WHERE id_reserva_habitacion='$idReserva'",$ln);
+		mysql_query("UPDATE RESERVA_HABITACION SET checkin='$fechaHoy', id_habitacion='$habitacion'  WHERE id_reserva_habitacion='$idReserva'",$ln);
 		mysql_query("UPDATE HABITACION SET estado_habitacion='o' WHERE id_habitacion='$habitacion'");
 		$success=true;
 	}else if($accion=="estadoHabitaciones"){
@@ -61,7 +61,7 @@ if(isset($_REQUEST)){
 	}else if($accion=="checkout"){
 		$idReserva=$_GET['id'];
 		$fechaHoy=date("Y-m-d H:i:s");
-		mysql_query("UPDATE RESERVA_HABITACION SET checkout='$fechaHoy' WHERRE id_reserva_habitacion='$idReserva'",$ln);
+		mysql_query("UPDATE RESERVA_HABITACION SET checkout='$fechaHoy' WHERE id_reserva_habitacion='$idReserva'",$ln);
 		$qrIdFactura=mysql_query("SELECT fk_id_factura FROM RESERVA_HABITACION WHERE id_reserva_habitacion='$idReserva'",$ln);
 		$rwFactura=mysql_fetch_array($qrIdFactura);
 		$idFactura=$rwFactura['fk_id_factura'];
