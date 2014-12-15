@@ -21,6 +21,17 @@ if(isset($_REQUEST)){
 		if(mysql_query("UPDATE SERVICIO SET nombre_servicio='$nombre', precio_regular='$precio' WHERE id_servicio='$id'",$ln)) $success=true;
 		$resp=array("success"=>$success);
 		echo json_encode($resp);
+	}else if($accion=="nvo"){
+		$nombre = $_POST['txtNombreServicio'];
+        $precio = $_POST['txtPrecioRegular'];
+        if(mysql_query("INSERT INTO SERVICIO(nombre_servicio, precio_regular) VALUES('$nombre','$precio')",$ln)) $success=true;
+		$resp=array("success"=>$success);
+		echo json_encode($resp);
+	}else if($accion=="elim"){
+		$id = $_POST['id'];
+        if(mysql_query("DELETE FROM SERVICIO WHERE id_servicio ='$id'",$ln)) $success=true;	
+        $resp=array("success"=>$success);
+		echo json_encode($resp);
 	}
 }
 

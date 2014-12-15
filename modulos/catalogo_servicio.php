@@ -1,15 +1,3 @@
-<?php
-    if(isset($_POST['btnGuardar'])){
-        $nombre = $_POST['txtNombreServicio'];
-        $precio = $_POST['txtPrecioRegular'];
-        mysql_query("INSERT INTO SERVICIO(nombre_servicio, precio_regular) VALUES('$nombre','$precio')",$ln);
-    }else if(isset($_GET['elim'])){
-        $id = $_GET['id'];
-        mysql_query("DELETE FROM SERVICIO WHERE id_servicio ='$id'",$ln);
-    }
-?>
-
-
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -33,8 +21,9 @@
 <!-- contenido -->
 <div class="row">
     <div class="col-lg-3"></div>
-    <div class="col-lg-7">
-        <form role="form" id="manto_form" action="" method="POST">
+    <div class="col-lg-5">
+        <form role="form" id="manto_form" action="">
+            <input type="hidden" name="accion" value="nvo">
             <div class="panel panel-primary">
                 <!-- titulo del form -->
                 <div class="panel-heading">
@@ -117,38 +106,39 @@
 <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-    <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
-            <tr role="row">
-                <th>Nombre del Servicio</th>
-                <th>Precio Regular</th>
-                <th width="100px">&nbsp;</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $qr = mysql_query("SELECT id_servicio, nombre_servicio, precio_regular FROM SERVICIO ORDER BY nombre_servicio ASC", $ln);
-            while($row=mysql_fetch_array($qr)){
-                echo "<tr>";
-                echo "<td>".$row['nombre_servicio']."</td>";
-                echo "<td> $".$row['precio_regular']."</td>";
-                echo "<td style='width:50px'>";
-                echo "<div class='input-group-btn'>";
-                echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
-                echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
-                echo "</button>";
-                echo "<ul class='dropdown-menu pull-right' role='menu'>";
-                echo "<li><a href='#' onClick=\"abrirEditarForm('".$row['id_servicio']."')\">Modificar</a></li>";
-                echo "<li><a href='?m=serv&elim=1&id=".$row['id_servicio']."'>Eliminar</a></li>";
-                echo "</ul>";
-                echo "</div>";
-                echo "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </tbody>
-    </table>
+        <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr role="row">
+                    <th>Nombre del Servicio</th>
+                    <th>Precio Regular</th>
+                    <th width="100px">&nbsp;</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $qr = mysql_query("SELECT id_servicio, nombre_servicio, precio_regular FROM SERVICIO ORDER BY nombre_servicio ASC", $ln);
+                while($row=mysql_fetch_array($qr)){
+                    echo "<tr>";
+                    echo "<td>".$row['nombre_servicio']."</td>";
+                    echo "<td> $".$row['precio_regular']."</td>";
+                    echo "<td style='width:50px'>";
+                    echo "<div class='input-group-btn'>";
+                    echo "<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>";
+                    echo "<i class='fa fa-gear'></i> <span class='caret'></span>";
+                    echo "</button>";
+                    echo "<ul class='dropdown-menu pull-right' role='menu'>";
+                    echo "<li><a href='#' onClick=\"abrirEditarForm('".$row['id_servicio']."')\">Modificar</a></li>";
+                    echo "<li><a href='#' onClick=\"deleteThis('".$row['id_servicio']."')\"'>Eliminar</a></li>";
+                    echo "</ul>";
+                    echo "</div>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
     <div class="col-lg-2"></div>
 </div>
 
@@ -160,12 +150,13 @@ $(document).ready(function() {
         return this.optional(element) || /^[a-z," "]+$/i.test(value);
         }, "Campo valido solo para letras");
     $("#manto_form").validate({
-        rules:{
-            txtNombreServicio: { required: true, maxlength: 100, minlength: 6, lettersonly:true },
-            
+        rules:{ 
+            txtNombreServicio: { required: true, maxlength: 100, minlength: 2, lettersonly:true },
             txtPrecioRegular: { required: true, number: true, maxlength: 10 }
-        }
+        },
+        submitHandler: function(form) { guardarNuevoServicio() }
     });
+    $("#")
 } );
 function abrirEditarForm(id){
     var url = "api/servicios.php";
@@ -199,6 +190,47 @@ function guardarEditarForm(id){
             if(obj.success){
                 $("#lean_overlay").trigger("click");
                 window.location.href='?m=serv';
+            }
+        }
+    });
+}
+function guardarNuevoServicio(){
+    var url = "api/servicios.php";
+    var data = $("#manto_form").serialize();
+    $.ajax({
+        url:url,
+        type:'POST',
+        data:data,
+        success:function(res){
+            var obj = jQuery.parseJSON(res);
+            if(obj.success){
+                window.location.href='?m=serv';
+            }
+        }
+    }); 
+}
+function deleteThis(id){
+    new Messi('¿Realmente desea eliminar este registro?.', {
+        title: 'Eliminar',
+        buttons: [
+            {id: 0, label: 'Si', val: 'Y', class: 'btn-danger'},
+            {id: 1, label: 'No', val: 'N'}
+        ], modal: true,
+        callback: function(val) {
+            if(val=="Y"){
+                var url = "api/servicios.php";
+                var data = "accion=elim&id="+id;
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                    data:data,
+                    success:function(res){
+                        var obj = jQuery.parseJSON(res);
+                        if(obj.success){
+                            window.location.href="?m=serv";
+                        }
+                    }
+                });
             }
         }
     });
